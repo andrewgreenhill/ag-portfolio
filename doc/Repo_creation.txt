@@ -1,0 +1,12 @@
+pws
+cd C:\Store\Programming\React
+npm create vite@latest ag-portfolio --template react-ts
+cd ag-portfolio
+npm install tailwindcss @tailwindcss/vite
+
+I followed some config instructions at https://tailwindcss.com/docs/installation/using-vite , including adding @import "tailwindcss"; at the top of src/index.css
+
+npm install react-router-dom framer-motion
+npm install -D @types/react-router-dom
+npm run dev
+
