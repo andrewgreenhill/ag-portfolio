@@ -1,4 +1,4 @@
-
+* Revisit Tailwind set up...
 * Review repo folder structure
 * Consider adding a licence file.
 * [Gitflow Workflow]

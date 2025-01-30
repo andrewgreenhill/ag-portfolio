@@ -5,9 +5,12 @@ import './App.css';
 
 function App() {
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-200">
-      <h1 className="text-4xl font-bold text-blue-500">Welcome to Andrew Greenhill's Portfolio!</h1>
-    </div>
+    <>
+      <h2 className="text-2xl font-bold text-blue-500">This is a work in progress. Coming soon!</h2>
+      <div className="flex justify-center items-center h-screen bg-gray-200">
+        <h1 className="text-4xl font-bold text-black-500">Welcome to Andrew Greenhill's Portfolio!</h1>
+      </div>
+    </>
   );
 }
 
