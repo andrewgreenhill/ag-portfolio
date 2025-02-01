@@ -1,14 +1,18 @@
 import PageTransition from '../components/PageTransition';
+import ContactForm from '../components/ContactForm';
 
 function Contact() {
   return (
     <PageTransition>
       <div className="text-center p-10">
         <h1 className="text-3xl font-bold">Contact me</h1>
-        <h2 className="text-2xl font-bold">Let's Connect</h2>
+        {/* <h2 className="text-2xl font-bold">Let's Connect</h2> */}
         <br />
 
-        <h2 className="text-2xl font-bold">~Social media ????????</h2>
+        <ContactForm titleMessage="Let's Connect!" />
+        <br />
+
+        {/* <h2 className="text-2xl font-bold">~Social media ????????</h2> */}
         <ul className="mt-4 text-left">
           <li>
             LinkedIn{' '}

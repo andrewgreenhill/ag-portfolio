@@ -1,8 +1,16 @@
 Contact form
+    Go further into FormSubmit, see https://formsubmit.co/?utm_source=formsubmit.co&utm_medium=site%20link&utm_campaign=submission%20page
+    ~Re/Captcha
+    "This field is required" appears, undesirably, for fields that were auto-filled
+    See QQQ/TODOs
+    [Better privacy message]
+    [Edge network tracking]
+
 Wireframing => new design
 Transform into new design
+
 Projects
-Theme
+Theme[s]
 Refine
 Add niceties, clean up, etc
 Document
