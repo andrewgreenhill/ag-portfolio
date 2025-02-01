@@ -1,4 +1,16 @@
+Contact form
+Wireframing => new design
+Transform into new design
+Projects
+Theme
+Refine
+Add niceties, clean up, etc
+Document
+Publish
+
+* [Use GitHub for tracking issues and enhancements]
 * Revisit Tailwind set up...
 * Review repo folder structure
 * Consider adding a licence file.
 * [Gitflow Workflow]
+* Make notes for things to do in a potential version 2
