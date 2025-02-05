@@ -1,10 +1,11 @@
 Contact form
-    Go further into FormSubmit, see https://formsubmit.co/?utm_source=formsubmit.co&utm_medium=site%20link&utm_campaign=submission%20page
-    ~Re/Captcha
-    "This field is required" appears, undesirably, for fields that were auto-filled
-    See QQQ/TODOs
-    [Better privacy message]
-    [Edge network tracking]
+    Guard against security risks from bad data entry for all fields including in the website field.
+    [Create a Thank you page (when sent successfully) and re-direct the user to that]
+    [Double check issue is gone: "This field is required" appears undesirably for fields that were auto-filled]
+    [For ReCAPTCHA, add a simple backend with an endpoint that verifies the captcha token with Google]
+
+Add WIP placeholders/messages for the code and UI.
+[Edge network tracking]
 
 Wireframing => new design
 Transform into new design

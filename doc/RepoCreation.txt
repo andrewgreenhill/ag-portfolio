@@ -10,3 +10,12 @@ npm install react-router-dom framer-motion
 npm install -D @types/react-router-dom
 npm run dev
 
+
+Later, I installed Vitest and related dependencies using:
+npm install --save-dev vitest @testing-library/react @testing-library/jest-dom
+npm install --save-dev jsdom
+
+
+Later, I installed react-google-recaptcha using:
+npm install react-google-recaptcha
+and also ~ react-google-recaptcha types

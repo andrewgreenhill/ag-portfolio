@@ -53,8 +53,11 @@ export default tseslint.config({
 
 - npm install
 - For local dev, the email send endpoint is in VITE_SEND_EMAIL_ENDPOINT . Note: I generated the code in that endpoint by initially using with my email address, and then trying it, and then the email service emailed me the code.
-- For prod: When deploying to prod (eg Netlify, Vercel, or GitHub Pages), set the environment variable in the dashboard, e.g. in Netlify: 1. Go to your site's settings. 2. Find Environment Variables. 3. Add VITE_CONTACT_FORM_ENDPOINT and set the value. For Vercel, that's under Project Settings > Environment Variables.
+- For prod: When deploying to prod (eg Netlify, Vercel, or GitHub Pages), set the environment variable in the dashboard, e.g. in Netlify: 1. Go to your site's settings. 2. Find Environment Variables. 3. Add the variables shown in .env.local and set suitable values. For Vercel, that's under Project Settings > Environment Variables.
 
 **Run the repo using**  
 npm run dev
 => http://localhost:5173/
+
+**Run tests using**  
+npm test
