@@ -3,14 +3,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { ContactFormDataType } from '../types';
-import { messageSummary } from '../assets/utils';
+import { emailAddressPattern, messageSummary, sanitizeInput } from '../assets/utils';
 
 type ContactFormProps = {
   titleMessage: string;
 };
-
-const SEND_EMAIL_ENDPOINT = import.meta.env.VITE_SEND_EMAIL_ENDPOINT;
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 function ContactForm({ titleMessage }: ContactFormProps) {
   const {
@@ -18,23 +15,49 @@ function ContactForm({ titleMessage }: ContactFormProps) {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    setValue,
+    setError,
+    clearErrors,
   } = useForm<ContactFormDataType>();
 
-  const [status, setStatus] = useState<'' | 'success' | 'error'>('');
+  const SEND_EMAIL_ENDPOINT = import.meta.env.VITE_SEND_EMAIL_ENDPOINT;
+  const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
+  const messageFieldIsRequired = 'This field is required';
+  const messageInvalidEmailAddress = 'Invalid email address';
+
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [hasClickedSubmit, setHasClickedSubmit] = useState<boolean>(false); // Used for messaging
+  const [soonAfterSubmit, setSoonAfterSubmit] = useState<boolean>(false); // Used for rate limiting
+  const [status, setStatus] = useState<'' | 'success' | 'error'>('');
 
   const clearStatus = () => {
     if (status) setStatus('');
   };
 
   const onSubmit = async (data: ContactFormDataType) => {
-    if (!captchaValue) {
-      alert('Please complete the reCAPTCHA verification.');
+    // Rate limiting, to alleviate bot spamming.
+    // Spambots may submit forms in rapid succession but humans don’t.
+    if (soonAfterSubmit) {
+      alert('Please wait a moment before submitting again.');
       return;
     }
 
+    // Check whether the honeypot homeFaux contains data
+    // Spambots often auto-fill hidden fields but humans don’t.
+    if (data.homeFaux) {
+      alert('Please leave the Phone(home) field empty.');
+      return;
+    }
+
+    // Check whether ReCAPTCHA is completed
+    if (!captchaValue) {
+      setHasClickedSubmit(true);
+      return;
+    }
+
+    // Send form data via FormSubmit.co or EmailJS
     try {
-      // Send form data via FormSubmit.co or EmailJS
       if (!SEND_EMAIL_ENDPOINT) {
         throw new Error('Email sending set-up is missing.');
       }
@@ -45,12 +68,16 @@ function ContactForm({ titleMessage }: ContactFormProps) {
       // TODO: Verify captchaValue with Google ReCAPTCHA API
 
       const emailData = {
-        ...data,
+        name: sanitizeInput(data.name, true),
+        email: sanitizeInput(data.email, true),
+        phone: sanitizeInput(data.phone || '', true),
+        website: sanitizeInput(data.website || '', true),
+        message: sanitizeInput(data.message),
         // Add fields as per https://formsubmit.co/documentation
         _subject: `Message from ${data.name} re ${messageSummary(data.message)}`,
         _replyto: data.email,
         _template: 'table',
-        _captcha: 'false', // I am handling captcha myself
+        _captcha: 'false', // I'll handle captcha
         // _autoresponse: 'Thank you for your message. I will get back to you soon.',
       };
 
@@ -63,16 +90,46 @@ function ContactForm({ titleMessage }: ContactFormProps) {
       if (response.ok) {
         setStatus('success');
         reset();
-        setCaptchaValue(null); // Reset captcha after submission
+        setSoonAfterSubmit(true); // For rate limiting
+        setTimeout(() => setSoonAfterSubmit(false), 5000); // Reset after 5 seconds
       } else {
         throw new Error('Failed to send');
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setStatus('error');
-      // console.error(error); // TODO: Add more error handling, if needed
+      // console.error(error); // If needed, add more error handling
     }
   };
+
+  /** Handle change to a form field that is required */
+  function handleRequiredFieldChange(
+    fieldName: keyof ContactFormDataType,
+    value: string,
+    alwaysSet?: boolean // Use 'true' to set the ReactHookForm value regardless of its error state
+  ) {
+    if (!value) {
+      setError(fieldName, { type: 'required', message: messageFieldIsRequired });
+    } else if (alwaysSet || errors[fieldName]) {
+      clearErrors(fieldName);
+      setValue(fieldName, value, { shouldValidate: true }); // Tell React Hook Form that there is a value
+    }
+  }
+
+  /** Handle change to the email field, which is required and has a pattern */
+  function handleEmailChange(
+    value: string,
+    alwaysSet?: boolean // Use 'true' to set the ReactHookForm value regardless of its error state
+  ) {
+    if (!value) {
+      setError('email', { type: 'required', message: messageFieldIsRequired });
+    } else if (!emailAddressPattern.test(value)) {
+      setError('email', { type: 'pattern', message: messageInvalidEmailAddress });
+    } else if (alwaysSet || errors.email) {
+      clearErrors('email');
+      setValue('email', value, { shouldValidate: true }); // Tell React Hook Form that the value is valid
+    }
+  }
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
@@ -91,8 +148,12 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <input
             type="text"
             className="w-full p-2 border rounded"
-            {...register('name', { required: 'This field is required' })}
-            onChange={clearStatus}
+            {...register('name', { required: messageFieldIsRequired })}
+            onInput={(event) => handleRequiredFieldChange('name', event.currentTarget.value, true)}
+            onChange={(event) => {
+              clearStatus();
+              handleRequiredFieldChange('name', event.target.value);
+            }}
           />
           {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
         </div>
@@ -104,10 +165,17 @@ function ContactForm({ titleMessage }: ContactFormProps) {
             type="email"
             className="w-full p-2 border rounded"
             {...register('email', {
-              required: 'This field is required',
-              pattern: { value: /^\S+@\S+\.\S+$/, message: 'Invalid email address' },
+              required: messageFieldIsRequired,
+              pattern: {
+                value: emailAddressPattern,
+                message: messageInvalidEmailAddress,
+              },
             })}
-            onChange={clearStatus}
+            onInput={(event) => handleEmailChange(event.currentTarget.value, true)}
+            onChange={(event) => {
+              clearStatus();
+              handleEmailChange(event.target.value);
+            }}
           />
           {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
         </div>
@@ -121,6 +189,12 @@ function ContactForm({ titleMessage }: ContactFormProps) {
             {...register('phone')}
             onChange={clearStatus}
           />
+        </div>
+
+        {/* Phone (home), honeypot field */}
+        <div className="hidden">
+          <label className="block font-medium">Phone (home)</label>
+          <input type="text" className="w-full p-2 border rounded" {...register('homeFaux')} />
         </div>
 
         {/* Website */}
@@ -138,22 +212,29 @@ function ContactForm({ titleMessage }: ContactFormProps) {
         <div>
           <label className="block font-medium">Message*</label>
           <textarea
-            className="w-full p-2 border rounded"
             rows={8}
-            {...register('message', { required: 'This field is required' })}
-            onChange={clearStatus}
+            className="w-full p-2 border rounded"
+            {...register('message', { required: messageFieldIsRequired })}
+            onInput={(event) =>
+              handleRequiredFieldChange('message', event.currentTarget.value, true)
+            }
+            onChange={(event) => {
+              clearStatus();
+              handleRequiredFieldChange('message', event.target.value);
+            }}
           ></textarea>
           {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
         </div>
 
-        <ReCAPTCHA
-          sitekey={RECAPTCHA_SITE_KEY}
-          onChange={(value: string | null) => setCaptchaValue(value)}
-          // onChange={(value) => {
-          //   console.log('ReCAPTCHA value:', value);
-          //   setCaptchaValue(value);
-          // }}
-        />
+        <div>
+          <ReCAPTCHA
+            sitekey={RECAPTCHA_SITE_KEY}
+            onChange={(value: string | null) => setCaptchaValue(value)}
+          />
+          {hasClickedSubmit && !captchaValue && (
+            <p className="text-red-500 text-sm">{'Please complete the reCAPTCHA verification.'}</p>
+          )}
+        </div>
 
         {/* Privacy Note */}
         <p className="text-xs text-gray-500">

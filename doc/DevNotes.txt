@@ -1,19 +1,21 @@
 Contact form
-    Guard against security risks from bad data entry for all fields including in the website field.
-    [Create a Thank you page (when sent successfully) and re-direct the user to that]
-    [Double check issue is gone: "This field is required" appears undesirably for fields that were auto-filled]
+    Create a Thank you page or modal popup (for when sent successfully) [with animation] and re-direct the user to that
     [For ReCAPTCHA, add a simple backend with an endpoint that verifies the captcha token with Google]
 
-Add WIP placeholders/messages for the code and UI.
+README.MD
+
 [Edge network tracking]
 
 Wireframing => new design
 Transform into new design
 
+[Add WIP placeholders/messages for the code and UI.]
 Projects
 Theme[s]
 Refine
+Code rev?
 Add niceties, clean up, etc
+User testing
 Document
 Publish
 

@@ -1,5 +1,7 @@
 import { messagePreviewMaxLength } from './constants';
 
+const emailAddressPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 /**
  * Truncates a message to a maximum length, and
  * changes newline characters into pipe symbols.
@@ -13,4 +15,16 @@ function messageSummary(message: string) {
   return message.substring(0, messagePreviewMaxLength - 3) + '...';
 }
 
-export { messageSummary };
+/**
+ * Sanitizes input data by removing HTML tags,
+ * first the 2-character pair "</" and then "<" and ">" characters.
+ * @param input The input data to be sanitized.
+ * @param removeNewlines Optional. If true then also remove new line chars \n and \r.
+ * @returns The sanitized data.
+ */
+function sanitizeInput(input: string, removeNewlines?: boolean) {
+  const processedInput = removeNewlines ? input.replace(/[\n\r]/g, '') : input;
+  return processedInput.replace(/<\/?/g, '').replace(/[<>]/g, '');
+}
+
+export { emailAddressPattern, messageSummary, sanitizeInput };
