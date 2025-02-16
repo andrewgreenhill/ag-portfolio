@@ -1,5 +1,4 @@
 Contact form
-    Create a Thank you page or modal popup (for when sent successfully) [with animation] and re-direct the user to that
     [For ReCAPTCHA, add a simple backend with an endpoint that verifies the captcha token with Google]
 
 README.MD

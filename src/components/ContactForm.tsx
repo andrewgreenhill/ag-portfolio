@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { ContactFormDataType } from '../types';
+import './ContactForm.css';
 import { emailAddressPattern, messageSummary, sanitizeInput } from '../assets/utils';
 
 type ContactFormProps = {
@@ -29,6 +30,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const [hasClickedSubmit, setHasClickedSubmit] = useState<boolean>(false); // Used for messaging
   const [soonAfterSubmit, setSoonAfterSubmit] = useState<boolean>(false); // Used for rate limiting
+  const [isSubmitted, setIsSubmitted] = useState(false); // Used for the success modal
   const [status, setStatus] = useState<'' | 'success' | 'error'>('');
 
   const clearStatus = () => {
@@ -89,9 +91,10 @@ function ContactForm({ titleMessage }: ContactFormProps) {
 
       if (response.ok) {
         setStatus('success');
-        reset();
         setSoonAfterSubmit(true); // For rate limiting
         setTimeout(() => setSoonAfterSubmit(false), 5000); // Reset after 5 seconds
+        // Show the modal on successful form submission
+        setIsSubmitted(true);
       } else {
         throw new Error('Failed to send');
       }
@@ -136,7 +139,9 @@ function ContactForm({ titleMessage }: ContactFormProps) {
       {/* <h1 className="text-3xl font-bold mb-4 text-center">Contact Me</h1> */}
       <h2 className="text-2xl font-bold">{titleMessage}</h2>
 
-      {status === 'success' && <p className="text-green-500 text-center mb-4">Message sent!</p>}
+      {status === 'success' && isSubmitted && (
+        <p className="text-green-500 text-center mb-4">Message sent!</p>
+      )}
       {status === 'error' && (
         <p className="text-red-500 text-center mb-4">Something went wrong. Try again.</p>
       )}
@@ -253,6 +258,27 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           {isSubmitting ? 'Sending...' : 'SEND'}
         </motion.button>
       </form>
+
+      {isSubmitted && (
+        <div id="thankYouModal" className="modal">
+          <div className="modal-content">
+            <span
+              className="close"
+              onClick={() => {
+                setIsSubmitted(false);
+                reset();
+                setHasClickedSubmit(false);
+              }}
+            >
+              &times;
+            </span>
+            <div className="animation">🎉</div>
+            <p>
+              Message Sent. Thank you for reaching out! I'll get back to you as soon as possible.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
