@@ -1,16 +1,15 @@
 Contact form
     [For ReCAPTCHA, add a simple backend with an endpoint that verifies the captcha token with Google]
 
-README.MD
-
+[Update README.MD again if needed]
 [Edge network tracking]
 
 Wireframing => new design
 Transform into new design
 
-[Add WIP placeholders/messages for the code and UI.]
 Projects
 Theme[s]
+
 Refine
 Code rev?
 Add niceties, clean up, etc
