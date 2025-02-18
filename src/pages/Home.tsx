@@ -1,5 +1,5 @@
 import PageTransition from '../components/PageTransition';
-import UnderConstructionLogo from '../assets/under-construction.png';
+import UnderConstructionLogo from '../images/under-construction.png';
 
 function Home() {
   return (

@@ -4,10 +4,10 @@ Contact form
 [Update README.MD again if needed]
 [Edge network tracking]
 
+Projects => Array/s, then adjust the projects display page to use that.
+
 Wireframing => new design
 Transform into new design
-
-Projects
 Theme[s]
 
 Refine
@@ -16,6 +16,7 @@ Add niceties, clean up, etc
 User testing
 Document
 Publish
+Change visibility to public
 
 * [Use GitHub for tracking issues and enhancements]
 * Revisit Tailwind set up...
