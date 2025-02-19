@@ -14,7 +14,7 @@ interface IProjectRecord {
   groupCode: TProjectGroupCode;
   subGroup: string;
   projectName: string;
-  projectDescription: string;
+  projectDescription: string; // Markdown content is supported so you can use links, etc.
   myRole: string;
   technologies: string;
   link2Demo: string;

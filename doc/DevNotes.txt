@@ -4,7 +4,6 @@ Contact form: [For ReCAPTCHA, add a simple backend with an endpoint that verifie
 [Edge network tracking]
 
 Projects:
-    Add support for hyperlinks in project descriptions.
     Add more projectData content.
 
 Skills page: Add more content and structure.
@@ -19,7 +18,7 @@ Add niceties, clean up, etc. Check TODO notes.
 User testing
 Document
 Publish
-Change visibility to public
+Deploy [to GitHub Pages]
 
 * [Use GitHub for tracking issues and enhancements]
 * Revisit Tailwind set up...

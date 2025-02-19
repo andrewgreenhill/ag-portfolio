@@ -1,6 +1,7 @@
 import { displayNameForGroup } from '../data/projectsData';
 import { IProjectRecord, TProjectGroupCode } from '../types';
 import { extractFileNameFromUrl } from '../assets/utils';
+import ReactMarkdown from 'react-markdown';
 
 interface DisplayProjectsOfGroupProps {
   groupCode: TProjectGroupCode;
@@ -33,7 +34,9 @@ function DisplayProject(projectData: IProjectRecord) {
   return (
     <div>
       <h3 className="text-xl font-bold">{projectData.projectName}</h3>
-      <p className="mt-2 text-gray-600">{projectData.projectDescription}</p>
+      <p className="mt-2 text-gray-600">
+        <ProjectDescriptionComponent markdownText={projectData.projectDescription} />
+      </p>
       <p className="mt-2 text-gray-600">{DisplayImages(projectData.images)}</p>
       <p className="mt-2 text-gray-600">My role and contributions: {projectData.myRole}</p>
       <p className="mt-2 text-gray-600">Technologies used: {projectData.technologies}</p>
@@ -43,6 +46,23 @@ function DisplayProject(projectData: IProjectRecord) {
       </p>
       <p className="mt-2 text-gray-600">Comments: {projectData.publicComments}</p>
     </div>
+  );
+}
+
+/** ReactMarkdown with a setting to make it open hyperlinks in a new tab  */
+function ProjectDescriptionComponent({ markdownText }: { markdownText: string }) {
+  return (
+    <ReactMarkdown
+      components={{
+        a: ({ node, ...props }) => (
+          <a {...props} target="_blank" rel="noopener noreferrer">
+            {props.children}
+          </a>
+        ),
+      }}
+    >
+      {markdownText}
+    </ReactMarkdown>
   );
 }
 

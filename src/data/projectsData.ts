@@ -47,7 +47,7 @@ const projectsData: IProjectRecord[] = [
     subGroup: 'EPP',
     projectName: 'Workflows',
     projectDescription:
-      'Workflow functionality to allow a process to be defined like a flowchart, and then have that orchestrated automatically, using the Camunda workflow engine. For example, if a user completes a form in Damstra Forms then that could create a record in EPP, which might be reviewed and that could schedule a lesson in Damstra’s Learning Management System and send an email.',
+      'Workflow functionality to allow a process to be defined like a flowchart, and then have that orchestrated automatically, using the Camunda workflow engine. For example, if a user completes a form in [Damstra Forms](https://damstratechnology.com/products/digital-forms) then that could create a record in EPP, which might be reviewed and that could schedule a lesson in [Damstra’s Learning Management System](https://damstratechnology.com/products/elearning) and send an email.',
     myRole: 'I created the front-end of the module in EPP.',
     technologies:
       'TypeScript/JavaScript, React and related technologies, HTML, CSS, APIs, and Camunda.',
