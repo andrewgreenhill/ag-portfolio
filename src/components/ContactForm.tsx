@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { ContactFormDataType } from '../types';
+import { IContactFormData } from '../types';
 import './ContactForm.css';
 import { emailAddressPattern, messageSummary, sanitizeInput } from '../assets/utils';
 
@@ -19,7 +19,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
     setValue,
     setError,
     clearErrors,
-  } = useForm<ContactFormDataType>();
+  } = useForm<IContactFormData>();
 
   const SEND_EMAIL_ENDPOINT = import.meta.env.VITE_SEND_EMAIL_ENDPOINT;
   const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
@@ -37,7 +37,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
     if (status) setStatus('');
   };
 
-  const onSubmit = async (data: ContactFormDataType) => {
+  const onSubmit = async (data: IContactFormData) => {
     // Rate limiting, to alleviate bot spamming.
     // Spambots may submit forms in rapid succession but humans don’t.
     if (soonAfterSubmit) {
@@ -107,7 +107,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
 
   /** Handle change to a form field that is required */
   function handleRequiredFieldChange(
-    fieldName: keyof ContactFormDataType,
+    fieldName: keyof IContactFormData,
     value: string,
     alwaysSet?: boolean // Use 'true' to set the ReactHookForm value regardless of its error state
   ) {

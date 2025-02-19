@@ -27,4 +27,10 @@ function sanitizeInput(input: string, removeNewlines?: boolean) {
   return processedInput.replace(/<\/?/g, '').replace(/[<>]/g, '');
 }
 
-export { emailAddressPattern, messageSummary, sanitizeInput };
+/** Function to extract the file name of the end of a URL to an image */
+function extractFileNameFromUrl(url: string) {
+  const urlParts = url.split('/');
+  return urlParts[urlParts.length - 1];
+}
+
+export { emailAddressPattern, messageSummary, sanitizeInput, extractFileNameFromUrl };

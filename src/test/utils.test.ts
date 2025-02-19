@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { messageSummary, sanitizeInput } from '../assets/utils';
+import { messageSummary, sanitizeInput, extractFileNameFromUrl } from '../assets/utils';
 import { messagePreviewMaxLength } from '../assets/constants';
 
 describe('messageSummary', () => {
@@ -62,5 +62,37 @@ describe('messageSummary', () => {
       const expected = '';
       expect(sanitizeInput(input)).toBe(expected);
     });
+  });
+});
+
+describe('extractFileNameFromUrl', () => {
+  it('should extract the file name from a URL', () => {
+    const url = 'https://example.com/images/screenshot.png';
+    const expected = 'screenshot.png';
+    expect(extractFileNameFromUrl(url)).toBe(expected);
+  });
+
+  it('should return the last part of the URL if it has no slashes', () => {
+    const url = 'https://example.com';
+    const expected = 'example.com';
+    expect(extractFileNameFromUrl(url)).toBe(expected);
+  });
+
+  it('should return an empty string for an empty URL', () => {
+    const url = '';
+    const expected = '';
+    expect(extractFileNameFromUrl(url)).toBe(expected);
+  });
+
+  it('should return an empty string for a URL with only slashes', () => {
+    const url = '////';
+    const expected = '';
+    expect(extractFileNameFromUrl(url)).toBe(expected);
+  });
+
+  it('should return the last part of the URL if it has no slashes', () => {
+    const url = 'https://example.com/images/';
+    const expected = '';
+    expect(extractFileNameFromUrl(url)).toBe(expected);
   });
 });
