@@ -5,9 +5,9 @@ import { DisplayProjectsOfGroup } from '../components/ProjectDisplay';
 
 function Projects() {
   const projectGroupsToDisplay: TProjectGroupCode[] = [
-    'Miscellaneous',
     'IdeagenDT',
     'DamstraAPE',
+    'Miscellaneous',
     'EarlyWork',
   ];
 
@@ -19,7 +19,7 @@ function Projects() {
 
         {/* TODO */}
         <p className="mt-2 text-gray-600">
-          This page is under construction. More content is coming soon...
+          This page is under construction. More content, and nicer presentation, is coming soon...
         </p>
 
         <div>

@@ -4,7 +4,7 @@ Contact form
 [Update README.MD again if needed]
 [Edge network tracking]
 
-Projects => Array/s, then adjust the projects display page to use that.
+Projects => Array/s, and add support for hyperlinks in project descriptions.
 
 Wireframing => new design
 Transform into new design
@@ -12,7 +12,7 @@ Theme[s]
 
 Refine
 Code rev?
-Add niceties, clean up, etc
+Add niceties, clean up, etc. Check TODO notes.
 User testing
 Document
 Publish

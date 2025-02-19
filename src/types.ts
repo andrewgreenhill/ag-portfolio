@@ -20,6 +20,7 @@ interface IProjectRecord {
   link2Demo: string;
   link2Code: string;
   images: string[];
+  when: string;
   publicComments: string;
   internalComments: string; // Internal Comments will not be displayed to users
 }

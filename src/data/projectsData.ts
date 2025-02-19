@@ -20,6 +20,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo: 'https://www.ideagen.com',
     link2Code: 'n/a',
     images: [],
+    when: '',
     publicComments: '',
     internalComments: '',
   },
@@ -35,6 +36,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo: 'https://andrewgreenhill.github.io/ag_agworld_accessory',
     link2Code: 'https://github.com/andrewgreenhill/ag_agworld_accessory',
     images: ['http://localhost:5173/images/Agworld/ag_agworld_accessory.jpg'],
+    when: 'Around June-July 2021',
     publicComments:
       'This isn’t a complete project and it doesn’t make use of all the modern front-end development practices, having been made quickly and many years ago.',
     internalComments: '',
@@ -42,17 +44,19 @@ const projectsData: IProjectRecord[] = [
   {
     id: 3,
     groupCode: 'IdeagenDT',
-    subGroup: 'Ideagen',
-    projectName: 'Ideagen - Risk Management System',
+    subGroup: 'EPP',
+    projectName: 'Workflows',
     projectDescription:
-      'Risk Management System for Ideagen. The system is used to manage risks, incidents, and audits. It is used by clients in various industries, including healthcare, aviation, and manufacturing.',
-    myRole:
-      'I was the lead developer on this project. I was responsible for the design and implementation of the system. I worked closely with the client to gather requirements and provide technical support.',
-    technologies: 'React, TypeScript, Redux, Node.js, Express, MongoDB',
-    link2Demo: 'https://www.ideagen.com',
-    link2Code: '',
-    images: [],
-    publicComments: '',
+      'Workflow functionality to allow a process to be defined like a flowchart, and then have that orchestrated automatically, using the Camunda workflow engine. For example, if a user completes a form in Damstra Forms then that could create a record in EPP, which might be reviewed and that could schedule a lesson in Damstra’s Learning Management System and send an email.',
+    myRole: 'I created the front-end of the module in EPP.',
+    technologies:
+      'TypeScript/JavaScript, React and related technologies, HTML, CSS, APIs, and Camunda.',
+    link2Demo: 'https://damstratechnology.com/solutions/enterprise-protection-platform',
+    link2Code: 'N/A',
+    images: ['http://localhost:5173/images/EPP/TasksList.png'],
+    when: 'Approx. March 2023 – June 2023',
+    publicComments:
+      'I overcame steep initial learning curves, and many roadblock problems in multiple repos, by being determined and persistently applying myself and pursuing help. I worked through those challenges, satisfied the criteria, and grew into this role.',
     internalComments: '',
   },
 ];
