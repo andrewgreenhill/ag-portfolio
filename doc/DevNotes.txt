@@ -1,10 +1,13 @@
-Contact form
-    [For ReCAPTCHA, add a simple backend with an endpoint that verifies the captcha token with Google]
+Contact form: [For ReCAPTCHA, add a simple backend with an endpoint that verifies the captcha token with Google]
 
 [Update README.MD again if needed]
 [Edge network tracking]
 
-Projects => Array/s, and add support for hyperlinks in project descriptions.
+Projects:
+    Add support for hyperlinks in project descriptions.
+    Add more projectData content.
+
+Skills page: Add more content and structure.
 
 Wireframing => new design
 Transform into new design
