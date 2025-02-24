@@ -9,22 +9,21 @@ interface DisplayProjectsOfGroupProps {
 }
 
 function DisplayProjectsOfGroup({ groupCode, projectsData }: DisplayProjectsOfGroupProps) {
+  const projectsOfGroup = projectsData.filter((project) => project.groupCode === groupCode);
   return (
     <div>
       <h2 className="text-2xl font-bold">{displayNameForGroup[groupCode]}</h2>
-      {projectsData.filter((project) => project.groupCode === groupCode).length === 0 ? (
+      {projectsOfGroup.length === 0 ? (
         <p className="mt-2 text-gray-600">
-          Under construction. There is no project data for this group yet. {/* TODO */}
+          Under construction. There is no project data for this group yet.
         </p>
       ) : (
-        projectsData
-          .filter((project) => project.groupCode === groupCode)
-          .map((project, index) => (
-            <div key={index}>
-              <br />
-              {DisplayProject(project)}
-            </div>
-          ))
+        projectsOfGroup.map((project, index) => (
+          <div key={index}>
+            <br />
+            {DisplayProject(project)}
+          </div>
+        ))
       )}
     </div>
   );
@@ -33,23 +32,23 @@ function DisplayProjectsOfGroup({ groupCode, projectsData }: DisplayProjectsOfGr
 function DisplayProject(projectData: IProjectRecord) {
   return (
     <div>
-      {DisplayProjectName(projectData.projectName)}
-      <DisplayMarkdownText label="" markdownText={projectData.projectDescription} />
-      {DisplayImages(projectData.images)}
-      <DisplayMarkdownText label="My role and contributions: " markdownText={projectData.myRole} />
-      <DisplayMarkdownText label="Technologies used: " markdownText={projectData.technologies} />
-      <DisplayMarkdownText label="Link to demo: " markdownText={projectData.link2Demo} />
-      <DisplayMarkdownText label="Link to source code: " markdownText={projectData.link2Code} />
-      <DisplayMarkdownText label="Comments: " markdownText={projectData.publicComments} />
+      <DisplayProjectName projectName={projectData.projectName} />
+      <DisplayMarkdownField label="" markdownText={projectData.projectDescription} />
+      <DisplayImages images={projectData.images} />
+      <DisplayMarkdownField label="My role and contributions: " markdownText={projectData.myRole} />
+      <DisplayMarkdownField label="Technologies used: " markdownText={projectData.technologies} />
+      <DisplayMarkdownField label="Link to demo: " markdownText={projectData.link2Demo} />
+      <DisplayMarkdownField label="Link to source code: " markdownText={projectData.link2Code} />
+      <DisplayMarkdownField label="Comments: " markdownText={projectData.publicComments} />
     </div>
   );
 }
 
-function DisplayProjectName(projectName: string) {
+function DisplayProjectName({ projectName }: { projectName: string }) {
   return <h3 className="text-xl font-bold">{projectName}</h3>;
 }
 
-function DisplayMarkdownText({ label, markdownText }: { label?: string; markdownText: string }) {
+function DisplayMarkdownField({ label, markdownText }: { label: string; markdownText: string }) {
   return (
     <p className="mt-2 text-gray-600">
       {label && <strong>{label}</strong>}
@@ -58,7 +57,7 @@ function DisplayMarkdownText({ label, markdownText }: { label?: string; markdown
   );
 }
 
-function DisplayImages(images: string[]) {
+function DisplayImages({ images }: { images: string[] }) {
   if (!images || images.length === 0) return null;
   return (
     <p className="mt-2 text-gray-600">
