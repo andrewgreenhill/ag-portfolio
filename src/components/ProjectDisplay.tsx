@@ -59,22 +59,28 @@ function MarkdownField({ label, markdownText }: { label: string; markdownText: s
 
 function Images({ images }: { images: string[] }) {
   if (!images?.length) return null;
+  const numImages = images.length;
   return (
     <div className="mt-2 text-gray-600">
-      {images.map((image, index) => DisplayImage(image, index))}
+      {images.map((image, index) => (
+        <>
+          <DisplayImage image={image} index={index} />
+          {index < numImages - 1 && <br />}
+        </>
+      ))}
     </div>
   );
 }
 
-function DisplayImage(image: string, index: number) {
+function DisplayImage({ image, index }: { image: string; index: number }) {
   return (
     <div key={index}>
       <img
         src={image}
         alt={extractFileNameFromUrl(image) || `Screenshot ${index + 1}`}
         className="project-screenshot"
+        style={{ border: '2px solid #ccc', padding: '5px', width: '100%' }}
       />
-      <br />
     </div>
   );
 }
