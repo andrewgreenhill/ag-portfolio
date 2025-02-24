@@ -1,27 +1,27 @@
-import { displayNameForGroup } from '../data/projectsData';
+import { groupDisplayName } from '../data/projectsData';
 import { IProjectRecord, TProjectGroupCode } from '../types';
 import { extractFileNameFromUrl } from '../assets/utils';
 import { ReactMarkdownOpenInNewTab } from './Utilities';
 
-interface DisplayProjectsOfGroupProps {
-  groupCode: TProjectGroupCode;
+interface ProjectsOfGroupProps {
   projectsData: IProjectRecord[];
+  groupCode: TProjectGroupCode;
 }
 
-function DisplayProjectsOfGroup({ groupCode, projectsData }: DisplayProjectsOfGroupProps) {
+function ProjectsOfGroup({ projectsData, groupCode }: ProjectsOfGroupProps) {
   const projectsOfGroup = projectsData.filter((project) => project.groupCode === groupCode);
   return (
     <div>
-      <h2 className="text-2xl font-bold">{displayNameForGroup[groupCode]}</h2>
+      <h2 className="text-2xl font-bold">{groupDisplayName[groupCode]}</h2>
       {projectsOfGroup.length === 0 ? (
-        <p className="mt-2 text-gray-600">
+        <div className="mt-2 text-gray-600">
           Under construction. There is no project data for this group yet.
-        </p>
+        </div>
       ) : (
-        projectsOfGroup.map((project, index) => (
-          <div key={index}>
+        projectsOfGroup.map((projectData) => (
+          <div key={projectData.id}>
             <br />
-            {DisplayProject(project)}
+            <DisplayProject projectData={projectData} />
           </div>
         ))
       )}
@@ -29,26 +29,26 @@ function DisplayProjectsOfGroup({ groupCode, projectsData }: DisplayProjectsOfGr
   );
 }
 
-function DisplayProject(projectData: IProjectRecord) {
+function DisplayProject({ projectData }: { projectData: IProjectRecord }) {
   return (
     <div>
-      <DisplayProjectName projectName={projectData.projectName} />
-      <DisplayMarkdownField label="" markdownText={projectData.projectDescription} />
-      <DisplayImages images={projectData.images} />
-      <DisplayMarkdownField label="My role and contributions: " markdownText={projectData.myRole} />
-      <DisplayMarkdownField label="Technologies used: " markdownText={projectData.technologies} />
-      <DisplayMarkdownField label="Link to demo: " markdownText={projectData.link2Demo} />
-      <DisplayMarkdownField label="Link to source code: " markdownText={projectData.link2Code} />
-      <DisplayMarkdownField label="Comments: " markdownText={projectData.publicComments} />
+      <ProjectName projectName={projectData.projectName} />
+      <MarkdownField label="" markdownText={projectData.projectDescription} />
+      <Images images={projectData.images} />
+      <MarkdownField label="My role and contributions: " markdownText={projectData.myRole} />
+      <MarkdownField label="Technologies used: " markdownText={projectData.technologies} />
+      <MarkdownField label="Link to demo: " markdownText={projectData.link2Demo} />
+      <MarkdownField label="Link to source code: " markdownText={projectData.link2Code} />
+      <MarkdownField label="Comments: " markdownText={projectData.publicComments} />
     </div>
   );
 }
 
-function DisplayProjectName({ projectName }: { projectName: string }) {
+function ProjectName({ projectName }: { projectName: string }) {
   return <h3 className="text-xl font-bold">{projectName}</h3>;
 }
 
-function DisplayMarkdownField({ label, markdownText }: { label: string; markdownText: string }) {
+function MarkdownField({ label, markdownText }: { label: string; markdownText: string }) {
   return (
     <p className="mt-2 text-gray-600">
       {label && <strong>{label}</strong>}
@@ -57,12 +57,12 @@ function DisplayMarkdownField({ label, markdownText }: { label: string; markdown
   );
 }
 
-function DisplayImages({ images }: { images: string[] }) {
-  if (!images || images.length === 0) return null;
+function Images({ images }: { images: string[] }) {
+  if (!images?.length) return null;
   return (
-    <p className="mt-2 text-gray-600">
-      <div>{images.map((image, index) => DisplayImage(image, index))}</div>
-    </p>
+    <div className="mt-2 text-gray-600">
+      {images.map((image, index) => DisplayImage(image, index))}
+    </div>
   );
 }
 
@@ -79,4 +79,4 @@ function DisplayImage(image: string, index: number) {
   );
 }
 
-export { DisplayProjectsOfGroup };
+export { ProjectsOfGroup };

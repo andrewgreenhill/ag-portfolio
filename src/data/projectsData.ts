@@ -1,6 +1,6 @@
 import { TProjectGroupCode, IProjectRecord } from '../types';
 
-const displayNameForGroup: Record<TProjectGroupCode, string> = {
+const groupDisplayName: Record<TProjectGroupCode, string> = {
   Miscellaneous: 'Miscellaneous',
   IdeagenDT: 'For Ideagen / Damstra',
   DamstraAPE: 'For Damstra / Applied Project Experience',
@@ -64,4 +64,4 @@ const projectsData: IProjectRecord[] = [
   },
 ];
 
-export { displayNameForGroup, projectsData };
+export { groupDisplayName, projectsData };
