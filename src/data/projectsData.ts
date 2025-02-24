@@ -17,7 +17,7 @@ const projectsData: IProjectRecord[] = [
       'Personal portfolio website showcasing my skills, projects, and experience. The website is built using React.js and Tailwind CSS.',
     myRole: 'Sole developer',
     technologies: 'React, TypeScript, Tailwind CSS',
-    link2Demo: 'https://www.ideagen.com',
+    link2Demo: '[https://www.ideagen.com](https://www.ideagen.com)',
     link2Code: 'n/a',
     images: [],
     when: '',
@@ -33,8 +33,10 @@ const projectsData: IProjectRecord[] = [
       'A small web app for getting data from a weather station; data that is required for completing weather records in Agworld software. Note: I paused operating it because of a Heroku cost increase.',
     myRole: 'I created that as a simple demonstration for Agworld.',
     technologies: 'JavaScript, React, HTML, CSS, APIs, GitHub Pages and Heroku.',
-    link2Demo: 'https://andrewgreenhill.github.io/ag_agworld_accessory',
-    link2Code: 'https://github.com/andrewgreenhill/ag_agworld_accessory',
+    link2Demo:
+      '[https://andrewgreenhill.github.io/ag_agworld_accessory](https://andrewgreenhill.github.io/ag_agworld_accessory)',
+    link2Code:
+      '[https://github.com/andrewgreenhill/ag_agworld_accessory](https://github.com/andrewgreenhill/ag_agworld_accessory)',
     images: ['http://localhost:5173/images/Agworld/ag_agworld_accessory.jpg'],
     when: 'Around June-July 2021',
     publicComments:
@@ -47,12 +49,13 @@ const projectsData: IProjectRecord[] = [
     subGroup: 'EPP',
     projectName: 'Workflows',
     projectDescription:
-      'Workflow functionality to allow a process to be defined like a flowchart, and then have that orchestrated automatically, using the Camunda workflow engine. For example, if a user completes a form in [Damstra Forms](https://damstratechnology.com/products/digital-forms) then that could create a record in EPP, which might be reviewed and that could schedule a lesson in [Damstra’s Learning Management System](https://damstratechnology.com/products/elearning) and send an email.',
+      'Workflow functionality to allow a process to be defined like a flowchart, and then have that orchestrated automatically, using the Camunda workflow engine. For example, if a user completes a form in [Damstra Forms](https://damstratechnology.com/products/digital-forms) then that could create a record in EPP, which might be reviewed and that could schedule a lesson in Damstra’s [Learning Management System](https://damstratechnology.com/products/elearning) and send an email.',
     myRole: 'I created the front-end of the module in EPP.',
     technologies:
       'TypeScript/JavaScript, React and related technologies, HTML, CSS, APIs, and Camunda.',
-    link2Demo: 'https://damstratechnology.com/solutions/enterprise-protection-platform',
-    link2Code: 'N/A',
+    link2Demo:
+      '[https://damstratechnology.com/solutions/enterprise-protection-platform](https://damstratechnology.com/solutions/enterprise-protection-platform)',
+    link2Code: 'Not available, proprietary',
     images: ['http://localhost:5173/images/EPP/TasksList.png'],
     when: 'Approx. March 2023 – June 2023',
     publicComments:

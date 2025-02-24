@@ -1,7 +1,7 @@
 import { displayNameForGroup } from '../data/projectsData';
 import { IProjectRecord, TProjectGroupCode } from '../types';
 import { extractFileNameFromUrl } from '../assets/utils';
-import ReactMarkdown from 'react-markdown';
+import { ReactMarkdownOpenInNewTab } from './Utilities';
 
 interface DisplayProjectsOfGroupProps {
   groupCode: TProjectGroupCode;
@@ -33,52 +33,38 @@ function DisplayProjectsOfGroup({ groupCode, projectsData }: DisplayProjectsOfGr
 function DisplayProject(projectData: IProjectRecord) {
   return (
     <div>
-      <h3 className="text-xl font-bold">{projectData.projectName}</h3>
-      <p className="mt-2 text-gray-600">
-        <ProjectDescriptionComponent markdownText={projectData.projectDescription} />
-      </p>
-      <p className="mt-2 text-gray-600">{DisplayImages(projectData.images)}</p>
-      <p className="mt-2 text-gray-600">My role and contributions: {projectData.myRole}</p>
-      <p className="mt-2 text-gray-600">Technologies used: {projectData.technologies}</p>
-      <p className="mt-2 text-gray-600">Link to demo: {DisplayLink(projectData.link2Demo)}</p>
-      <p className="mt-2 text-gray-600">
-        Link to source code: {DisplayLink(projectData.link2Code)}
-      </p>
-      <p className="mt-2 text-gray-600">Comments: {projectData.publicComments}</p>
+      {DisplayProjectName(projectData.projectName)}
+      <DisplayMarkdownText label="" markdownText={projectData.projectDescription} />
+      {DisplayImages(projectData.images)}
+      <DisplayMarkdownText label="My role and contributions: " markdownText={projectData.myRole} />
+      <DisplayMarkdownText label="Technologies used: " markdownText={projectData.technologies} />
+      <DisplayMarkdownText label="Link to demo: " markdownText={projectData.link2Demo} />
+      <DisplayMarkdownText label="Link to source code: " markdownText={projectData.link2Code} />
+      <DisplayMarkdownText label="Comments: " markdownText={projectData.publicComments} />
     </div>
   );
 }
 
-/** ReactMarkdown with a setting to make it open hyperlinks in a new tab  */
-function ProjectDescriptionComponent({ markdownText }: { markdownText: string }) {
-  return (
-    <ReactMarkdown
-      components={{
-        a: ({ node, ...props }) => (
-          <a {...props} target="_blank" rel="noopener noreferrer">
-            {props.children}
-          </a>
-        ),
-      }}
-    >
-      {markdownText}
-    </ReactMarkdown>
-  );
+function DisplayProjectName(projectName: string) {
+  return <h3 className="text-xl font-bold">{projectName}</h3>;
 }
 
-function DisplayLink(link: string) {
-  if (!link) return null;
-  if (link?.toLowerCase() === 'na' || link?.toLowerCase() === 'n/a') return 'N/A';
+function DisplayMarkdownText({ label, markdownText }: { label?: string; markdownText: string }) {
   return (
-    <a href={link} target="_blank" rel="noreferrer" className="text-blue-500">
-      {link}
-    </a>
+    <p className="mt-2 text-gray-600">
+      {label && <strong>{label}</strong>}
+      <ReactMarkdownOpenInNewTab markdownText={markdownText} />
+    </p>
   );
 }
 
 function DisplayImages(images: string[]) {
   if (!images || images.length === 0) return null;
-  return <div>{images.map((image, index) => DisplayImage(image, index))}</div>;
+  return (
+    <p className="mt-2 text-gray-600">
+      <div>{images.map((image, index) => DisplayImage(image, index))}</div>
+    </p>
+  );
 }
 
 function DisplayImage(image: string, index: number) {
