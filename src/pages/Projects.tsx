@@ -8,7 +8,7 @@ function Projects() {
     'IdeagenDT',
     'DamstraAPE',
     'Miscellaneous',
-    'EarlyWork',
+    // 'EarlyWork', // TODO: Uncomment this line when there are Early Works to display
   ];
 
   return (

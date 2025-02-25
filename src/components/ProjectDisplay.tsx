@@ -12,7 +12,10 @@ function ProjectsOfGroup({ projectsData, groupCode }: ProjectsOfGroupProps) {
   const projectsOfGroup = projectsData.filter((project) => project.groupCode === groupCode);
   return (
     <div>
-      <h2 className="text-2xl font-bold">{groupDisplayName[groupCode]}</h2>
+      <h2 className="text-2xl font-bold">
+        {/* TODO: Remove ' =========' and '========= ' */}
+        {'========= ' + groupDisplayName[groupCode] + ' ========='}
+      </h2>
       {projectsOfGroup.length === 0 ? (
         <div className="mt-2 text-gray-600">
           Under construction. There is no project data for this group yet.
@@ -49,6 +52,7 @@ function ProjectName({ projectName }: { projectName: string }) {
 }
 
 function MarkdownField({ label, markdownText }: { label: string; markdownText: string }) {
+  if (!markdownText) return null;
   return (
     <p className="mt-2 text-gray-600">
       {label && <strong>{label}</strong>}
