@@ -7,8 +7,6 @@ Contact form:
 
 Projects: Consider potentially-better ways/s to structure the presentation of projects
 
-Skills page: Add more content and structure.
-
 Wireframing => new design
 Transform into new design
 Theme[s]
