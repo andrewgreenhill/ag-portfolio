@@ -436,7 +436,7 @@ const projectsData: IProjectRecord[] = [
 I also made a computer from the ground up from very basic components: a CPU, RAM, buses, etc.`,
     myRole: 'My creations.',
     technologies:
-      'Software: languages including Z80 machine language, Basic and Pascal.\nHardware: integrated circuits (Z80 CPU, EEPROM memory, etc) and other electronic components such as I/O devices and a crystal for the computer’s MHz clock signal.',
+      'Software: languages including Z80 machine language, Basic and Pascal.\nHardware: integrated circuits (Z80 CPU, EEPROM memory, etc) and other electronic components including simple I/O devices and a crystal for the computer’s 4MHz clock signal.',
     link2Demo: '',
     link2Code: '',
     images: [],
