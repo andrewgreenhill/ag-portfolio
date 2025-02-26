@@ -5,7 +5,7 @@ Contact form:
 [Update README.MD again if needed]
 [Edge network tracking]
 
-Projects: Add more projectData content.
+Projects: Consider potentially-better ways/s to structure the presentation of projects
 
 Skills page: Add more content and structure.
 
