@@ -64,6 +64,16 @@ function Contact() {
               stackoverflow.com/users/3532483/andrewgreenhill
             </a>
           </li>
+          <li>
+            Bluesky{' '}
+            <a
+              href="https://bsky.app/profile/andrew-greenhill.bsky.social"
+              target="_blank"
+              className="text-blue-500 hover:underline"
+            >
+              bsky.app/profile/andrew-greenhill.bsky.social
+            </a>
+          </li>
         </ul>
       </div>
     </PageTransition>

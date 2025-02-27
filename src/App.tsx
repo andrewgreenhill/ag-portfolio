@@ -16,7 +16,7 @@ function App() {
       <nav className="p-4 bg-white shadow-md">
         <div className="container mx-auto flex justify-between">
           <Link to="/" className="text-xl font-bold">
-            My Portfolio
+            Andrew Greenhill
           </Link>
           <div className="space-x-4">
             <Link to="/" className="hover:text-blue-500">
