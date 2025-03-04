@@ -1,13 +1,40 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav className="bg-white text-black p-4 w-full">
@@ -55,8 +82,12 @@ function NavBar() {
             Contact
           </NavLink>
         </div>
-        <div className="md:hidden ml-auto bg-white !dark:bg-white">
-          <button onClick={toggleMenu} className="focus:outline-none bg-white !dark:bg-white">
+        <div className="md:hidden ml-auto">
+          <button
+            onClick={toggleMenu}
+            className="focus:outline-none bg-white dark:bg-white border border-gray-300"
+            style={{ borderWidth: '1px' }} // Reduced border thickness
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -76,7 +107,10 @@ function NavBar() {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden bg-white text-black p-2 absolute right-0 mt-2 w-35 border border-gray-300">
+        <div
+          ref={menuRef}
+          className="md:hidden bg-white text-black p-2 absolute right-0 mt-2 w-35 border border-gray-300"
+        >
           <NavLink
             to="/"
             className={({ isActive }) =>

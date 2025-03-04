@@ -59,6 +59,12 @@ body {
   animation: confetti 1s;
 }
 
+.recaptcha-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
 @keyframes modalFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

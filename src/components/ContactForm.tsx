@@ -229,7 +229,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
         </div>
 
-        <div>
+        <div className="recaptcha-container">
           <ReCAPTCHA
             sitekey={RECAPTCHA_SITE_KEY}
             onChange={(value: string | null) => setCaptchaValue(value)}

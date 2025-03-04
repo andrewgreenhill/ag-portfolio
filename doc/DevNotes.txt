@@ -11,11 +11,12 @@ Wireframing ???????????????????????? => new design
 Transform into new design
 Theme[s]
 
+User testing
 Refine
 Code rev?
 Add niceties, clean up, etc. Check TODO notes.
-User testing
 Document
+User testing
 Publish
 Deploy [to GitHub Pages]
 
