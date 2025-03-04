@@ -36,7 +36,7 @@ function About() {
             12 computing project, that ran on my OS. I wrote that all in hexadecimal machine code.
             The project was a game of{' '}
             <a
-              className="text-blue-600 hover:underline"
+              className="text-green-600 hover:underline"
               target="_blank"
               rel="noreferrer"
               href="https://en.wikipedia.org/wiki/Reversi#Othello"

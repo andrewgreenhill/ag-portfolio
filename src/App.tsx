@@ -14,9 +14,9 @@ function App() {
   const location = useLocation(); // Get current route
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <NavBar />
-      <div className="min-h-screen bg-gray-100 text-gray-900">
+      <div className="flex-grow min-h min-w-screen bg-gray-100 text-gray-900">
         <div className="container mx-auto p-4">
           <AnimatePresence mode="wait">
             <motion.div
@@ -38,7 +38,7 @@ function App() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

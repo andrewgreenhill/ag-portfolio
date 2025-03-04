@@ -6,11 +6,12 @@ function Contact() {
     <PageTransition>
       <div className="text-center p-10">
         <h1 className="text-3xl font-bold">Contact me</h1>
-        {/* <h2 className="text-2xl font-bold">Let's Connect</h2> */}
+        <h2 className="text-2xl font-bold">Let's Connect!</h2>
         <br />
 
-        <ContactForm titleMessage="Let's Connect!" />
-        <br />
+        <ContactForm
+        // titleMessage="Let's Connect!"
+        />
 
         <ul className="mt-4 text-left">
           <li>
@@ -18,7 +19,7 @@ function Contact() {
             <a
               href="https://www.linkedin.com/in/andrew-greenhill"
               target="_blank"
-              className="text-blue-500 hover:underline"
+              className="text-green-500 hover:underline"
             >
               www.linkedin.com/in/andrew-greenhill
             </a>
@@ -28,7 +29,7 @@ function Contact() {
             <a
               href="https://bsky.app/profile/andrew-greenhill.bsky.social"
               target="_blank"
-              className="text-blue-500 hover:underline"
+              className="text-green-500 hover:underline"
             >
               bsky.app/profile/andrew-greenhill.bsky.social
             </a>

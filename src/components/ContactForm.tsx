@@ -7,7 +7,7 @@ import './ContactForm.css';
 import { emailAddressPattern, messageSummary, sanitizeInput } from '../assets/utils';
 
 type ContactFormProps = {
-  titleMessage: string;
+  titleMessage?: string;
 };
 
 function ContactForm({ titleMessage }: ContactFormProps) {
@@ -137,15 +137,13 @@ function ContactForm({ titleMessage }: ContactFormProps) {
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
       {/* <h1 className="text-3xl font-bold mb-4 text-center">Contact Me</h1> */}
-      <h2 className="text-2xl font-bold">{titleMessage}</h2>
-
+      {titleMessage && <h2 className="text-2xl font-bold">{titleMessage}</h2>}
       {status === 'success' && isSubmitted && (
         <p className="text-green-500 text-center mb-4">Message sent!</p>
       )}
       {status === 'error' && (
         <p className="text-red-500 text-center mb-4">Something went wrong. Try again.</p>
       )}
-
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Name */}
         <div>
@@ -243,8 +241,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
 
         {/* Privacy Note */}
         <p className="text-xs text-gray-500">
-          I respect your privacy. Your details will only be used to reply to your inquiry and will
-          not be shared.
+          I respect your privacy and will not share your details.
         </p>
 
         {/* Send Button */}
@@ -253,12 +250,11 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           whileTap={{ scale: 0.95 }}
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-blue-500 text-black py-2 rounded hover:bg-blue-600 transition"
+          className="w-full text-black dark:text-white py-2 rounded !border !border-black !dark:border-white !hover:border-green-600 transition"
         >
           {isSubmitting ? 'Sending...' : 'SEND'}
         </motion.button>
       </form>
-
       {isSubmitted && (
         <div id="thankYouModal" className="modal">
           <div className="modal-content">
@@ -274,7 +270,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
             </span>
             <div className="animation">🎉</div>
             <p>
-              Message Sent. Thank you for reaching out! I'll get back to you as soon as possible.
+              Message sent. Thank you for reaching out! I'll get back to you as soon as possible.
             </p>
           </div>
         </div>
