@@ -8,7 +8,7 @@ function About() {
         We also apply an inline style to force text alignment to the left.
       */}
       <div className="w-full p-10" style={{ textAlign: 'left' }}>
-        <h1 className="text-4xl font-bold mb-6">About Me</h1>
+        <h1 className="text-4xl font-bold mb-6">About me</h1>
 
         <section className="space-y-4">
           <p className="text-lg text-gray-700 leading-relaxed">
@@ -62,7 +62,7 @@ function About() {
         </section>
 
         <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-bold text-gray-800">Web Site Theme</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Web site theme</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
             For this web site's theme, and my logo, I was inspired by the Matrix, because when I was
             writing in machine code, I did that using a hexadecimal editor that looked similar to

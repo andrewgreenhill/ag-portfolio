@@ -241,7 +241,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
 
         {/* Privacy Note */}
         <p className="text-xs text-gray-500">
-          I respect your privacy and will not share your details.
+          I respect your privacy, and will not share your details.
         </p>
 
         {/* Send Button */}

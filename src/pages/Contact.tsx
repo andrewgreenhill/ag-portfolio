@@ -6,7 +6,7 @@ function Contact() {
     <PageTransition>
       <div className="text-center p-10">
         <h1 className="text-3xl font-bold">Contact me</h1>
-        <h2 className="text-2xl font-bold">Let's Connect!</h2>
+        <h2 className="text-2xl font-bold">Let's connect!</h2>
         <br />
 
         <ContactForm

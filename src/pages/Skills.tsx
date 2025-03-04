@@ -51,7 +51,7 @@ function Skills() {
 
           {/* Soft Skills Card */}
           <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-2xl font-bold mb-4 text-left">Soft Skills</h2>
+            <h2 className="text-2xl font-bold mb-4 text-left">Soft skills</h2>
             <ul className="list-disc list-inside text-left space-y-2">
               <li className="hanging-indent">Communication and teamwork</li>
               <li className="hanging-indent">Problem-solving, troubleshooting, analysis</li>
