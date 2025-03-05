@@ -8,7 +8,7 @@ function About() {
         We also apply an inline style to force text alignment to the left.
       */}
       <div className="w-full p-8 pb-4" style={{ textAlign: 'justify' }}>
-        <h1 className="text-4xl font-bold mb-6 text-center">About me</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center">About me</h1>
 
         <section className="space-y-4">
           <p className="text-lg text-gray-700 leading-relaxed">
@@ -69,13 +69,21 @@ function About() {
         </section>
 
         <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-bold text-gray-800 text-center">Web site theme</h2>
+          <h2 className="text-2xl font-bold text-gray-800 text-center">Colour theme</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            For this web site's colour theme, and my logo, I was inspired by the Matrix, because
-            when I was writing in machine code, I did that using a hexadecimal editor that looked
-            similar to the screenshot below but with green or amber coloured text. I can easily
-            convert between hexadecimal numbers and binary, and so I was only 1 step removed from
-            writing directly in binary. I could create cool things like the above, and a moving
+            The colour theme for my logo and this web site was inspired by{' '}
+            <a
+              className="text-green-600 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+              href="https://en.wikipedia.org/wiki/The_Matrix"
+            >
+              The Matrix
+            </a>
+            , because when I was writing in machine code, I did that using a hexadecimal editor that
+            looked similar to the screenshot below but with green or amber coloured text. I can
+            easily convert between hexadecimal numbers and binary, and so I was only 1 step removed
+            from writing directly in binary. I could create cool things like the above, and a moving
             blimp, and play music notes, and much more — the ability to create worlds from green
             numbers!
           </p>

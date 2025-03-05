@@ -15,7 +15,7 @@ function Home() {
         {/* <section className="bg-[url('/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg')] bg-cover bg-center h-screen flex flex-col justify-center items-center text-white"> */}
         {/* <section className="bg-[url('/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg')] bg-cover bg-center h-screen flex flex-col justify-center text-white"> */}
         {/* <section className="bg-[url('/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg')] bg-cover bg-center bg-no-repeat text-white py-20 px-4"> */}
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-3xl font-bold">
           I'm a Frontend Developer specialising in React and TypeScript
         </h1>
         <br />
