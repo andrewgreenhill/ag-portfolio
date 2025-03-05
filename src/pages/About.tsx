@@ -76,7 +76,7 @@ function About() {
               className="text-green-600 hover:underline"
               target="_blank"
               rel="noreferrer"
-              href="https://en.wikipedia.org/wiki/The_Matrix"
+              href="https://www.google.com/search?q=the+matrix&udm=2"
             >
               The Matrix
             </a>
