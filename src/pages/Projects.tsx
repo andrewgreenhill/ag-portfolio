@@ -13,7 +13,7 @@ function Projects() {
 
   return (
     <PageTransition>
-      <div className="text-center p-10">
+      <div className="text-center p-8 pb-4">
         {/* TODO: Improve the presentation of the project groups */}
         <p className="mt-2 font-bold text-gray-600">
           <em>This is under construction. Nicer presentation is coming soon...</em>

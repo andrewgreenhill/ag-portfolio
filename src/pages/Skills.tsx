@@ -3,7 +3,7 @@ import PageTransition from '../components/PageTransition';
 function Skills() {
   return (
     <PageTransition>
-      <div className="max-w-4xl mx-auto p-10">
+      <div className="max-w-4xl mx-auto p-8 pb-4">
         <h1 className="text-4xl font-bold text-center mb-8">Skills</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

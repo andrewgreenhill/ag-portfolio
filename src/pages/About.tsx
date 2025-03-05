@@ -7,8 +7,8 @@ function About() {
         The outer div is set to full width (w-full) and we remove any auto margins.
         We also apply an inline style to force text alignment to the left.
       */}
-      <div className="w-full p-10" style={{ textAlign: 'left' }}>
-        <h1 className="text-4xl font-bold mb-6">About me</h1>
+      <div className="w-full p-8 pb-4" style={{ textAlign: 'justify' }}>
+        <h1 className="text-4xl font-bold mb-6 text-center">About me</h1>
 
         <section className="space-y-4">
           <p className="text-lg text-gray-700 leading-relaxed">
@@ -28,7 +28,7 @@ function About() {
         </section>
 
         <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-bold text-gray-800">Background</h2>
+          <h2 className="text-2xl font-bold text-gray-800 text-center">Background</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
             I began programming while at school, teaching myself. I started with Basic, then when I
             wanted more capabilities, I taught myself machine code. I started creating my own
@@ -62,14 +62,15 @@ function About() {
         </section>
 
         <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-bold text-gray-800">Web site theme</h2>
+          <h2 className="text-2xl font-bold text-gray-800 text-center">Web site theme</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            For this web site's theme, and my logo, I was inspired by the Matrix, because when I was
-            writing in machine code, I did that using a hexadecimal editor that looked similar to
-            the screenshot below but with green or amber coloured text. I can easily convert between
-            hexadecimal numbers and binary, and so I was only 1 step removed from writing directly
-            in binary. I could create cool things like the above, and a moving blimp, and play music
-            notes, and much more — the ability to create worlds from green numbers!
+            For this web site's colour theme, and my logo, I was inspired by the Matrix, because
+            when I was writing in machine code, I did that using a hexadecimal editor that looked
+            similar to the screenshot below but with green or amber coloured text. I can easily
+            convert between hexadecimal numbers and binary, and so I was only 1 step removed from
+            writing directly in binary. I could create cool things like the above, and a moving
+            blimp, and play music notes, and much more — the ability to create worlds from green
+            numbers!
           </p>
           <img
             src="https://i0.wp.com/blog.compactbyte.com/wp-content/uploads/2019/02/vcxsrv_2019-02-18_23-24-30.png?is-pending-load=1#038;ssl=1"

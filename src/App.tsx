@@ -17,7 +17,7 @@ function App() {
     <div className="flex flex-col min-h-screen">
       <NavBar />
       <div className="flex-grow min-h min-w-screen bg-gray-100 text-gray-900">
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-8 pb-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname} // Ensure animation resets per page
