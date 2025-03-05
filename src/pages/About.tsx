@@ -48,9 +48,16 @@ function About() {
             probability analysis, a mortgage simulator, etc. Usually in Pascal, back then.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            I studied programming at UWA and Curtin University. I have programmed in 12 languages. I
-            have also made a computer from the ground up from very basic components: a CPU, RAM,
-            buses, etc.
+            I studied programming at UWA and Curtin University. I have programmed in 12{' '}
+            <span className="relative group">
+              <span className="text-green-600 hover:underline cursor-pointer">languages</span>
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2 bg-gray-800 text-white text-left text-sm rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                TypeScript, JavaScript, HTML, Python, Ruby, C#, C, VBA, GML, Prolog, Basic, Pascal,
+                and Z80 machine language.
+              </span>
+            </span>
+            . I have also made a computer from the ground up from very basic components: a CPU,
+            EEPROM and RAM memory, buses, etc.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
             Circumstances shifted my course away from the above though, I worked for different
