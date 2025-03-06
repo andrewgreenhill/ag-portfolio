@@ -1,18 +1,29 @@
 import { TProjectGroupKey, IProjectRecord, IProjectGroupMetadata } from '../types';
 
 const groupsInfo: Record<TProjectGroupKey, IProjectGroupMetadata> = {
-  EarlyWork: { name: 'Early works', description: '...Early works...', link: 'Early' },
+  EarlyWork: {
+    name: 'Early works',
+    description:
+      'A collection of software work and projects that I did for different companies and myself before 2014.',
+    link: 'Early',
+  },
   DamstraAPE: {
-    name: 'For Damstra / Applied Project Experience',
-    description: '...Damstra / Applied Project Experience...',
+    name: 'For Damstra Technology / Applied Project Experience',
+    description:
+      'A collection of my software projects during 2015-2022 when working as a customer success manager then solutions engineer.',
     link: 'DA',
   },
   Miscellaneous: {
-    name: 'Miscellaneous',
-    description: '...projects that don’t fit into the other categories...',
+    name: 'For myself, miscellaneous',
+    description: 'Some of my miscellaneous software projects, from 2021 to 2025.',
     link: 'Misc',
   },
-  IdeagenDT: { name: 'For Ideagen / Damstra', description: '...Ideagen / Damstra...', link: 'ID' },
+  IdeagenDT: {
+    name: 'For Ideagen / Damstra Technology’s EPP',
+    description:
+      'Summary of my work done as a front-end software engineer, in 2023-2024, on Enterprise Protection Platform (EPP) software.',
+    link: 'ID',
+  },
 };
 
 const projectsData: IProjectRecord[] = [
@@ -33,7 +44,7 @@ const projectsData: IProjectRecord[] = [
       '[https://github.com/andrewgreenhill/ag-portfolio](https://github.com/andrewgreenhill/ag-portfolio)',
     // TODO: Update the images when the portfolio is live
     images: ['http://localhost:5173/images/Misc/Portfolio_WIP.jpg'],
-    when: 'January-February 2025',
+    when: 'January-March 2025',
     publicComments: 'The project you are currently viewing is my portfolio.',
     internalComments: '',
   },
@@ -73,7 +84,7 @@ const projectsData: IProjectRecord[] = [
     images: ['http://localhost:5173/images/EPP/TasksList.png'],
     when: 'Approx. March 2023 – June 2023',
     publicComments:
-      'I overcame steep initial learning curves, and many roadblock problems in multiple repos, by being determined and persistently applying myself and pursuing help. I worked through those challenges, satisfied the criteria, and grew into this role.',
+      'I overcame steep initial learning curves, and many roadblock problems in multiple repos, by being determined and persistently applying myself and pursuing help. I worked through those challenges, satisfied the criteria, and grew into a new role.',
     internalComments: '',
   },
   {
@@ -181,7 +192,7 @@ const projectsData: IProjectRecord[] = [
     projectDescription:
       'I created a utility to make it easy to export lists of data from APE Mobile.',
     myRole:
-      'I created this to fill an unmet need. One customer, at John Holland, commented “It worked like a charm! It’s been probably the best part of the platform so far.”',
+      'I created this to fill an unmet need. A user from John Holland commented “It worked like a charm! It’s been probably the best part of the platform so far.”',
     technologies:
       'JavaScript, HTML, CSS, APIs, GitHub Pages and Heroku. That included making an API Client/Helper, and modified CORS-Anywhere proxy and hosting that on Heroku.',
     link2Demo:
@@ -342,7 +353,7 @@ const projectsData: IProjectRecord[] = [
     subGroup: 'Micromine',
     projectName: 'Micromine: Python with Micromine API',
     projectDescription:
-      'I developed a 2-day course to teach people how to program Micromine software using its new Python programming interface. I made scripts to automate operations in Micromine software. I created a programming framework to make it easier for novices to do the above.',
+      'I developed a 2-day course to teach people how to program Micromine software using its new Python programming interface. I made scripts to automate operations in Micromine software, and I created a programming framework to make it easier for novices to do that.',
     myRole: 'As above.',
     technologies: 'Python, Micromine software, and its API.',
     link2Demo: 'N/A',

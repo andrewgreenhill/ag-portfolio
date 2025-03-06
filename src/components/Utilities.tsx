@@ -5,11 +5,20 @@ function ReactMarkdownOpenInNewTab({ markdownText }: { markdownText: string }) {
   return (
     <ReactMarkdown
       components={{
-        a: (props) => (
-          <a {...props} target="_blank" rel="noopener noreferrer">
-            {props.children}
-          </a>
-        ),
+        a: (props) => {
+          const { href, children, ...rest } = props;
+          return (
+            <a
+              className="text-green-600 hover:underline"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              {...rest}
+            >
+              {children}
+            </a>
+          );
+        },
       }}
     >
       {markdownText}

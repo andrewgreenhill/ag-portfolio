@@ -78,6 +78,46 @@ button:focus-visible {
 }
 
 .hanging-indent {
-  text-indent: -1rem;
-  padding-left: 1rem;
+  text-indent: -1.2rem;
+  padding-left: 1.2rem;
+}
+
+.bg-green-tw500 {
+  background-color: #22c55e; /* Tailwind's text-green-500 colour */
+}
+
+.project-screenshot {
+  border: 1px solid #444 !important;
+  /* border: none !important; */
+  padding: 0px !important;
+  width: 100%;
+  border-radius: 0.5rem !important; /* Adjust the border-radius value to round the edges */
+}
+.close-button {
+  font-weight: bold;
+  border: 1px solid #444;
+  /* background-color: #22c55e; */
+  /* position: absolute; */
+  /* top: 0.5rem;
+  right: 0.5rem; */
+  /* background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s; */
+}
+.close-button:hover,
+.close-button:focus {
+  color: green;
+}
+
+.dropdown-menu {
+  z-index: 1000; /* Adjust the value as needed */
 }
