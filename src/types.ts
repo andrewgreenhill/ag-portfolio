@@ -7,11 +7,17 @@ interface IContactFormData {
   message: string;
 }
 
-type TProjectGroupCode = 'Miscellaneous' | 'IdeagenDT' | 'DamstraAPE' | 'EarlyWork';
+type TProjectGroupKey = 'Miscellaneous' | 'IdeagenDT' | 'DamstraAPE' | 'EarlyWork';
+
+interface IProjectGroupMetadata {
+  name: string;
+  description: string;
+  link: string;
+}
 
 interface IProjectRecord {
   id: number;
-  groupCode: TProjectGroupCode;
+  groupCode: TProjectGroupKey;
   subGroup: string;
   projectName: string;
   projectDescription: string; // Markdown content is supported so you can use links, etc.
@@ -25,4 +31,4 @@ interface IProjectRecord {
   internalComments: string; // Internal Comments will not be displayed to users
 }
 
-export type { IContactFormData, TProjectGroupCode, IProjectRecord };
+export type { IContactFormData, TProjectGroupKey, IProjectGroupMetadata, IProjectRecord };

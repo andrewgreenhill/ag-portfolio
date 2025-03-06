@@ -1,30 +1,23 @@
-import { groupDisplayName } from '../data/projectsData';
-import { IProjectRecord, TProjectGroupCode } from '../types';
+import { IProjectRecord, TProjectGroupKey } from '../types';
 import { extractFileNameFromUrl } from '../assets/utils';
 import { ReactMarkdownOpenInNewTab } from './Utilities';
 
 interface ProjectsOfGroupProps {
   projectsData: IProjectRecord[];
-  groupCode: TProjectGroupCode;
+  groupCode: TProjectGroupKey;
 }
 
 function ProjectsOfGroup({ projectsData, groupCode }: ProjectsOfGroupProps) {
   const projectsOfGroup = projectsData.filter((project) => project.groupCode === groupCode);
   return (
     <div>
-      <h2 className="text-2xl font-bold">
-        {/* TODO: Remove ' =========' and '========= ' */}
-        {'========= ' + groupDisplayName[groupCode] + ' ========='}
-      </h2>
       {projectsOfGroup.length === 0 ? (
-        <div className="mt-2 text-gray-600">
-          Under construction. There is no project data for this group yet.
-        </div>
+        <div className="mt-2 text-gray-600">There is currently no project data for this group.</div>
       ) : (
-        projectsOfGroup.map((projectData) => (
-          <div key={projectData.id}>
+        projectsOfGroup.map((project) => (
+          <div key={project.id}>
             <br />
-            <DisplayProject projectData={projectData} />
+            <DisplayProject projectData={project} />
           </div>
         ))
       )}
@@ -48,7 +41,7 @@ function DisplayProject({ projectData }: { projectData: IProjectRecord }) {
 }
 
 function ProjectName({ projectName }: { projectName: string }) {
-  return <h3 className="text-xl font-bold">{projectName}</h3>;
+  return <h2 className="text-2xl font-bold">{projectName}</h2>;
 }
 
 function MarkdownField({ label, markdownText }: { label: string; markdownText: string }) {

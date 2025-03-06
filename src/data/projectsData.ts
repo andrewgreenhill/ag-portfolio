@@ -1,10 +1,18 @@
-import { TProjectGroupCode, IProjectRecord } from '../types';
+import { TProjectGroupKey, IProjectRecord, IProjectGroupMetadata } from '../types';
 
-const groupDisplayName: Record<TProjectGroupCode, string> = {
-  Miscellaneous: 'Miscellaneous',
-  IdeagenDT: 'For Ideagen / Damstra',
-  DamstraAPE: 'For Damstra / Applied Project Experience',
-  EarlyWork: 'Early works',
+const groupsInfo: Record<TProjectGroupKey, IProjectGroupMetadata> = {
+  EarlyWork: { name: 'Early works', description: '...Early works...', link: 'Early' },
+  DamstraAPE: {
+    name: 'For Damstra / Applied Project Experience',
+    description: '...Damstra / Applied Project Experience...',
+    link: 'DA',
+  },
+  Miscellaneous: {
+    name: 'Miscellaneous',
+    description: '...projects that don’t fit into the other categories...',
+    link: 'Misc',
+  },
+  IdeagenDT: { name: 'For Ideagen / Damstra', description: '...Ideagen / Damstra...', link: 'ID' },
 };
 
 const projectsData: IProjectRecord[] = [
@@ -446,4 +454,4 @@ I also made a computer from the ground up from very basic components: a CPU, RAM
   },
 ];
 
-export { groupDisplayName, projectsData };
+export { groupsInfo, projectsData };

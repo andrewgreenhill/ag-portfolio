@@ -5,6 +5,7 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 import './App.css';
 import { transitionDuration } from './assets/constants';
 import NavBar from './components/NavBar';
@@ -29,9 +30,11 @@ function App() {
               <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home />} />
                 <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:projectId" element={<Projects />} />
                 <Route path="/skills" element={<Skills />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </motion.div>
           </AnimatePresence>
