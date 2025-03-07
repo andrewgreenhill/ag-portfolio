@@ -66,11 +66,10 @@ function Images({ images }: { images: string[] }) {
 
   if (!images?.length) return null;
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const openModal = (image: string) => {
-    setSelectedImage(image);
-    setModalIsOpen(true);
-  };
+  // const openModal = (image: string) => {
+  //   setSelectedImage(image);
+  //   setModalIsOpen(true);
+  // };
 
   const closeModal = () => {
     setSelectedImage(null);
