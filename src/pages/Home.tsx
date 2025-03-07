@@ -5,13 +5,6 @@ function Home() {
   return (
     <PageTransition>
       <div className="p-8 pb-4">
-        <p className="mt-2 text-gray-600">
-          <em>
-            <strong>This is under construction.</strong>
-          </em>
-          {/* TODO */}
-        </p>
-        <br />
         {/* <section className="bg-[url('/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg')] bg-cover bg-center h-screen flex flex-col justify-center items-center text-white"> */}
         {/* <section className="bg-[url('/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg')] bg-cover bg-center h-screen flex flex-col justify-center text-white"> */}
         {/* <section className="bg-[url('/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg')] bg-cover bg-center bg-no-repeat text-white py-20 px-4"> */}
@@ -30,10 +23,11 @@ function Home() {
         <img
           // src={UnderConstructionLogo}
           src={'/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg'}
-          alt="Under Construction"
-          className="under-construction-logo"
+          alt="Perth CBD skyline from State War Memorial Lookout"
+          className=""
         />
       </div>
+      <p className="text-center text-sm text-black">I'm located in Perth, Western Australia.</p>
     </PageTransition>
   );
 }
