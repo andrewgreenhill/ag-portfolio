@@ -6,10 +6,6 @@ Contact form:
 [Update README.MD again if needed]
 [Edge network tracking]
 
-Projects: Consider potentially-better ways/s to structure the presentation of projects
-
-Wireframing ???????????????????????? => new design
-Transform into new design
 Theme[s]
 
 User testing

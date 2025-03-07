@@ -9,6 +9,7 @@ function Skills() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Front-end Skills Card */}
           <div className="bg-white shadow rounded-lg p-6">
+            {/* <div className="bg-white shadow rounded-lg border-2 border-gray-500 p-6"> */}
             <h2 className="text-2xl font-bold mb-4 text-left">Frontend</h2>
             <ul className="list-disc list-inside text-left space-y-2">
               <li className="hanging-indent">JavaScript</li>

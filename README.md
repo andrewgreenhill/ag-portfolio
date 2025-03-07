@@ -15,7 +15,8 @@ This repo is _in progress_. It will contain a summary of Andrew's projects, and 
 
 **Run the repo using**  
 npm run dev
-=> http://localhost:5173/
+=> http://localhost:5173/  
+(or use "npm run dev -- --host" to tell Vite to bind to your local IP address, making it accessible from other devices.)
 
 **Run tests using**  
 npm test

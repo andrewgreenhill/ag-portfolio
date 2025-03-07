@@ -136,6 +136,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
+      {/* <div className="max-w-lg mx-auto p-6 bg-gray-200 border-2 border-gray-500 shadow-lg rounded-lg"> */}
       {/* <h1 className="text-3xl font-bold mb-4 text-center">Contact Me</h1> */}
       {titleMessage && <h2 className="text-2xl font-bold">{titleMessage}</h2>}
       {status === 'success' && isSubmitted && (
@@ -150,7 +151,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Name*</label>
           <input
             type="text"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 bg-white border rounded"
             {...register('name', { required: messageFieldIsRequired })}
             onInput={(event) => handleRequiredFieldChange('name', event.currentTarget.value, true)}
             onChange={(event) => {
@@ -166,7 +167,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Email*</label>
           <input
             type="email"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 bg-white border-1 rounded"
             {...register('email', {
               required: messageFieldIsRequired,
               pattern: {
@@ -188,7 +189,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Phone</label>
           <input
             type="text"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 bg-white border rounded"
             {...register('phone')}
             onChange={clearStatus}
           />
@@ -197,7 +198,11 @@ function ContactForm({ titleMessage }: ContactFormProps) {
         {/* Phone (home), honeypot field */}
         <div className="hidden">
           <label className="block font-medium">Phone (home)</label>
-          <input type="text" className="w-full p-2 border rounded" {...register('homeFaux')} />
+          <input
+            type="text"
+            className="w-full p-2 bg-white border rounded"
+            {...register('homeFaux')}
+          />
         </div>
 
         {/* Website */}
@@ -205,7 +210,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Website</label>
           <input
             type="text"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 bg-white border rounded"
             {...register('website')}
             onChange={clearStatus}
           />
@@ -216,7 +221,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Message*</label>
           <textarea
             rows={8}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 bg-white border rounded"
             {...register('message', { required: messageFieldIsRequired })}
             onInput={(event) =>
               handleRequiredFieldChange('message', event.currentTarget.value, true)
@@ -246,7 +251,13 @@ function ContactForm({ titleMessage }: ContactFormProps) {
 
         {/* Send Button */}
         <motion.button
-          whileHover={{ scale: 1.05 }}
+          whileHover={{
+            scale: 1.05,
+            color:
+              errors.name || errors.email || errors.message || !captchaValue || status === 'error'
+                ? 'black'
+                : '#22c55e',
+          }}
           whileTap={{ scale: 0.95 }}
           type="submit"
           disabled={isSubmitting}

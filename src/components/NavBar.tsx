@@ -50,7 +50,7 @@ function NavBar() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold' : 'hover:text-green-500'
+              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
           >
             Home
@@ -58,7 +58,7 @@ function NavBar() {
           <NavLink
             to="/projects"
             className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold' : 'hover:text-green-500'
+              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
           >
             Projects
@@ -66,7 +66,7 @@ function NavBar() {
           <NavLink
             to="/skills"
             className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold' : 'hover:text-green-500'
+              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
           >
             Skills
@@ -74,7 +74,7 @@ function NavBar() {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold' : 'hover:text-green-500'
+              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
           >
             About
@@ -82,7 +82,7 @@ function NavBar() {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold' : 'hover:text-green-500'
+              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
           >
             Contact
@@ -115,12 +115,12 @@ function NavBar() {
       {isMenuOpen && (
         <div
           ref={menuRef}
-          className="md:hidden bg-white text-black p-2 absolute right-0 mt-2 w-35 border border-gray-300"
+          className="dropdown-menu md:hidden bg-white text-black p-2 absolute right-0 mt-2 w-35 border border-gray-300"
         >
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold' : 'block hover:text-green-500'
+              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
             onClick={toggleMenu}
           >
@@ -129,7 +129,7 @@ function NavBar() {
           <NavLink
             to="/projects"
             className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold' : 'block hover:text-green-500'
+              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
             onClick={toggleMenu}
           >
@@ -138,7 +138,7 @@ function NavBar() {
           <NavLink
             to="/skills"
             className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold' : 'block hover:text-green-500'
+              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
             onClick={toggleMenu}
           >
@@ -147,7 +147,7 @@ function NavBar() {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold' : 'block hover:text-green-500'
+              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
             onClick={toggleMenu}
           >
@@ -156,7 +156,7 @@ function NavBar() {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold' : 'block hover:text-green-500'
+              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
             onClick={toggleMenu}
           >

@@ -7,7 +7,12 @@ function About() {
         The outer div is set to full width (w-full) and we remove any auto margins.
         We also apply an inline style to force text alignment to the left.
       */}
-      <div className="w-full p-8 pb-4" style={{ textAlign: 'justify' }}>
+      <div
+        // className="w-full p-8 pb-4"
+        className="w-full p-8 pb-4 bg-white rounded-lg"
+        // className="w-full border-2 border-gray-500 rounded-lg p-8 pb-4"
+        style={{ textAlign: 'justify' }}
+      >
         <h1 className="text-3xl font-bold mb-6 text-center">About me</h1>
 
         <section className="space-y-4">
@@ -23,7 +28,16 @@ function About() {
           <p className="text-lg text-gray-700 leading-relaxed">
             My experience across diverse roles in software development, technical support, and
             customer success has strengthened my ability to understand end-user needs and build
-            practical, scalable applications.
+            practical, scalable applications. See more at{' '}
+            <a
+              className="text-green-600 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/andrew-greenhill"
+            >
+              LinkedIn
+            </a>
+            .
           </p>
         </section>
 
@@ -90,7 +104,7 @@ function About() {
           <img
             src="https://i0.wp.com/blog.compactbyte.com/wp-content/uploads/2019/02/vcxsrv_2019-02-18_23-24-30.png?is-pending-load=1#038;ssl=1"
             alt="Hexadecimal editor screenshot"
-            className="rounded-lg shadow-lg mt-4 mx-auto"
+            className="rounded-lg shadow-lg mt-4 mx-auto m-4"
           />
         </section>
       </div>

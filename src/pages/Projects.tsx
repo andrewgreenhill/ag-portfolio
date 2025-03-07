@@ -1,10 +1,55 @@
+import { useParams, Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
-import { TProjectGroupCode } from '../types';
-import { projectsData } from '../data/projectsData';
+import { TProjectGroupKey } from '../types';
+import { groupsInfo, projectsData } from '../data/projectsData';
+import NotFound from './NotFound';
 import { ProjectsOfGroup } from '../components/ProjectDisplay';
 
 function Projects() {
-  const projectGroupsToDisplay: TProjectGroupCode[] = [
+  const { projectId } = useParams<{ projectId?: string }>();
+
+  // Handle case for an individual project
+  if (projectId) {
+    // Find the key for the group whose link matches the URL's projectId parameter
+    const projectGroupKey = Object.keys(groupsInfo).find(
+      (key) => groupsInfo[key as TProjectGroupKey].link === projectId
+    ) as TProjectGroupKey;
+
+    if (!projectGroupKey) {
+      return (
+        <PageTransition>
+          <NotFound pageType="projects page" />
+        </PageTransition>
+      );
+    }
+
+    const projectMetadata = groupsInfo[projectGroupKey];
+
+    return (
+      <PageTransition>
+        <div className="relative text-center p-8 pb-4">
+          <Link to="/projects" className="absolute top-0 left-4 text-black hover:text-green-500">
+            ⇦ Back to all projects
+          </Link>
+          <h1 className="text-3xl font-bold">{projectMetadata.name}</h1>
+          <h2 className="mt-2 text-black mb-8">{projectMetadata.description}</h2>
+          <ProjectsOfGroup projectsData={projectsData} groupCode={projectGroupKey} />
+          <div className="relative">
+            <Link
+              to="#"
+              className="absolute bottom-2 right-4 text-black hover:text-green-800"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              Back to top ⇧
+            </Link>
+          </div>
+        </div>
+      </PageTransition>
+    );
+  }
+
+  // Handle case for All projects
+  const projectGroupsToDisplay: TProjectGroupKey[] = [
     'IdeagenDT',
     'DamstraAPE',
     'Miscellaneous',
@@ -14,20 +59,26 @@ function Projects() {
   return (
     <PageTransition>
       <div className="text-center p-8 pb-4">
-        {/* TODO: Improve the presentation of the project groups */}
-        <p className="mt-2 font-bold text-gray-600">
-          <em>This is under construction. Nicer presentation is coming soon...</em>
-        </p>
-        <br />
-
         <h1 className="text-3xl font-bold">Projects</h1>
 
-        <p className="mt-2 text-gray-600">Check out my work below!</p>
-        <div>
+        <h2 className="mt-2 text-2xl text-gray-600 mb-10">Check out my work below</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {projectGroupsToDisplay.map((groupCode) => (
-            <div key={groupCode}>
-              <br />
-              <ProjectsOfGroup projectsData={projectsData} groupCode={groupCode} />
+            <div
+              key={groupCode}
+              className="bg-white shadow-md rounded-lg p-4 pt-10 hover:scale-102 transform transition duration-200 ease-in-out"
+              // className="bg-white shadow-md rounded-lg p-4 border border-gray-300"
+            >
+              <h2 className="text-2xl font-bold">{groupsInfo[groupCode].name}</h2>
+              <p className="justify-center">{groupsInfo[groupCode].description}</p>
+
+              <Link
+                className="inline-block bg-white text-black border border-black font-bold m-4 py-2 px-4 rounded hover:text-green-500"
+                to={`/projects/${groupsInfo[groupCode].link}`}
+              >
+                View Projects
+                {/* {`${window.location.href}/${groupsInfo[groupCode].link}`} */}
+              </Link>
             </div>
           ))}
         </div>
