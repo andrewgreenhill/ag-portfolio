@@ -26,14 +26,12 @@ function Home() {
               <Link
                 to="/projects"
                 className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black text-black font-bold m-2 px-4 py-2 rounded-lg hover:text-green-600"
-                // className="bg-neutral text-2xl text-black border border-black font-bold m-2 px-4 py-2 rounded-lg hover:text-green-600"
               >
                 View my work
               </Link>
               <Link
                 to="/about"
                 className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black text-black font-bold m-2 px-4 py-2 rounded-lg hover:text-green-600"
-                // className="bg-neutral text-2xl text-black border border-black font-bold m-2 px-4 py-2 rounded-lg hover:text-green-600"
               >
                 More about me
               </Link>
