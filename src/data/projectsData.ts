@@ -35,15 +35,13 @@ const projectsData: IProjectRecord[] = [
     projectDescription:
       'My personal portfolio website to show my projects, skills, and experience. It is a single-page application (SPA), built with React.js and TypeScript, and uses Tailwind CSS for styling. The content is written in Markdown and hosted on GitHub Pages.',
     myRole:
-      'I designed and built my portfolio repository from the ground up, i.e. without using a template.',
+      'I designed and built my portfolio repository from the ground up, without using a template.',
     technologies: 'TypeScript, React.js, Tailwind CSS, Vite, Markdown, and GitHub Pages.',
-    // TODO: Update the link2Demo when the portfolio is live
     link2Demo:
-      '[https://andrewgreenhill.github.io/ag-portfolio](https://andrewgreenhill.github.io/ag-portfolio) <= _Not yet live_',
+      '[https://andrewgreenhill.github.io/ag-portfolio](https://andrewgreenhill.github.io/ag-portfolio)',
     link2Code:
       '[https://github.com/andrewgreenhill/ag-portfolio](https://github.com/andrewgreenhill/ag-portfolio)',
-    // TODO: Update the images when the portfolio is live
-    images: ['http://localhost:5173/images/Misc/Portfolio_WIP.jpg'],
+    images: ['http://localhost:5173/images/Misc/Portfolio.jpg'],
     when: 'January-March 2025',
     publicComments: 'The project you are currently viewing is my portfolio.',
     internalComments: '',

@@ -37,7 +37,7 @@ function Projects() {
           <div className="relative">
             <Link
               to="#"
-              className="absolute bottom-2 right-4 text-black hover:text-green-800"
+              className="absolute bottom-2 right-4 text-black hover:text-green-500"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               Back to top ⇧

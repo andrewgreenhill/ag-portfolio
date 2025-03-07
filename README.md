@@ -1,8 +1,8 @@
 # Andrew Greenhill's Portfolio
 
-This repo is _in progress_. It will contain a summary of Andrew's projects, and other details including a Contact form, Skills list, "About" page, and social media links.
+This repo shows a summary of my projects, and other details including a Contact form, Skills list, "About" page, and social media links.
 
-**Repo set up**
+**Notes re the repo set up**
 
 - npm install
 
