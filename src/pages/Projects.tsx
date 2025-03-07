@@ -32,7 +32,7 @@ function Projects() {
             ⇦ Back to all projects
           </Link>
           <h1 className="text-3xl font-bold">{projectMetadata.name}</h1>
-          <p className="mt-2 text-black mb-8">{projectMetadata.description}</p>
+          <h2 className="mt-2 text-black mb-8">{projectMetadata.description}</h2>
           <ProjectsOfGroup projectsData={projectsData} groupCode={projectGroupKey} />
           <div className="relative">
             <Link
@@ -62,7 +62,7 @@ function Projects() {
         <h1 className="text-3xl font-bold">Projects</h1>
 
         <h2 className="mt-2 text-2xl text-gray-600 mb-10">Check out my work below</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {projectGroupsToDisplay.map((groupCode) => (
             <div
               key={groupCode}

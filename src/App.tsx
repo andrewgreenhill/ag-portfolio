@@ -17,7 +17,9 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />
-      <div className="flex-grow min-h min-w-screen bg-gray-100 text-gray-900">
+      {/* <div className="flex-grow min-h min-w-screen bg-gray-100 text-gray-900"> */}
+      <div className="flex-grow min-h min-w-screen bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 text-gray-900">
+        {/* <div className="flex-grow min-h min-w-screen bg-gradient-to-r from-zinc-200 via-stone-100 to-zinc-200 text-gray-900"> */}
         <div className="container mx-auto p-8 pb-4">
           <AnimatePresence mode="wait">
             <motion.div

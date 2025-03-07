@@ -251,7 +251,13 @@ function ContactForm({ titleMessage }: ContactFormProps) {
 
         {/* Send Button */}
         <motion.button
-          whileHover={{ scale: 1.05 }}
+          whileHover={{
+            scale: 1.05,
+            color:
+              errors.name || errors.email || errors.message || !captchaValue || status === 'error'
+                ? 'black'
+                : '#22c55e',
+          }}
           whileTap={{ scale: 0.95 }}
           type="submit"
           disabled={isSubmitting}

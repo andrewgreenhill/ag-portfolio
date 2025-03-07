@@ -28,7 +28,16 @@ function About() {
           <p className="text-lg text-gray-700 leading-relaxed">
             My experience across diverse roles in software development, technical support, and
             customer success has strengthened my ability to understand end-user needs and build
-            practical, scalable applications.
+            practical, scalable applications. See more at{' '}
+            <a
+              className="text-green-600 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/andrew-greenhill"
+            >
+              LinkedIn
+            </a>
+            .
           </p>
         </section>
 

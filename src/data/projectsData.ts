@@ -190,7 +190,7 @@ const projectsData: IProjectRecord[] = [
     subGroup: '',
     projectName: 'Get APE Mobile Info (web app)',
     projectDescription:
-      'I created a utility to make it easy to export lists of data from APE Mobile.',
+      'I created a web app to make it easy to export lists of data from APE Mobile.',
     myRole:
       'I created this to fill an unmet need. A user from John Holland commented “It worked like a charm! It’s been probably the best part of the platform so far.”',
     technologies:
