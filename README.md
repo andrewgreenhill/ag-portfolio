@@ -13,10 +13,13 @@ This repo shows a summary of my projects, and other details including a Contact 
 - For local dev: set the environmental variables in ".env.local".
 - For prod: When deploying to prod (eg Netlify, Vercel, or GitHub Pages), set the environment variable in the dashboard, e.g. in Netlify: 1. Go to your site's settings. 2. Find Environment Variables. 3. Add the variables shown in .env.local and set suitable values. For Vercel, that's under Project Settings > Environment Variables.
 
-**Run the repo using**  
+**I run the repo using**  
 npm run dev
 => http://localhost:5173/  
-(or use "npm run dev -- --host" to tell Vite to bind to your local IP address, making it accessible from other devices.)
+(or "npm run dev -- --host" to tell Vite to bind to your local IP address, making it accessible from other devices.)
 
-**Run tests using**  
+**I run tests using**  
 npm test
+
+**I deploy to GitHub pages using**  
+npm run deploy

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { MemoryRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import App from '../App';
 
 describe('Basic UI Tests', () => {
@@ -9,9 +9,9 @@ describe('Basic UI Tests', () => {
   it('should display an H1 tag containing "Frontend Developer" on the home page', () => {
     render(
       // Simulate visiting home page
-      <MemoryRouter initialEntries={['/']}>
+      <HashRouter>
         <App />
-      </MemoryRouter>
+      </HashRouter>
     );
 
     const heading = screen.getByRole('heading', { level: 1 });
@@ -23,9 +23,9 @@ describe('Basic UI Tests', () => {
   it('should display an H1 tag containing "Contact me" on the contact page', () => {
     render(
       // Simulate visiting /contact
-      <MemoryRouter initialEntries={['/contact']}>
+      <HashRouter>
         <App />
-      </MemoryRouter>
+      </HashRouter>
     );
 
     const heading = screen.getByRole('heading', { level: 1 });

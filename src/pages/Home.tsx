@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 
+const baseURL = import.meta.env.BASE_URL;
+
 function Home() {
   return (
     <PageTransition>
       <div className="relative p-8 pb-4">
         <img
-          src={'/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg'}
+          src={`${baseURL}/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`}
           alt="Perth CBD skyline from State War Memorial Lookout"
           className="w-full h-auto"
         />

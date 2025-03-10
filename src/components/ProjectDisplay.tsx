@@ -76,6 +76,8 @@ function Images({ images }: { images: string[] }) {
     setModalIsOpen(false);
   };
 
+  const baseURL = import.meta.env.BASE_URL;
+
   return (
     <div className="mt-2 text-gray-600">
       {images.map((image, index) => (
@@ -89,9 +91,9 @@ function Images({ images }: { images: string[] }) {
             onClick={() => openModal(image)}
             /> */}
           {/* TODO: Disable the <a> tag below when I restore the Modal operation above */}
-          <a href={image} target="_blank" rel="noopener noreferrer">
+          <a href={`${baseURL}${image}`} target="_blank" rel="noopener noreferrer">
             <img
-              src={image}
+              src={`${baseURL}${image}`}
               alt={extractFileNameFromUrl(image) || `Screenshot ${index + 1}`}
               className="project-screenshot rounded-lg cursor-pointer"
               style={{ border: '2px solid #ccc', padding: '5px', width: '100%' }}
