@@ -4,7 +4,7 @@ function Skills() {
   return (
     <PageTransition>
       <div className="max-w-4xl mx-auto px-8 pb-4 md:pt-8 sm:pt-2">
-        <h1 className="text-3xl font-bold text-center mb-8">Skills</h1>
+        <h1 className="text-3xl font-bold text-center mb-6 md:mb-8">Skills</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Front-end Skills Card */}
