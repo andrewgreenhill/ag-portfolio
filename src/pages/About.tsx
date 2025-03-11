@@ -7,12 +7,7 @@ function About() {
         The outer div is set to full width (w-full) and we remove any auto margins.
         We also apply an inline style to force text alignment to the left.
       */}
-      <div
-        // className="w-full p-8 pb-4"
-        className="w-full p-8 pb-4 bg-white rounded-lg"
-        // className="w-full border-2 border-gray-500 rounded-lg p-8 pb-4"
-        style={{ textAlign: 'justify' }}
-      >
+      <div className="m-2 p-8 pb-4 bg-white rounded-lg text-left md:text-justify">
         <h1 className="text-3xl font-bold mb-6 text-center">About me</h1>
 
         <section className="space-y-4">

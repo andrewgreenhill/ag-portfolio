@@ -58,7 +58,7 @@ function Projects() {
 
   return (
     <PageTransition>
-      <div className="text-center p-8 pb-4">
+      <div className="text-center px-8 pb-4 md:pt-8 sm:pt-2">
         <h1 className="text-3xl font-bold">Projects</h1>
 
         <h2 className="mt-2 text-2xl text-gray-600 mb-10">Check out my work below</h2>
@@ -75,9 +75,9 @@ function Projects() {
               <Link
                 className="inline-block bg-white text-black border border-black font-bold m-4 py-2 px-4 rounded hover:text-green-500"
                 to={`/projects/${groupsInfo[groupCode].link}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}
               >
                 View Projects
-                {/* {`${window.location.href}/${groupsInfo[groupCode].link}`} */}
               </Link>
             </div>
           ))}
