@@ -8,18 +8,18 @@ const groupsInfo: Record<TProjectGroupKey, IProjectGroupMetadata> = {
     link: 'Early',
   },
   DamstraAPE: {
-    name: 'For Damstra Technology / Applied Project Experience',
+    name: 'Projects for Damstra / Applied Project Experience',
     description:
       'A collection of my software projects during 2015-2022 when working as a customer success manager then solutions engineer.',
     link: 'DA',
   },
   Miscellaneous: {
-    name: 'For myself, miscellaneous',
+    name: 'Projects for myself, miscellaneous',
     description: 'Some of my miscellaneous software projects from 2021 to 2025.',
     link: 'Misc',
   },
   IdeagenDT: {
-    name: 'For Ideagen / Damstra Technology’s EPP',
+    name: 'Projects for Ideagen / Damstra’s EPP',
     description:
       'Summary of my work done as a front-end software engineer, in 2023-2024, on Enterprise Protection Platform (EPP) software.',
     link: 'ID',
