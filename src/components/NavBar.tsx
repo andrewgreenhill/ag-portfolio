@@ -39,13 +39,14 @@ function NavBar() {
   return (
     <nav className="bg-white text-black p-4 w-full">
       <div className="container mx-auto flex justify-between items-center">
-        <div
+        <NavLink
+          to="/"
           className="text-green-600 text-xl font-bold"
           style={{ fontSize: '1.4rem' }}
           // style={{ fontFamily: 'Kantumruy Pro, sans-serif' }}
         >
           Andrew Greenhill
-        </div>
+        </NavLink>
         <div className="hidden md:flex space-x-4 ml-auto">
           <NavLink
             to="/"
