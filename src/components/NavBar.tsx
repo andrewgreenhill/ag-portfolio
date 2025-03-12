@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import { scrollToTop } from '../assets/utils';
 
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,6 +44,7 @@ function NavBar() {
           to="/"
           className="text-green-600 text-xl font-bold"
           style={{ fontSize: '1.4rem' }}
+          onClick={scrollToTop}
           // style={{ fontFamily: 'Kantumruy Pro, sans-serif' }}
         >
           Andrew Greenhill
@@ -53,6 +55,7 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
+            onClick={scrollToTop}
           >
             Home
           </NavLink>
@@ -61,6 +64,7 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
+            onClick={scrollToTop}
           >
             Projects
           </NavLink>
@@ -69,6 +73,7 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
+            onClick={scrollToTop}
           >
             Skills
           </NavLink>
@@ -77,6 +82,7 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
+            onClick={scrollToTop}
           >
             About
           </NavLink>
@@ -85,6 +91,7 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
             }
+            onClick={scrollToTop}
           >
             Contact
           </NavLink>
@@ -123,7 +130,10 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              scrollToTop();
+            }}
           >
             Home
           </NavLink>
@@ -132,7 +142,10 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              scrollToTop();
+            }}
           >
             Projects
           </NavLink>
@@ -141,7 +154,10 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              scrollToTop();
+            }}
           >
             Skills
           </NavLink>
@@ -150,7 +166,10 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              scrollToTop();
+            }}
           >
             About
           </NavLink>
@@ -159,7 +178,10 @@ function NavBar() {
             className={({ isActive }) =>
               isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
             }
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              scrollToTop();
+            }}
           >
             Contact
           </NavLink>

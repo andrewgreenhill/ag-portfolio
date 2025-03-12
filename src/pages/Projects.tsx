@@ -4,6 +4,7 @@ import { TProjectGroupKey } from '../types';
 import { groupsInfo, projectsData } from '../data/projectsData';
 import NotFound from './NotFound';
 import { ProjectsOfGroup } from '../components/ProjectDisplay';
+import { scrollToTop } from '../assets/utils';
 
 function Projects() {
   const { projectId } = useParams<{ projectId?: string }>();
@@ -75,7 +76,7 @@ function Projects() {
               <Link
                 className="inline-block bg-white border border-black font-bold m-4 py-2 px-4 rounded text-black hover:text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
                 to={`/projects/${groupsInfo[groupCode].link}`}
-                onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}
+                onClick={scrollToTop}
               >
                 View projects
               </Link>

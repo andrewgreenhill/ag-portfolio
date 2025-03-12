@@ -33,4 +33,8 @@ function extractFileNameFromUrl(url: string) {
   return urlParts[urlParts.length - 1];
 }
 
-export { emailAddressPattern, messageSummary, sanitizeInput, extractFileNameFromUrl };
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+export { emailAddressPattern, messageSummary, sanitizeInput, extractFileNameFromUrl, scrollToTop };

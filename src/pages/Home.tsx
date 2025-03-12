@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
+import { scrollToTop } from '../assets/utils';
 
 const baseURL = import.meta.env.BASE_URL;
 
@@ -21,14 +22,14 @@ function MainScreenHeadingsAndButtons() {
         <Link
           to="/projects"
           className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black font-bold m-2 px-4 py-2 rounded-lg text-black hover:text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}
+          onClick={scrollToTop}
         >
           View my work
         </Link>
         <Link
           to="/about"
           className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black font-bold m-2 px-4 py-2 rounded-lg text-black hover:text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}
+          onClick={scrollToTop}
         >
           More about me
         </Link>
