@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import About from './pages/About';
@@ -13,13 +14,35 @@ import Footer from './components/Footer';
 
 function App() {
   const location = useLocation(); // Get current route
+  const [isNavBarFixed, setIsNavBarFixed] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    if (window.scrollY < lastScrollY) {
+      setIsNavBarFixed(true);
+    } else {
+      setIsNavBarFixed(false);
+    }
+    setLastScrollY(window.scrollY);
+  }, [lastScrollY]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
 
   return (
     <div className="flex flex-col min-h-screen">
-      <NavBar />
-      {/* <div className="flex-grow min-h min-w-screen bg-gray-100 text-gray-900"> */}
-      <div className="flex-grow min-h min-w-screen bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 text-gray-900">
-        {/* <div className="flex-grow min-h min-w-screen bg-gradient-to-r from-zinc-200 via-stone-100 to-zinc-200 text-gray-900"> */}
+      <div className={`${isNavBarFixed ? 'fixed' : 'relative'} top-0 left-0 right-0 z-50`}>
+        <NavBar />
+        {isNavBarFixed && (
+          // Thin grey line to separate navbar from content, only visible when the navbar is fixed
+          <div className="h-2 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200"></div>
+        )}
+      </div>
+      <div className="flex-grow min-h min-w-screen bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 text-gray-900 pt-16">
         <div className="container mx-auto p-8 pb-4">
           <AnimatePresence mode="wait">
             <motion.div
