@@ -28,7 +28,7 @@ function Projects() {
     return (
       <PageTransition>
         <div className="relative text-center p-8 pb-4">
-          <Link to="/projects" className="absolute top-0 left-4 text-black hover:text-green-500">
+          <Link to="/projects" className="absolute top-0 left-4 text-green-600 hover:underline">
             ⇦ Back to all projects
           </Link>
           <h1 className="text-3xl font-bold">{projectMetadata.name}</h1>
@@ -37,7 +37,7 @@ function Projects() {
           <div className="relative">
             <Link
               to="#"
-              className="absolute bottom-2 right-4 text-black hover:text-green-500"
+              className="absolute bottom-2 right-4 text-green-600 hover:underline"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               Back to top ⇧
@@ -66,18 +66,18 @@ function Projects() {
           {projectGroupsToDisplay.map((groupCode) => (
             <div
               key={groupCode}
-              className="bg-white shadow-md rounded-lg p-4 pt-10 hover:scale-102 transform transition duration-200 ease-in-out"
+              className="bg-white shadow-md rounded-lg p-4 pt-10 transform transition duration-200 ease-in-out"
               // className="bg-white shadow-md rounded-lg p-4 border border-gray-300"
             >
               <h2 className="text-2xl font-bold">{groupsInfo[groupCode].name}</h2>
               <p className="justify-center">{groupsInfo[groupCode].description}</p>
 
               <Link
-                className="inline-block bg-white text-black border border-black font-bold m-4 py-2 px-4 rounded hover:text-green-500"
+                className="inline-block bg-white border border-black font-bold m-4 py-2 px-4 rounded text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
                 to={`/projects/${groupsInfo[groupCode].link}`}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}
               >
-                View Projects
+                View projects
               </Link>
             </div>
           ))}
