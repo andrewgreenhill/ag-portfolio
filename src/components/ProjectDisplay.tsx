@@ -53,7 +53,7 @@ function ProjectName({ projectName }: { projectName: string }) {
 function MarkdownField({ label, markdownText }: { label: string; markdownText: string }) {
   if (!markdownText) return null;
   return (
-    <p className="mt-2 text-black">
+    <p className="mt-2 text-black break-words">
       {label && <strong>{label}</strong>}
       <ReactMarkdownOpenInNewTab markdownText={markdownText} />
     </p>
