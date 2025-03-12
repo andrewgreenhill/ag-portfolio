@@ -62,7 +62,7 @@ const projectsData: IProjectRecord[] = [
     images: ['/images/Misc/ag_agworld_accessory.jpg'],
     when: 'Around June-July 2021',
     publicComments:
-      'Agworld accessory isn’t a complete project and it doesn’t make use of all the modern front-end development practices; it was just a quick project and made many years ago.',
+      'Agworld accessory isn’t a complete project and it doesn’t make use of all the modern front-end development practices; it was demonstration-of-concept project and made many years ago.',
     internalComments: '',
   },
 
