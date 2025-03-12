@@ -145,6 +145,18 @@ function About() {
             className="rounded-lg shadow-lg mt-4 mx-auto m-4"
           />
         </section>
+        <div className="text-right mt-8">
+          <a
+            href="#"
+            className="text-green-600 hover:underline"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            Back to top ⇧
+          </a>
+        </div>
       </div>
     </PageTransition>
   );

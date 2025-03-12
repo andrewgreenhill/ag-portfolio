@@ -12,7 +12,7 @@ interface ProjectsOfGroupProps {
 function ProjectsOfGroup({ projectsData, groupCode }: ProjectsOfGroupProps) {
   const projectsOfGroup = projectsData.filter((project) => project.groupCode === groupCode);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
       {projectsOfGroup.length === 0 ? (
         <div className="mt-2 text-gray-600">There is currently no project data for this group.</div>
       ) : (

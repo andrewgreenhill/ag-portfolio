@@ -62,7 +62,7 @@ function Projects() {
         <h1 className="text-3xl font-bold">Projects</h1>
 
         <h2 className="mt-2 text-2xl text-gray-600 mb-6 md:mb-8">Check out my work below</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
           {projectGroupsToDisplay.map((groupCode) => (
             <div
               key={groupCode}
