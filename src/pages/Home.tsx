@@ -89,7 +89,7 @@ function Home() {
     // const isLandscape = window.screen.orientation?.type.includes("landscape");
     console.log(`setIsWideScreen(${screenWidth > screenHeight})`);
     setIsWideScreen(
-      screenWidth > screenHeight && !(screenWidth < 1024 && screenWidth / screenHeight < 1.5)
+      screenWidth > screenHeight && !(screenWidth < 1024 && screenWidth / screenHeight < 2.5)
     );
   };
 
