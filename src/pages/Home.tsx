@@ -20,14 +20,14 @@ function MainScreenHeadingsAndButtons() {
       <div className="mt-8 flex justify-center space-x-4">
         <Link
           to="/projects"
-          className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black text-black font-bold m-2 px-4 py-2 rounded-lg hover:text-green-600"
+          className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black font-bold m-2 px-4 py-2 rounded-lg text-black hover:text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
           onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}
         >
           View my work
         </Link>
         <Link
           to="/about"
-          className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black text-black font-bold m-2 px-4 py-2 rounded-lg hover:text-green-600"
+          className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black font-bold m-2 px-4 py-2 rounded-lg text-black hover:text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
           onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}
         >
           More about me
