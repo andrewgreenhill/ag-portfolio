@@ -23,6 +23,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
 
   const SEND_EMAIL_ENDPOINT = import.meta.env.VITE_SEND_EMAIL_ENDPOINT;
   const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+  const haveSendDetails = !!(SEND_EMAIL_ENDPOINT && RECAPTCHA_SITE_KEY);
 
   const messageFieldIsRequired = 'This field is required';
   const messageInvalidEmailAddress = 'Invalid email address';
@@ -67,7 +68,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
         throw new Error('ReCAPTCHA set-up is missing.');
       }
       if (!captchaValue) throw new Error('Captcha failed');
-      // TODO: Verify captchaValue with Google ReCAPTCHA API
+      // * Why wasn't there an error message due to missing variable/s?!!! Set env variables for GitHub pages!: Verify captchaValue with Google ReCAPTCHA API
 
       const emailData = {
         name: sanitizeInput(data.name, true),
@@ -148,6 +149,15 @@ function ContactForm({ titleMessage }: ContactFormProps) {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Name */}
         <div>
+          {!haveSendDetails && (
+            <>
+              <p className="text-red-500">
+                This form cannot be used currently. Please try again later or use LinkedIn to
+                contact me.
+              </p>
+              <br />
+            </>
+          )}
           <label className="block font-medium">Name*</label>
           <input
             type="text"
@@ -234,15 +244,19 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
         </div>
 
-        <div className="recaptcha-container">
-          <ReCAPTCHA
-            sitekey={RECAPTCHA_SITE_KEY}
-            onChange={(value: string | null) => setCaptchaValue(value)}
-          />
-          {hasClickedSubmit && !captchaValue && (
-            <p className="text-red-500 text-sm">{'Please complete the reCAPTCHA verification.'}</p>
-          )}
-        </div>
+        {haveSendDetails && (
+          <div className="recaptcha-container">
+            <ReCAPTCHA
+              sitekey={RECAPTCHA_SITE_KEY}
+              onChange={(value: string | null) => setCaptchaValue(value)}
+            />
+            {hasClickedSubmit && !captchaValue && (
+              <p className="text-red-500 text-sm">
+                {'Please complete the reCAPTCHA verification.'}
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Privacy Note */}
         <p className="text-xs text-gray-500">
@@ -252,15 +266,14 @@ function ContactForm({ titleMessage }: ContactFormProps) {
         {/* Send Button */}
         <motion.button
           whileHover={{
-            scale: 1.05,
+            scale: haveSendDetails ? 1.05 : 1,
             color:
               errors.name || errors.email || errors.message || !captchaValue || status === 'error'
-                ? 'black'
+                ? '#333333'
                 : '#22c55e',
           }}
-          whileTap={{ scale: 0.95 }}
+          whileTap={{ scale: haveSendDetails ? 0.95 : 1 }}
           type="submit"
-          disabled={isSubmitting}
           className="w-full text-black dark:text-white py-2 rounded !border !border-black !dark:border-white !hover:border-green-600 transition"
         >
           {isSubmitting ? 'Sending...' : 'SEND'}
