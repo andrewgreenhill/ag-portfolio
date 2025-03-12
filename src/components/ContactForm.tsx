@@ -24,6 +24,9 @@ function ContactForm({ titleMessage }: ContactFormProps) {
   const SEND_EMAIL_ENDPOINT = import.meta.env.VITE_SEND_EMAIL_ENDPOINT;
   const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
   const haveSendDetails = !!(SEND_EMAIL_ENDPOINT && RECAPTCHA_SITE_KEY);
+  console.log(
+    `SEND_EMAIL_ENDPOINT: ${SEND_EMAIL_ENDPOINT}\nRECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY}\nhaveSendDetails: ${haveSendDetails}`
+  );
 
   const messageFieldIsRequired = 'This field is required';
   const messageInvalidEmailAddress = 'Invalid email address';
