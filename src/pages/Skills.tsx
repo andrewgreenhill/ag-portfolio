@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 
 function Skills() {
@@ -65,6 +66,15 @@ function Skills() {
               </li>
             </ul>
           </div>
+        </div>
+        <div className="relative lg:hidden xl:hidden 2xl:hidden">
+          <Link
+            to="#"
+            className="absolute bottom-0 right-4 text-green-600 hover:underline"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            Back to top ⇧
+          </Link>
         </div>
       </div>
     </PageTransition>
