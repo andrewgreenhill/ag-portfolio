@@ -330,7 +330,7 @@ const projectsData: IProjectRecord[] = [
     subGroup: '',
     projectName: 'Formulas',
     projectDescription:
-      'One of the APE developers observed that I made formulas work like a programming language. For example, I initially used simple functions to simulate Boolean functions, and simulated SQRT by using recursive subtraction and division operations (a Babylonian method!). Later I got the set of functions extended and then further advanced what could be achieved with formulas, establishing methods that are used by other staff today for putting smart functionality into Damstra Forms.',
+      'One of the APE developers observed that I made formulas work like a programming language. For example, I initially used simple functions to simulate Boolean functions, and simulated SQRT by using recursive subtraction and division operations (a Babylonian method!). Later I successully pressed to get the set of functions extended, and then further advanced what could be achieved with formulas, establishing methods that became routine for putting smart functionality into Damstra Forms. It increased what could be done with the software, which was an important factor in the software’s success.',
     myRole: 'As above.',
     technologies: 'APE / Damstra Forms’ formula syntax.',
     link2Demo:
