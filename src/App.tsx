@@ -18,13 +18,16 @@ function App() {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = useCallback(() => {
-    if (window.scrollY < lastScrollY) {
+    if (
+      (isNavBarFixed && window.scrollY < lastScrollY + 2) ||
+      (!isNavBarFixed && window.scrollY < lastScrollY - 6)
+    ) {
       setIsNavBarFixed(true);
     } else {
       setIsNavBarFixed(false);
     }
     setLastScrollY(window.scrollY);
-  }, [lastScrollY]);
+  }, [lastScrollY, isNavBarFixed]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
