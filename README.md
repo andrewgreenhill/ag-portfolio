@@ -2,7 +2,11 @@
 
 This repo shows a summary of my projects, and other details including a Contact form, Skills list, "About" page, and social media links.
 
-**Notes re the repo set up**
+See it live at https://andrewgreenhill.github.io/ag-portfolio
+
+**Some technical notes re the repo set up:**
+
+**Installation**
 
 - npm install
 
@@ -13,13 +17,13 @@ This repo shows a summary of my projects, and other details including a Contact 
 - For local dev: set the environmental variables in ".env.local".
 - For prod: When deploying to prod (eg Netlify, Vercel, or GitHub Pages), set the environment variable in the dashboard, e.g. in Netlify: 1. Go to your site's settings. 2. Find Environment Variables. 3. Add the variables shown in .env.local and set suitable values. For Vercel, that's under Project Settings > Environment Variables.
 
-**I run the repo using**  
+**_I run the repo using_**  
 npm run dev
 => http://localhost:5173/  
 (or "npm run dev -- --host" to tell Vite to bind to your local IP address, making it accessible from other devices.)
 
-**I run tests using**  
+**_I run tests using_**  
 npm test
 
-**I deploy to GitHub pages using**  
+**_I deploy to GitHub pages using_**  
 npm run deploy
