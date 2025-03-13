@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { scrollToTop } from '../assets/utils';
 
-const baseURL = import.meta.env.BASE_URL;
+const baseURL = import.meta.env.BASE_URL || '';
 
 function MainScreenHeadingsAndButtons() {
   return (
@@ -88,9 +88,9 @@ function Home() {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
     // const isLandscape = window.screen.orientation?.type.includes("landscape");
-    console.log(`setIsWideScreen(${screenWidth > screenHeight})`);
     setIsWideScreen(
-      screenWidth > screenHeight && !(screenWidth < 1024 && screenWidth / screenHeight < 2.5)
+      // Check if the screen is wide. For small screens, allow width to be up to 2.5x height before considering it wide.
+      screenWidth > screenHeight && !(screenWidth < 1024 && screenWidth < 2.5 * screenHeight)
     );
   };
 

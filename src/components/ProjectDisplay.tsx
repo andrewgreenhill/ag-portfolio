@@ -1,7 +1,7 @@
+import { useState, useMemo } from 'react';
 import { IProjectRecord, TProjectGroupKey } from '../types';
 import { extractFileNameFromUrl } from '../assets/utils';
 import { ReactMarkdownOpenInNewTab } from './Utilities';
-import { useState } from 'react';
 import Modal from 'react-modal';
 
 interface ProjectsOfGroupProps {
@@ -10,19 +10,18 @@ interface ProjectsOfGroupProps {
 }
 
 function ProjectsOfGroup({ projectsData, groupCode }: ProjectsOfGroupProps) {
-  const projectsOfGroup = projectsData.filter((project) => project.groupCode === groupCode);
+  const projectsOfGroup = useMemo(
+    () => projectsData.filter((project) => project.groupCode === groupCode),
+    [projectsData, groupCode]
+  );
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
       {projectsOfGroup.length === 0 ? (
         <div className="mt-2 text-gray-600">There is currently no project data for this group.</div>
       ) : (
         projectsOfGroup.map((project) => (
-          <div
-            key={project.id}
-            className="bg-white shadow-md rounded-lg p-6"
-            // className="bg-gradient-to-r from-white to-white shadow-md rounded-lg p-4"
-            // className="bg-gradient-to-r from-gray-200 to-gray-200 shadow-md rounded-lg p-4 border-2 border-gray-500"
-          >
+          <div key={project.id} className="bg-white shadow-md rounded-lg p-6">
             <DisplayProject projectData={project} />
           </div>
         ))
@@ -66,6 +65,7 @@ function Images({ images }: { images: string[] }) {
 
   if (!images?.length) return null;
 
+  // TODO: Restore this after adding Image titles+Descriptions[+ Alt tags] to the data
   // const openModal = (image: string) => {
   //   setSelectedImage(image);
   //   setModalIsOpen(true);
@@ -76,13 +76,13 @@ function Images({ images }: { images: string[] }) {
     setModalIsOpen(false);
   };
 
-  const baseURL = import.meta.env.BASE_URL;
+  const baseURL = import.meta.env.BASE_URL || '';
 
   return (
     <div className="mt-2 text-gray-600">
       {images.map((image, index) => (
         <div key={index}>
-          {/* // TODO: Restore use of this Modal after adding Image titles+Descriptions [+ Alt tags?]
+          {/* // TODO: Restore use of this Modal after adding Image titles+Descriptions[+ Alt tags] to the data
             <img
             src={image}
             alt={extractFileNameFromUrl(image) || `Screenshot ${index + 1}`}
@@ -112,8 +112,6 @@ function Images({ images }: { images: string[] }) {
             borderRadius: '10px',
             paddingTop: '10px',
             backgroundColor: '#f7fafc', // Tailwind's gray-100
-            // backgroundColor: '#FFF',
-            // backgroundColor: '#e5e7eb', // Tailwind's gray-200 // '#f0fff4', // Tailwind's green-100
           },
         }}
       >
@@ -126,7 +124,7 @@ function Images({ images }: { images: string[] }) {
             Close
           </button>
         </div>
-        <h2 className="text-center text-2xl p-8">Title</h2>
+        <h2 className="text-center text-2xl p-8">Image</h2> {/* TODO: Review the modal's title */}
         {selectedImage && (
           <div
             style={{

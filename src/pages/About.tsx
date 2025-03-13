@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import PageTransition from '../components/PageTransition';
+import { hyperlinkClasses } from '../assets/constants';
 
+/**
+ * @returns The About page
+ */
 function About() {
   const [showLanguages, setShowLanguages] = useState(false);
   const popupRef = useRef<HTMLSpanElement>(null);
@@ -38,13 +42,15 @@ function About() {
     }
   }, [showLanguages]);
 
+  const aboutSectionClasses = 'text-lg text-gray-700 leading-relaxed';
+
   return (
     <PageTransition>
       <div className="m-2 p-8 pb-4 bg-white rounded-lg text-left md:text-justify">
         <h1 className="text-3xl font-bold mb-6 text-center">About me</h1>
 
         <section className="space-y-4">
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className={aboutSectionClasses}>
             I am a professional software engineer specializing in front-end development. My
             experience includes building web applications using React.js, TypeScript, and related
             web technologies. Known for my commitment, attention to detail, and persistence, I take
@@ -53,12 +59,12 @@ function About() {
             maintenance. I am passionate about delivering user-centric solutions that solve business
             problems.
           </p>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className={aboutSectionClasses}>
             My experience across diverse roles in software development, technical support, and
             customer success has strengthened my ability to understand end-user needs and build
             practical, scalable applications. See more at{' '}
             <a
-              className="text-green-600 hover:underline"
+              className={hyperlinkClasses}
               target="_blank"
               rel="noreferrer"
               href="https://www.linkedin.com/in/andrew-greenhill"
@@ -71,14 +77,14 @@ function About() {
 
         <section className="mt-8 space-y-4">
           <h2 className="text-2xl font-bold text-gray-800 text-center">Background</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className={aboutSectionClasses}>
             I began programming while at school, teaching myself. I started with Basic, then when I
             wanted more capabilities, I taught myself machine code. I started creating my own
             operating system “GDOS” (Greenhill Disk Operating System), and when I did my final year
             12 computing project, that ran on my OS. I wrote that all in hexadecimal machine code.
             The project was a game of{' '}
             <a
-              className="text-green-600 hover:underline"
+              className={hyperlinkClasses}
               target="_blank"
               rel="noreferrer"
               href="https://en.wikipedia.org/wiki/Reversi#Othello"
@@ -89,13 +95,10 @@ function About() {
             wrote many games, and fractal-making programs, 3D graphics, blackjack simulation and
             probability analysis, a mortgage simulator, etc. Usually in Pascal, back then.
           </p>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className={aboutSectionClasses}>
             I studied programming at UWA and Curtin University. I have programmed in 12{' '}
             <span className="relative group">
-              <span
-                className="text-green-600 hover:underline cursor-pointer"
-                onClick={toggleLanguages}
-              >
+              <span className={hyperlinkClasses} onClick={toggleLanguages}>
                 languages
               </span>
               {showLanguages && (
@@ -111,7 +114,7 @@ function About() {
             . I have also made a computer from the ground up from very basic components: a CPU,
             EEPROM and RAM memory, buses, etc.
           </p>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className={aboutSectionClasses}>
             Circumstances shifted my course away from the above though, I worked for different
             software companies but did technical support, training and solution engineering. I did
             programming at every opportunity but that wasn't enough, I never stopped longing to be
@@ -122,10 +125,10 @@ function About() {
 
         <section className="mt-8 space-y-4">
           <h2 className="text-2xl font-bold text-gray-800 text-center">Colour theme</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className={aboutSectionClasses}>
             The colour theme for my logo and this web site was inspired by{' '}
             <a
-              className="text-green-600 hover:underline"
+              className={hyperlinkClasses}
               target="_blank"
               rel="noreferrer"
               href="https://www.google.com/search?q=the+matrix&udm=2"
@@ -148,7 +151,7 @@ function About() {
         <div className="text-right mt-8">
           <a
             href="#"
-            className="text-green-600 hover:underline"
+            className={hyperlinkClasses}
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });

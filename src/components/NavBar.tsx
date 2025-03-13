@@ -37,6 +37,12 @@ function NavBar() {
     };
   }, [isMenuOpen]);
 
+  const linkClasses = ({ isActive }: { isActive: boolean }) =>
+    isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500';
+
+  const hamburgerLinkClasses = ({ isActive }: { isActive: boolean }) =>
+    isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500';
+
   return (
     <nav className="bg-white text-black p-4 w-full">
       <div className="container mx-auto flex justify-between items-center">
@@ -50,49 +56,19 @@ function NavBar() {
           Andrew Greenhill
         </NavLink>
         <div className="hidden md:flex space-x-4 ml-auto">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
-            }
-            onClick={scrollToTop}
-          >
+          <NavLink to="/" className={linkClasses} onClick={scrollToTop}>
             Home
           </NavLink>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
-            }
-            onClick={scrollToTop}
-          >
+          <NavLink to="/projects" className={linkClasses} onClick={scrollToTop}>
             Projects
           </NavLink>
-          <NavLink
-            to="/skills"
-            className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
-            }
-            onClick={scrollToTop}
-          >
+          <NavLink to="/skills" className={linkClasses} onClick={scrollToTop}>
             Skills
           </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
-            }
-            onClick={scrollToTop}
-          >
+          <NavLink to="/about" className={linkClasses} onClick={scrollToTop}>
             About
           </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500'
-            }
-            onClick={scrollToTop}
-          >
+          <NavLink to="/contact" className={linkClasses} onClick={scrollToTop}>
             Contact
           </NavLink>
         </div>
@@ -100,8 +76,9 @@ function NavBar() {
           <button
             onClick={toggleMenu}
             className="focus:outline-none bg-white dark:bg-white border border-gray-300"
-            style={{ borderWidth: '1px' }} // Reduced border thickness
+            style={{ borderWidth: '1px' }}
           >
+            {/* Hamburger icon */}
             <svg
               className="w-6 h-6"
               fill="none"
@@ -127,9 +104,7 @@ function NavBar() {
         >
           <NavLink
             to="/"
-            className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
-            }
+            className={hamburgerLinkClasses}
             onClick={() => {
               toggleMenu();
               scrollToTop();
@@ -139,9 +114,7 @@ function NavBar() {
           </NavLink>
           <NavLink
             to="/projects"
-            className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
-            }
+            className={hamburgerLinkClasses}
             onClick={() => {
               toggleMenu();
               scrollToTop();
@@ -151,9 +124,7 @@ function NavBar() {
           </NavLink>
           <NavLink
             to="/skills"
-            className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
-            }
+            className={hamburgerLinkClasses}
             onClick={() => {
               toggleMenu();
               scrollToTop();
@@ -163,9 +134,7 @@ function NavBar() {
           </NavLink>
           <NavLink
             to="/about"
-            className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
-            }
+            className={hamburgerLinkClasses}
             onClick={() => {
               toggleMenu();
               scrollToTop();
@@ -175,9 +144,7 @@ function NavBar() {
           </NavLink>
           <NavLink
             to="/contact"
-            className={({ isActive }) =>
-              isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500'
-            }
+            className={hamburgerLinkClasses}
             onClick={() => {
               toggleMenu();
               scrollToTop();

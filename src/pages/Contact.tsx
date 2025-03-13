@@ -1,6 +1,10 @@
 import PageTransition from '../components/PageTransition';
 import ContactForm from '../components/ContactForm';
+import { hyperlinkClasses } from '../assets/constants';
 
+/**
+ * @returns The Contact page
+ */
 function Contact() {
   return (
     <PageTransition>
@@ -9,10 +13,9 @@ function Contact() {
         <h2 className="text-2xl font-bold pt-3">Let's connect!</h2>
         <br />
 
-        <ContactForm
-        // titleMessage="Let's connect!"
-        />
+        <ContactForm />
 
+        {/* Social media links */}
         <div className="flex justify-center">
           <ul className="mt-4 text-left pt-4">
             <li>
@@ -20,7 +23,7 @@ function Contact() {
               <a
                 href="https://www.linkedin.com/in/andrew-greenhill"
                 target="_blank"
-                className="text-green-500 hover:underline"
+                className={hyperlinkClasses}
               >
                 www.linkedin.com/in/andrew-greenhill
               </a>
@@ -30,7 +33,7 @@ function Contact() {
               <a
                 href="https://bsky.app/profile/andrew-greenhill.bsky.social"
                 target="_blank"
-                className="text-green-500 hover:underline"
+                className={hyperlinkClasses}
               >
                 bsky.app/profile/andrew-greenhill.bsky.social
               </a>

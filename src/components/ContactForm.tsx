@@ -5,12 +5,20 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { IContactFormData } from '../types';
 import './ContactForm.css';
 import { emailAddressPattern, messageSummary, sanitizeInput } from '../assets/utils';
+import { errorMessageClasses } from '../assets/constants';
 
 type ContactFormProps = {
   titleMessage?: string;
 };
 
-function ContactForm({ titleMessage }: ContactFormProps) {
+/**
+ * ContactForm component renders a Contact Form with fields for name, email, phone, website, and message.
+ * It includes validation, reCAPTCHA verification, and handles form submission.
+ *
+ * @param {string} [props.titleMessage] - Optional title message to display above the form
+ * @returns {JSX.Element} The rendered contact form component
+ */
+function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
   const {
     register,
     handleSubmit,
@@ -21,8 +29,8 @@ function ContactForm({ titleMessage }: ContactFormProps) {
     clearErrors,
   } = useForm<IContactFormData>();
 
-  const SEND_EMAIL_ENDPOINT = import.meta.env.VITE_SEND_EMAIL_ENDPOINT;
-  const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+  const SEND_EMAIL_ENDPOINT = import.meta.env.VITE_SEND_EMAIL_ENDPOINT || '';
+  const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
   const haveSendDetails = !!(SEND_EMAIL_ENDPOINT && RECAPTCHA_SITE_KEY);
 
   const messageFieldIsRequired = 'This field is required';
@@ -135,13 +143,15 @@ function ContactForm({ titleMessage }: ContactFormProps) {
     }
   }
 
+  const fieldClasses = 'w-full p-2 bg-white border rounded';
+
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
       {/* <div className="max-w-lg mx-auto p-6 bg-gray-200 border-2 border-gray-500 shadow-lg rounded-lg"> */}
       {/* <h1 className="text-3xl font-bold mb-4 text-center">Contact Me</h1> */}
       {titleMessage && <h2 className="text-2xl font-bold">{titleMessage}</h2>}
       {status === 'success' && isSubmitted && (
-        <p className="text-green-500 text-center mb-4">Message sent!</p>
+        <p className="text-green-600 text-center mb-4">Message sent!</p>
       )}
       {status === 'error' && (
         <p className="text-red-500 text-center mb-4">Something went wrong. Try again.</p>
@@ -161,7 +171,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Name*</label>
           <input
             type="text"
-            className="w-full p-2 bg-white border rounded"
+            className={fieldClasses}
             {...register('name', { required: messageFieldIsRequired })}
             onInput={(event) => handleRequiredFieldChange('name', event.currentTarget.value, true)}
             onChange={(event) => {
@@ -169,7 +179,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
               handleRequiredFieldChange('name', event.target.value);
             }}
           />
-          {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+          {errors.name && <p className={errorMessageClasses}>{errors.name.message}</p>}
         </div>
 
         {/* Email */}
@@ -177,7 +187,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Email*</label>
           <input
             type="email"
-            className="w-full p-2 bg-white border-1 rounded"
+            className={fieldClasses}
             {...register('email', {
               required: messageFieldIsRequired,
               pattern: {
@@ -191,7 +201,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
               handleEmailChange(event.target.value);
             }}
           />
-          {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+          {errors.email && <p className={errorMessageClasses}>{errors.email.message}</p>}
         </div>
 
         {/* Phone */}
@@ -199,7 +209,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Phone</label>
           <input
             type="text"
-            className="w-full p-2 bg-white border rounded"
+            className={fieldClasses}
             {...register('phone')}
             onChange={clearStatus}
           />
@@ -208,11 +218,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
         {/* Phone (home), honeypot field */}
         <div className="hidden">
           <label className="block font-medium">Phone (home)</label>
-          <input
-            type="text"
-            className="w-full p-2 bg-white border rounded"
-            {...register('homeFaux')}
-          />
+          <input type="text" className={fieldClasses} {...register('homeFaux')} />
         </div>
 
         {/* Website */}
@@ -220,7 +226,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Website</label>
           <input
             type="text"
-            className="w-full p-2 bg-white border rounded"
+            className={fieldClasses}
             {...register('website')}
             onChange={clearStatus}
           />
@@ -231,7 +237,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
           <label className="block font-medium">Message*</label>
           <textarea
             rows={8}
-            className="w-full p-2 bg-white border rounded"
+            className={fieldClasses}
             {...register('message', { required: messageFieldIsRequired })}
             onInput={(event) =>
               handleRequiredFieldChange('message', event.currentTarget.value, true)
@@ -241,7 +247,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
               handleRequiredFieldChange('message', event.target.value);
             }}
           ></textarea>
-          {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
+          {errors.message && <p className={errorMessageClasses}>{errors.message.message}</p>}
         </div>
 
         {haveSendDetails && (
@@ -251,9 +257,7 @@ function ContactForm({ titleMessage }: ContactFormProps) {
               onChange={(value: string | null) => setCaptchaValue(value)}
             />
             {hasClickedSubmit && !captchaValue && (
-              <p className="text-red-500 text-sm">
-                {'Please complete the reCAPTCHA verification.'}
-              </p>
+              <p className={errorMessageClasses}>{'Please complete the reCAPTCHA verification.'}</p>
             )}
           </div>
         )}

@@ -1,69 +1,91 @@
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 
+/**
+ * The Skills page displays a list of my skills in frontend, other, tools, and soft skills.
+ * @returns The Skills page
+ */
 function Skills() {
+  const skillsH2Classes = 'text-2xl font-bold mb-4 text-left';
+  const skillsULClasses = 'list-disc list-inside text-left space-y-2';
+  const cardClassNames = 'bg-white shadow rounded-lg p-6';
+
   return (
     <PageTransition>
       <div className="max-w-4xl mx-auto px-8 pb-4 md:pt-8 sm:pt-2">
-        <h1 className="text-3xl font-bold text-center mb-6 md:mb-8">Skills</h1>
+        <h1 className={'text-3xl font-bold text-center mb-6 md:mb-8'}>Skills</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Front-end Skills Card */}
-          <div className="bg-white shadow rounded-lg p-6">
-            {/* <div className="bg-white shadow rounded-lg border-2 border-gray-500 p-6"> */}
-            <h2 className="text-2xl font-bold mb-4 text-left">Frontend</h2>
-            <ul className="list-disc list-inside text-left space-y-2">
-              <li className="hanging-indent">JavaScript</li>
-              <li className="hanging-indent">TypeScript</li>
-              <li className="hanging-indent">
-                React.js and related technologies like React Query, React Hook Form and Redux
-              </li>
-              <li className="hanging-indent">HTML</li>
-              <li className="hanging-indent">CSS</li>
+          <div className={cardClassNames}>
+            <h2 className={skillsH2Classes}>Frontend</h2>
+            <ul className={skillsULClasses}>
+              {[
+                'JavaScript',
+                'TypeScript',
+                'React.js and related technologies like React Query, React Hook Form and Redux',
+                'HTML',
+                'CSS',
+              ].map((skill) => (
+                <li key={skill} className="hanging-indent">
+                  {skill}
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Other Skills Card */}
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-2xl font-bold mb-4 text-left">Other</h2>
-            <ul className="list-disc list-inside text-left space-y-2">
-              <li className="hanging-indent">Microsoft PowerShell</li>
-              <li className="hanging-indent">APIs</li>
-              <li className="hanging-indent">C# and .NET (early stage)</li>
-              <li className="hanging-indent">Python (years ago)</li>
+          <div className={cardClassNames}>
+            <h2 className={skillsH2Classes}>Other</h2>
+            <ul className={skillsULClasses}>
+              {[
+                'Microsoft PowerShell',
+                'APIs',
+                'C# and .NET (early stage)',
+                'Python (years ago)',
+              ].map((skill) => (
+                <li key={skill} className="hanging-indent">
+                  {skill}
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Tools Card */}
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-2xl font-bold mb-4 text-left">Tools</h2>
-            <ul className="list-disc list-inside text-left space-y-2">
-              <li className="hanging-indent">Create React App and Vite</li>
-              <li className="hanging-indent">
-                IDEs: Visual Studio Code, Sublime Text, some Visual Studio, and VSC extensions
-                including ES Lint, Prettier, Code Runner, Copilot, GitLens, etc
-              </li>
-              <li className="hanging-indent">Testing: JEST and Vitest</li>
-              <li className="hanging-indent">Source control: Git, GitHub and Bitbucket</li>
-              <li className="hanging-indent">Virtualisation: Docker</li>
-              <li className="hanging-indent">Zapier and its CLI</li>
-              <li className="hanging-indent">Package managers: npm and yarn</li>
+          <div className={cardClassNames}>
+            <h2 className={skillsH2Classes}>Tools</h2>
+            <ul className={skillsULClasses}>
+              {[
+                'Create React App and Vite',
+                'IDEs: Visual Studio Code, Sublime Text, some Visual Studio, and VSC extensions including ES Lint, Prettier, Code Runner, Copilot, GitLens, etc',
+                'Testing: JEST and Vitest',
+                'Source control: Git, GitHub and Bitbucket',
+                'Virtualisation: Docker',
+                'Zapier and its CLI',
+                'Package managers: npm and yarn',
+              ].map((tool) => (
+                <li key={tool} className="hanging-indent">
+                  {tool}
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Soft Skills Card */}
-          <div className="bg-white shadow rounded-lg p-6">
-            <h2 className="text-2xl font-bold mb-4 text-left">Soft skills</h2>
-            <ul className="list-disc list-inside text-left space-y-2">
-              <li className="hanging-indent">Communication and teamwork</li>
-              <li className="hanging-indent">Problem-solving, troubleshooting, analysis</li>
-              <li className="hanging-indent">Attention to detail</li>
-              <li className="hanging-indent">Commitment, determination and persistence</li>
-              <li className="hanging-indent">
-                My experience across diverse roles in software development, technical support, and
-                customer success has strengthened my ability to understand end-user needs. I am
-                passionate about delivering user-centric solutions that solve business problems.
-              </li>
+          <div className={cardClassNames}>
+            <h2 className={skillsH2Classes}>Soft skills</h2>
+            <ul className={skillsULClasses}>
+              {[
+                'Communication and teamwork',
+                'Problem-solving, troubleshooting, analysis',
+                'Attention to detail',
+                'Commitment, determination and persistence',
+                'My experience across diverse roles in software development, technical support, and customer success has strengthened my ability to understand end-user needs. I am passionate about delivering user-centric solutions that solve business problems.',
+              ].map((skill) => (
+                <li key={skill} className="hanging-indent">
+                  {skill}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -6,6 +6,11 @@ import NotFound from './NotFound';
 import { ProjectsOfGroup } from '../components/ProjectDisplay';
 import { scrollToTop } from '../assets/utils';
 
+/**
+ * The Projects page displays a list of project groups, each with a description and a link to view the projects in that group.
+ * If a projectId query parameter is in the URL, the page will display the projects in the group with that id.
+ * @returns The Projects page
+ */
 function Projects() {
   const { projectId } = useParams<{ projectId?: string }>();
 

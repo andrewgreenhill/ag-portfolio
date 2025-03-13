@@ -1,5 +1,7 @@
 import { TProjectGroupKey, IProjectRecord, IProjectGroupMetadata } from '../types';
 
+// TODO: Set up a backend or CMS to store and serve this data :-)
+
 const groupsInfo: Record<TProjectGroupKey, IProjectGroupMetadata> = {
   EarlyWork: {
     name: 'Early works',

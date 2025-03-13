@@ -8,16 +8,16 @@ Contact form:
 
 Theme[s]
 
-User testing
-Refine
-Code rev?
+Code rev? + Refactor
+Refinements
 Add niceties, clean up, etc. Check TODO notes.
 Document
-User testing
+More user testing
 
 * [Use GitHub for tracking issues and enhancements]
 * Revisit Tailwind set up...
 * Review repo folder structure
 * Consider adding a licence file.
+* Consider adding a web application manifest.
 * [Gitflow Workflow]
 * Make notes for things to do in a potential version 2

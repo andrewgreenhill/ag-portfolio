@@ -1,5 +1,6 @@
 import { messagePreviewMaxLength } from './constants';
 
+// Regular expression pattern to validate email addresses
 const emailAddressPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 /**
@@ -8,9 +9,8 @@ const emailAddressPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
  * @param message The message to be abbreviated.
  * @returns The abbreviated message.
  */
-function messageSummary(message: string) {
+function messageSummary(message: string): string {
   message = message.trim().replace(/\n/g, ' | ');
-
   if (message.length <= messagePreviewMaxLength) return message;
   return message.substring(0, messagePreviewMaxLength - 3) + '...';
 }
@@ -22,18 +22,23 @@ function messageSummary(message: string) {
  * @param removeNewlines Optional. If true then also remove new line chars \n and \r.
  * @returns The sanitized data.
  */
-function sanitizeInput(input: string, removeNewlines?: boolean) {
+function sanitizeInput(input: string, removeNewlines?: boolean): string {
+  if (input == null) return '';
   const processedInput = removeNewlines ? input.replace(/[\n\r]/g, '') : input;
   return processedInput.replace(/<\/?/g, '').replace(/[<>]/g, '');
 }
 
-/** Function to extract the file name of the end of a URL to an image */
-function extractFileNameFromUrl(url: string) {
+/**
+ * Extracts the file name from the end of a URL to an image.
+ * @param url The URL string from which to extract the file name.
+ * @returns The extracted file name.
+ */
+function extractFileNameFromUrl(url: string): string {
   const urlParts = url.split('/');
   return urlParts[urlParts.length - 1];
 }
 
-function scrollToTop() {
+function scrollToTop(): void {
   window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
