@@ -35,7 +35,7 @@ const projectsData: IProjectRecord[] = [
     subGroup: '',
     projectName: 'My portfolio',
     projectDescription:
-      'My personal portfolio website to show my projects, skills, and experience. It is a single-page application (SPA), built with React.js and TypeScript, and uses Tailwind CSS for styling. The content is written in Markdown and hosted on GitHub Pages.',
+      'My personal portfolio website to show my projects, skills, and experience. It is a single-page application (SPA), built with React.js and TypeScript, and uses Tailwind CSS for styling. The content is written in Markdown. It is hosted on GitHub Pages.',
     myRole:
       'I designed and built my portfolio repository from the ground up, without using a template.',
     technologies: 'TypeScript, React.js, Tailwind CSS, Vite, Markdown, and GitHub Pages.',
