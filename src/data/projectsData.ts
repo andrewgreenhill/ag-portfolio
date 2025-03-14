@@ -207,7 +207,7 @@ const projectsData: IProjectRecord[] = [
     subGroup: '',
     projectName: 'Damstra Forms',
     projectDescription:
-      'I have worked closely with many Damstra Forms / APE Mobile developers and product management teams. I made minor contributions to Damstra Forms’ frontend (js-packages) and backend, including fixing Live View, and I supplied JavaScript/Node code to a Smart Asset developer so that he could get PDFs from Forms. I also worked a lot with its REST API endpoints.',
+      'I’ve worked closely with many Damstra Forms / APE Mobile developers and product management teams. I made minor contributions to Damstra Forms’ frontend and backend, including fixing Live View (shown below) and I supplied my JavaScript/Node code to a Smart Asset developer to enable him to get PDFs from Damstra Forms into Smart Asset. I also worked a lot with Damstra Forms’ REST API endpoints.',
     myRole: 'As above.',
     technologies:
       'Mostly JavaScript in Visual Studio Code. Also, with exposure to React, issue tracking using JIRA, and version control using GitHub and Bitbucket.',
