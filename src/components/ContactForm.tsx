@@ -41,6 +41,7 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
   const [soonAfterSubmit, setSoonAfterSubmit] = useState<boolean>(false); // Used for rate limiting
   const [isSubmitted, setIsSubmitted] = useState(false); // Used for the success modal
   const [status, setStatus] = useState<'' | 'success' | 'error'>('');
+  const [requestError, setRequestError] = useState<string>('');
 
   const clearStatus = () => {
     if (status) setStatus('');
@@ -107,10 +108,10 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
       } else {
         throw new Error('Failed to send');
       }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
+      const err = error as { message?: string };
+      setRequestError(err?.message || 'Failed to send');
       setStatus('error');
-      // console.error(error); // If needed, add more error handling
     }
   };
 
@@ -155,8 +156,11 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
       )}
       {status === 'error' && (
         <p className="text-red-500 text-center mb-4">
-          Something went wrong when attempting to send. Please try again later or use LinkedIn to
-          contact me.
+          Something went wrong when attempting to send.
+          {requestError === 'NetworkError when attempting to fetch resource.'
+            ? ' It appears that the email sending service is down.'
+            : ''}{' '}
+          Please try again later or use LinkedIn to contact me.
         </p>
       )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
