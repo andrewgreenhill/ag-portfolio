@@ -157,7 +157,8 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
       {status === 'error' && (
         <p className="text-red-500 text-center mb-4">
           Something went wrong when attempting to send.
-          {requestError === 'NetworkError when attempting to fetch resource.'
+          {requestError === 'NetworkError when attempting to fetch resource.' ||
+          requestError === 'Failed to fetch'
             ? ' It appears that the email sending service is down.'
             : ''}{' '}
           Please try again later or use LinkedIn to contact me.
