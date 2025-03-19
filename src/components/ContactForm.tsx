@@ -154,7 +154,10 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
         <p className="text-green-600 text-center mb-4">Message sent!</p>
       )}
       {status === 'error' && (
-        <p className="text-red-500 text-center mb-4">Something went wrong. Try again.</p>
+        <p className="text-red-500 text-center mb-4">
+          Something went wrong when attempting to send. Please try again later or use LinkedIn to
+          contact me.
+        </p>
       )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Name */}
