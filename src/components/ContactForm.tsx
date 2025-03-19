@@ -151,19 +151,6 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
       {/* <div className="max-w-lg mx-auto p-6 bg-gray-200 border-2 border-gray-500 shadow-lg rounded-lg"> */}
       {/* <h1 className="text-3xl font-bold mb-4 text-center">Contact Me</h1> */}
       {titleMessage && <h2 className="text-2xl font-bold">{titleMessage}</h2>}
-      {status === 'success' && isSubmitted && (
-        <p className="text-green-600 text-center mb-4">Message sent!</p>
-      )}
-      {status === 'error' && (
-        <p className="text-red-500 text-center mb-4">
-          Something went wrong when attempting to send.
-          {requestError === 'NetworkError when attempting to fetch resource.' ||
-          requestError === 'Failed to fetch'
-            ? ' It appears that the email sending service is down.'
-            : ''}{' '}
-          Please try again later or use LinkedIn to contact me.
-        </p>
-      )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Name */}
         <div>
@@ -290,6 +277,20 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
         >
           {isSubmitting ? 'Sending...' : 'SEND'}
         </motion.button>
+
+        {status === 'success' && isSubmitted && (
+          <p className="text-green-600 text-center mb-4">Message sent!</p>
+        )}
+        {status === 'error' && (
+          <p className="text-red-500 text-center mb-4">
+            Something went wrong when attempting to send.
+            {requestError === 'NetworkError when attempting to fetch resource.' ||
+            requestError === 'Failed to fetch'
+              ? ' It appears that the email sending service is down.'
+              : ''}{' '}
+            Please try again later or use LinkedIn to contact me.
+          </p>
+        )}
       </form>
       {isSubmitted && (
         <div id="thankYouModal" className="modal">
