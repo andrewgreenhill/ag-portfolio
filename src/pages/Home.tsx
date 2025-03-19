@@ -43,7 +43,7 @@ function HomeScreenWide() {
     <PageTransition>
       <div className="relative px-8 pb-4 md:pt-8 sm:pt-2">
         <img
-          src={`${baseURL}/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`}
+          src={`${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`}
           alt="Perth CBD skyline from State War Memorial Lookout"
           className="w-full h-auto"
         />
@@ -64,7 +64,7 @@ function HomeScreenTall() {
       <div className="relative px-8 pb-4 md:pt-8 sm:pt-2">
         <div className="absolute inset-0">
           <img
-            src={`${baseURL}/images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`}
+            src={`${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`}
             alt="Perth CBD skyline from State War Memorial Lookout"
             className="w-full h-full object-cover"
           />

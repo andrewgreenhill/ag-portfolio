@@ -43,7 +43,7 @@ const projectsData: IProjectRecord[] = [
       '[https://andrewgreenhill.github.io/ag-portfolio](https://andrewgreenhill.github.io/ag-portfolio)',
     link2Code:
       '[https://github.com/andrewgreenhill/ag-portfolio](https://github.com/andrewgreenhill/ag-portfolio)',
-    images: ['/images/Misc/Portfolio.jpg'],
+    images: ['images/Misc/Portfolio.jpg'],
     when: 'January-March 2025',
     publicComments: 'The project you are currently viewing is my portfolio.',
     internalComments: '',
@@ -61,7 +61,7 @@ const projectsData: IProjectRecord[] = [
       '[https://andrewgreenhill.github.io/ag_agworld_accessory](https://andrewgreenhill.github.io/ag_agworld_accessory)',
     link2Code:
       '[https://github.com/andrewgreenhill/ag_agworld_accessory](https://github.com/andrewgreenhill/ag_agworld_accessory)',
-    images: ['/images/Misc/ag_agworld_accessory.jpg'],
+    images: ['images/Misc/ag_agworld_accessory.jpg'],
     when: 'Around June-July 2021',
     publicComments:
       'Agworld accessory isn’t a complete project and it doesn’t make use of all the modern front-end development practices; it was demonstration-of-concept project and made many years ago.',
@@ -81,7 +81,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo:
       '[https://damstratechnology.com/solutions/enterprise-protection-platform](https://damstratechnology.com/solutions/enterprise-protection-platform)',
     link2Code: 'Not available, proprietary',
-    images: ['/images/EPP/TasksList.png'],
+    images: ['images/EPP/TasksList.png'],
     when: 'Approx. March 2023 – June 2023',
     publicComments:
       'I overcame steep initial learning curves, and many roadblock problems in multiple repos, by being determined and persistently applying myself and pursuing help. I worked through those challenges, satisfied the criteria, and grew into a new role.',
@@ -99,7 +99,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo:
       '[https://damstratechnology.com/solutions/enterprise-protection-platform](https://damstratechnology.com/solutions/enterprise-protection-platform)',
     link2Code: 'Not available, proprietary',
-    images: ['/images/EPP/PermitDetails.png'],
+    images: ['images/EPP/PermitDetails.png'],
     when: 'Approx July to Sep 2023',
     publicComments:
       'That included working with developers from other software products (Damstra Forms and a 3rd party workflow engine, Camunda) to make software connections and pioneer a new kind of process orchestration within Damstra’s software suite.',
@@ -118,7 +118,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo:
       '[https://damstratechnology.com/solutions/enterprise-protection-platform](https://damstratechnology.com/solutions/enterprise-protection-platform)',
     link2Code: 'Not available, proprietary',
-    images: ['/images/EPP/ChangeRequestDetails.png'],
+    images: ['images/EPP/ChangeRequestDetails.png'],
     when: 'Approx Sep 2023 to Dec 2023.',
     publicComments:
       'I used the experience I’d gained working on the EPP code base to create my most sophisticated front-end functionality to date and satisfy the need of enterprise customer Capstone Copper.',
@@ -138,7 +138,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo:
       '[https://damstratechnology.com/solutions/enterprise-protection-platform](https://damstratechnology.com/solutions/enterprise-protection-platform)',
     link2Code: 'Not available, proprietary',
-    images: ['/images/EPP/WorkOrdersFilters.png', '/images/EPP/WorkOrdersDetails.png'],
+    images: ['images/EPP/WorkOrdersFilters.png', 'images/EPP/WorkOrdersDetails.png'],
     when: 'Approx Jan 2024 to Aug 2024.',
     publicComments:
       'When getting two software products (EPP and TIKS) to work together, which hadn’t been connected before, there was a lot of complexity and unknowns, and a lot of time pressure. I developed a close working relationship with the main back-end developer to increase our understanding. We increasingly collaborated and tested together to finish our tickets faster, reduce issues getting to QA, and meet all the requirements.',
@@ -158,7 +158,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo:
       '[https://damstratechnology.com/solutions/enterprise-protection-platform](https://damstratechnology.com/solutions/enterprise-protection-platform)',
     link2Code: 'Not available, proprietary',
-    images: ['/images/EPP/LessonScheduling.jpg'],
+    images: ['images/EPP/LessonScheduling.jpg'],
     when: 'March 2023 to Dec 2024',
     publicComments: '',
     internalComments: '',
@@ -175,7 +175,7 @@ const projectsData: IProjectRecord[] = [
     technologies: 'JavaScript, React, Redux, HTML, CSS, AJV and Jest',
     link2Demo: 'Not available',
     link2Code: 'Not available',
-    images: ['/images/DamstraAPE/FormTemplateConverter.jpg'],
+    images: ['images/DamstraAPE/FormTemplateConverter.jpg'],
     when: 'Approx April to July 2022.',
     publicComments:
       'It was received with enthusiasm by product management, as the fastest way to achieve their goal.',
@@ -196,7 +196,7 @@ const projectsData: IProjectRecord[] = [
       '[https://andrewgreenhill.github.io/GetAPEMobileInfo/?options=all](https://andrewgreenhill.github.io/GetAPEMobileInfo/?options=all)',
     link2Code:
       '[https://github.com/andrewgreenhill/GetAPEMobileInfo](https://github.com/andrewgreenhill/GetAPEMobileInfo)',
-    images: ['/images/DamstraAPE/Get_Forms_2.jpg'],
+    images: ['images/DamstraAPE/Get_Forms_2.jpg'],
     when: 'Jan 2020 to Jan 2023',
     publicComments: 'I’ve paused operating this app because of a Heroku cost increase.',
     internalComments: '',
@@ -213,7 +213,7 @@ const projectsData: IProjectRecord[] = [
       'Mostly JavaScript in Visual Studio Code. Also, with exposure to React, issue tracking using JIRA, and version control using GitHub and Bitbucket.',
     link2Demo: 'N/A',
     link2Code: 'Not available, proprietary',
-    images: ['/images/DamstraAPE/DamstraForms_LiveFeed.jpg'],
+    images: ['images/DamstraAPE/DamstraForms_LiveFeed.jpg'],
     when: 'Mar 2015 to Feb 2023',
     publicComments: '',
     internalComments: '',
@@ -230,7 +230,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo: 'N/A',
     link2Code:
       '[https://github.com/andrewgreenhill/TemplateMigrationAssistant](https://github.com/andrewgreenhill/TemplateMigrationAssistant) (private repo)',
-    images: ['/images/DamstraAPE/TMA.jpg'],
+    images: ['images/DamstraAPE/TMA.jpg'],
     when: 'April 2019 to Feb 2020',
     publicComments: '',
     internalComments: '',
@@ -248,7 +248,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo:
       '[https://zapier.com/apps/ape-mobile/integrations](https://zapier.com/apps/ape-mobile/integrations)',
     link2Code: 'Not available, proprietary',
-    images: ['/images/DamstraAPE/Public_APE_Forms_Zapier_integration.jpg'],
+    images: ['images/DamstraAPE/Public_APE_Forms_Zapier_integration.jpg'],
     when: 'Approx Oct 2019 to July 2021',
     publicComments: '',
     internalComments: '',
@@ -264,7 +264,7 @@ const projectsData: IProjectRecord[] = [
     technologies: 'JavaScript, Node events, APIs and Zapier.',
     link2Demo: 'The integration is available by invitation only.',
     link2Code: 'Not available',
-    images: ['/images/DamstraAPE/Forms-Safety_Integration.jpg'],
+    images: ['images/DamstraAPE/Forms-Safety_Integration.jpg'],
     when: 'Approx Apr 2021 to Sep 2023',
     publicComments: 'Used by some customers who have Damstra Forms and Safety.',
     internalComments: '',
@@ -281,9 +281,9 @@ const projectsData: IProjectRecord[] = [
     link2Demo: 'Those integrations are available by invitation only.',
     link2Code: 'Not available',
     images: [
-      '/images/DamstraAPE/Zapier_Integrations.jpg',
-      '/images/DamstraAPE/Zapier_Integrations_AGsSamm.jpg',
-      '/images/DamstraAPE/Zapier_Integrations_DF_Tools.jpg',
+      'images/DamstraAPE/Zapier_Integrations.jpg',
+      'images/DamstraAPE/Zapier_Integrations_AGsSamm.jpg',
+      'images/DamstraAPE/Zapier_Integrations_DF_Tools.jpg',
     ],
     when: 'Approx 2020 to 2022',
     publicComments: '',
@@ -301,7 +301,7 @@ const projectsData: IProjectRecord[] = [
     technologies: 'JavaScript and Google Scripts.',
     link2Demo: 'N/A',
     link2Code: 'Not available, proprietary',
-    images: ['/images/DamstraAPE/GoogleScripts.png'],
+    images: ['images/DamstraAPE/GoogleScripts.png'],
     when: 'In 2019',
     publicComments: '',
     internalComments: '',
@@ -338,7 +338,7 @@ const projectsData: IProjectRecord[] = [
     link2Demo:
       'There is some information at [https://damstra.zendesk.com/hc/en-us/articles/8404022778777-Using-Formulas-List-of-Formula-Functions](https://damstra.zendesk.com/hc/en-us/articles/8404022778777-Using-Formulas-List-of-Formula-Functions) and [https://damstra.zendesk.com/hc/en-us/articles/8404043637145-Using-Formulas-Auto-completing-Short-Description](https://damstra.zendesk.com/hc/en-us/articles/8404043637145-Using-Formulas-Auto-completing-Short-Description) and [https://damstra.zendesk.com/hc/en-us/search?utf8=%E2%9C%93&category=4406152250649&query=formulas](https://damstra.zendesk.com/hc/en-us/search?utf8=%E2%9C%93&category=4406152250649&query=formulas)',
     link2Code: 'N/A',
-    images: ['/images/DamstraAPE/Formula_example.jpg'],
+    images: ['images/DamstraAPE/Formula_example.jpg'],
     when: 'Mar 2015 to Feb 2023',
     publicComments: '',
     internalComments: '',
@@ -387,10 +387,7 @@ const projectsData: IProjectRecord[] = [
     technologies: 'Python, Micromine software, and its API.',
     link2Demo: 'N/A',
     link2Code: 'Not available, proprietary',
-    images: [
-      '/images/Micromine/Ex6.1ColourSetsResult.jpg',
-      '/images/Micromine/PythonScripting.jpg',
-    ],
+    images: ['images/Micromine/Ex6.1ColourSetsResult.jpg', 'images/Micromine/PythonScripting.jpg'],
     when: 'May 2013 to Oct 2013',
     publicComments: '',
     internalComments: '',
@@ -406,7 +403,7 @@ const projectsData: IProjectRecord[] = [
     technologies: 'C and UNIX. Also, image processing & analysis algorithms and maths',
     link2Demo: '',
     link2Code: '',
-    images: ['/images/ImageAnalysis/ImageSegmentation_Beef.jpg'],
+    images: ['images/ImageAnalysis/ImageSegmentation_Beef.jpg'],
     when: '',
     publicComments: '',
     internalComments: '',

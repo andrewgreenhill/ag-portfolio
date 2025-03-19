@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  base: "/ag-portfolio/", // Repository name
+  // base: "/ag-portfolio/", // Repository name
   plugins: [tailwindcss(), react()],
   test: {
     globals: true,
