@@ -2,7 +2,7 @@
 
 This repo shows a summary of my projects, and other details including a Contact form, Skills list, "About" page, and social media links.
 
-See it live at https://andrewgreenhill.github.io/ag-portfolio
+See it live at https://andrewgreenhill.github.io/ag-portfolio and https://andrewgreenhill.dev/
 
 **Some technical notes re the repo set up:**
 
