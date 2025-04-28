@@ -38,7 +38,7 @@ function Skills() {
           <div className={cardClassNames}>
             <h2 className={skillsH2Classes}>Other</h2>
             <ul className={skillsULClasses}>
-              {['Microsoft PowerShell', 'APIs', 'Python', 'C# and .NET'].map((skill) => (
+              {['C# and .NET', 'APIs', 'Python', 'Microsoft PowerShell'].map((skill) => (
                 <li key={skill} className="hanging-indent">
                   {skill}
                 </li>
