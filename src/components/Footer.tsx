@@ -3,6 +3,7 @@ import { FaBluesky } from 'react-icons/fa6';
 
 function Footer() {
   const socialIconClasses = 'w-6 h-6 hover:text-green-500';
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-white text-black py-4 mt-1">
@@ -43,7 +44,7 @@ function Footer() {
         </div>
 
         <p className="text-sm whitespace-nowrap p-2">
-          © 2025 Andrew Greenhill. All rights reserved.
+          {`© ${currentYear} Andrew Greenhill. All rights reserved.`}
         </p>
       </div>
     </footer>
