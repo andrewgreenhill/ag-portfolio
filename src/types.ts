@@ -15,6 +15,8 @@ interface IProjectGroupMetadata {
   link: string;
 }
 
+type TProjectGroupsInfo = Record<TProjectGroupKey, IProjectGroupMetadata>;
+
 interface IProjectRecord {
   id: number;
   groupCode: TProjectGroupKey;
@@ -31,4 +33,10 @@ interface IProjectRecord {
   internalComments: string; // Internal Comments will not be displayed to users
 }
 
-export type { IContactFormData, TProjectGroupKey, IProjectGroupMetadata, IProjectRecord };
+export type {
+  IContactFormData,
+  TProjectGroupKey,
+  IProjectGroupMetadata,
+  TProjectGroupsInfo,
+  IProjectRecord,
+};
