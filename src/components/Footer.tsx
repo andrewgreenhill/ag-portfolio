@@ -3,7 +3,7 @@ import { FaBluesky } from 'react-icons/fa6';
 
 function Footer() {
   const socialIconClasses = 'w-6 h-6 hover:text-green-500';
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear() ?? 2025;
 
   return (
     <footer className="bg-white text-black py-4 mt-1">

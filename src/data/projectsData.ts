@@ -1,8 +1,8 @@
-import { TProjectGroupKey, IProjectRecord, IProjectGroupMetadata } from '../types';
+import { TProjectGroupsInfo, IProjectRecord } from '../types';
 
 // TODO: Set up a backend or CMS to store and serve this data :-)
 
-const groupsInfo: Record<TProjectGroupKey, IProjectGroupMetadata> = {
+const groupsInfo: TProjectGroupsInfo = {
   EarlyWork: {
     name: 'Early works',
     description:

@@ -7,9 +7,9 @@ Contact form:
 [Update README.MD again, if needed]
 [Edge network tracking]
 
-MINOR: Change the copyright notice to get + use the current year.
+Modify tsconfig.ts to configure using a source map
 
-Light+Dark mode
+Add: Light+Dark mode
 Theme[s]
 
 Code rev? + Refactor
