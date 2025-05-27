@@ -9,7 +9,7 @@ Contact form:
 
 Modify tsconfig.ts to configure using a source map
 
-Light+Dark mode
+Add: Light+Dark mode
 Theme[s]
 
 Code rev? + Refactor

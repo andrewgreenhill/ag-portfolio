@@ -4,11 +4,9 @@ import { TProjectGroupKey } from '../types';
 import NotFound from './NotFound';
 import { ProjectsOfGroup } from '../components/ProjectDisplay';
 import { scrollToTop } from '../assets/utils';
-import { useQuery, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { fetchGroupsInfo, fetchProjectsData } from '../api/projectsApi';
 import { loadingErrorDisplay, loadingSpinnerDisplay } from '../components/loadingUtils';
-
-const queryClient = new QueryClient();
 
 /**
  * The Projects page displays a list of project groups, each with a description and a link to view the projects in that group.
@@ -17,11 +15,9 @@ const queryClient = new QueryClient();
  */
 function Projects(): JSX.Element {
   return (
-    <QueryClientProvider client={queryClient}>
-      <PageTransition>
-        <ProjectsContent />
-      </PageTransition>
-    </QueryClientProvider>
+    <PageTransition>
+      <ProjectsContent />
+    </PageTransition>
   );
 }
 

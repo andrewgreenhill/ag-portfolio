@@ -5,4 +5,12 @@ const messagePreviewMaxLength: number = 33;
 const hyperlinkClasses = 'text-green-600 hover:underline';
 const errorMessageClasses = 'text-red-500 text-sm';
 
-export { transitionDuration, messagePreviewMaxLength, hyperlinkClasses, errorMessageClasses };
+const REACT_QUERY_STALE_TIME = 60000 * 10; // 10 minutes
+
+export {
+  transitionDuration,
+  messagePreviewMaxLength,
+  hyperlinkClasses,
+  errorMessageClasses,
+  REACT_QUERY_STALE_TIME,
+};
