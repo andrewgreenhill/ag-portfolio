@@ -5,7 +5,12 @@ import NotFound from './NotFound';
 import { ProjectsOfGroup } from '../components/ProjectDisplay';
 import { scrollToTop } from '../assets/utils';
 import { useQuery } from '@tanstack/react-query';
-import { fetchGroupsInfo, fetchProjectsData } from '../api/projectsApi';
+import {
+  fetchGroupsInfo,
+  fetchProjectsData,
+  queryKeyGroupsInfo,
+  queryKeyProjectsData,
+} from '../api/projectsApi';
 import { loadingErrorDisplay, loadingSpinnerDisplay } from '../components/loadingUtils';
 
 /**
@@ -29,7 +34,7 @@ function ProjectsContent(): JSX.Element {
     error: groupsInfoError,
     isLoading: isLoadingGroupsInfo,
   } = useQuery({
-    queryKey: ['groupsInfo'],
+    queryKey: [queryKeyGroupsInfo],
     queryFn: fetchGroupsInfo,
   });
 
@@ -38,7 +43,7 @@ function ProjectsContent(): JSX.Element {
     error: projectsDataError,
     isLoading: isLoadingProjectsData,
   } = useQuery({
-    queryKey: ['projectsData'],
+    queryKey: [queryKeyProjectsData],
     queryFn: fetchProjectsData,
   });
 

@@ -1,6 +1,11 @@
 import { TProjectGroupsInfo, IProjectRecord } from '../types';
 import { groupsInfo, projectsData } from '../data/projectsData';
 
+// This file contains the API functions for fetching project groups information and project data.
+
+const queryKeyGroupsInfo = 'groupsInfo';
+const queryKeyProjectsData = 'projectsData';
+
 const fetchGroupsInfo = async (): Promise<TProjectGroupsInfo> => {
   // Mock API fetching of the project groups information
   return new Promise((resolve) => {
@@ -19,4 +24,4 @@ const fetchProjectsData = async (): Promise<IProjectRecord[]> => {
   });
 };
 
-export { fetchGroupsInfo, fetchProjectsData };
+export { fetchGroupsInfo, fetchProjectsData, queryKeyGroupsInfo, queryKeyProjectsData };
