@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { scrollToTop } from '../assets/utils';
+import { homeButtonColourClasses, bodyTextColourClasses } from '../assets/constants';
 
 const baseURL = import.meta.env.BASE_URL || '';
 
@@ -21,14 +22,14 @@ function MainScreenHeadingsAndButtons() {
       <div className="mt-8 flex justify-center space-x-4">
         <Link
           to="/projects"
-          className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black font-bold m-2 px-4 py-2 rounded-lg text-black hover:text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
+          className={`${homeButtonColourClasses} text-lg sm:text-xl md:text-2xl border font-bold m-2 px-4 py-2 rounded-lg hover:scale-105 transform transition duration-200 ease-in-out`}
           onClick={scrollToTop}
         >
           View my work
         </Link>
         <Link
           to="/about"
-          className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black font-bold m-2 px-4 py-2 rounded-lg text-black hover:text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
+          className={`${homeButtonColourClasses} text-lg sm:text-xl md:text-2xl border font-bold m-2 px-4 py-2 rounded-lg hover:scale-105 transform transition duration-200 ease-in-out`}
           onClick={scrollToTop}
         >
           More about me
@@ -51,7 +52,7 @@ function HomeScreenWide() {
           <MainScreenHeadingsAndButtons />
         </div>
       </div>
-      <p className="text-center text-sm text-black hidden lg:block">
+      <p className={`text-center text-sm ${bodyTextColourClasses} hidden lg:block`}>
         I'm located in Perth, Western Australia.
       </p>
     </PageTransition>
@@ -73,7 +74,9 @@ function HomeScreenTall() {
           <MainScreenHeadingsAndButtons />
         </div>
       </div>
-      <p className="text-center text-sm text-black">I'm located in Perth, Western Australia.</p>
+      <p className={`text-center text-sm ${bodyTextColourClasses}`}>
+        I'm located in Perth, Western Australia.
+      </p>
     </PageTransition>
   );
 }

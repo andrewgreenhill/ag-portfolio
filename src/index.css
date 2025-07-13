@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -7,7 +7,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #FFF;
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,6 +22,15 @@
 }
 .content a:hover {
   color: #535bf2;
+}
+
+@media (prefers-color-scheme: dark) {
+  .content a {
+    color: #818cf8; /* indigo-400 for dark mode */
+  }
+  .content a:hover {
+    color: #a5b4fc; /* indigo-300 for dark mode hover */
+  }
 }
 
 body {
@@ -88,16 +97,18 @@ button:focus-visible {
   padding-left: 1.2rem;
 }
 
-.bg-green-tw500 {
-  background-color: #22c55e; /* Tailwind's text-green-500 colour */
-}
-
 .project-screenshot {
   border: 1px solid #444 !important;
   /* border: none !important; */
   padding: 0px !important;
   width: 100%;
   border-radius: 0.5rem !important; /* Adjust the border-radius value to round the edges */
+}
+
+@media (prefers-color-scheme: light) {
+  .project-screenshot {
+    border: 1px solid #d1d5db !important; /* gray-300 for light mode */
+  }
 }
 .close-button {
   font-weight: bold;
@@ -119,9 +130,22 @@ button:focus-visible {
   cursor: pointer;
   transition: background-color 0.3s; */
 }
+
+@media (prefers-color-scheme: light) {
+  .close-button {
+    border: 1px solid #374151; /* gray-700 for light mode */
+  }
+}
 .close-button:hover,
 .close-button:focus {
   color: green;
+}
+
+@media (prefers-color-scheme: dark) {
+  .close-button:hover,
+  .close-button:focus {
+    color: #34d399; /* green-400 for better contrast in dark mode */
+  }
 }
 
 .dropdown-menu {

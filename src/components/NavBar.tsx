@@ -1,6 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { scrollToTop } from '../assets/utils';
+import {
+  navBarColourClasses,
+  linkActiveColourClasses,
+  linkHoverColourClasses,
+  brandColourClasses,
+  dropdownColourClasses,
+  hamburgerButtonColourClasses,
+  iconColourClasses,
+} from '../assets/constants';
 
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,20 +47,21 @@ function NavBar() {
   }, [isMenuOpen]);
 
   const linkClasses = ({ isActive }: { isActive: boolean }) =>
-    isActive ? 'text-green-600 font-bold underline' : 'hover:text-green-500';
+    isActive ? `${linkActiveColourClasses} font-bold underline` : linkHoverColourClasses;
 
   const hamburgerLinkClasses = ({ isActive }: { isActive: boolean }) =>
-    isActive ? 'block text-green-600 font-bold underline' : 'block hover:text-green-500';
+    isActive
+      ? `block ${linkActiveColourClasses} font-bold underline`
+      : `block ${linkHoverColourClasses}`;
 
   return (
-    <nav className="bg-white text-black p-4 w-full">
+    <nav className={`${navBarColourClasses} p-4 w-full`}>
       <div className="container mx-auto flex justify-between items-center">
         <NavLink
           to="/"
-          className="text-green-600 text-xl font-bold"
+          className={`${brandColourClasses} text-xl font-bold`}
           style={{ fontSize: '1.4rem' }}
           onClick={scrollToTop}
-          // style={{ fontFamily: 'Kantumruy Pro, sans-serif' }}
         >
           Andrew Greenhill
         </NavLink>
@@ -75,7 +85,7 @@ function NavBar() {
         <div className="md:hidden ml-auto">
           <button
             onClick={toggleMenu}
-            className="focus:outline-none bg-white dark:bg-white border border-gray-300"
+            className={`border ${hamburgerButtonColourClasses}`}
             style={{ borderWidth: '1px' }}
           >
             {/* Hamburger icon */}
@@ -91,7 +101,7 @@ function NavBar() {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h16M4 18h16"
-                className="text-black dark:text-black"
+                className={iconColourClasses}
               ></path>
             </svg>
           </button>
@@ -100,7 +110,7 @@ function NavBar() {
       {isMenuOpen && (
         <div
           ref={menuRef}
-          className="dropdown-menu md:hidden bg-white text-black p-2 absolute right-0 mt-2 w-35 border border-gray-300"
+          className={`dropdown-menu md:hidden ${dropdownColourClasses} p-2 absolute right-0 mt-2 w-35 border`}
         >
           <NavLink
             to="/"
