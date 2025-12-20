@@ -92,6 +92,42 @@ button:focus-visible {
   }
 }
 
+.contact-send-button {
+  border-width: 1px;
+  border-color: #000000; /* black border in light mode */
+  color: #000000; /* black text in light mode */
+  background-color: transparent;
+}
+
+.contact-send-button:hover {
+  border-color: #000000; /* keep black border on hover in light mode */
+  color: #000000; /* keep black text on hover in light mode */
+}
+
+@media (prefers-color-scheme: dark) {
+  .contact-send-button {
+    color: #ffffff; /* white text in dark mode */
+    border-color: var(--color-gray-600); /* gray-600 border in dark mode */
+    border-width: 1px; /* match text field border thickness */
+    background-color: transparent; /* override global white background */
+  }
+
+  .contact-send-button:hover {
+    color: #ffffff; /* keep white text on hover in dark mode */
+    border-color: var(--color-gray-600); /* keep gray-600 border on hover in dark mode */
+  }
+}
+
+.hamburger-button {
+  background-color: #f9f9f9; /* light gray in light mode */
+}
+
+@media (prefers-color-scheme: dark) {
+  .hamburger-button {
+    background-color: var(--color-gray-900); /* dark gray in dark mode to match navbar */
+  }
+}
+
 .hanging-indent {
   text-indent: -1.2rem;
   padding-left: 1.2rem;

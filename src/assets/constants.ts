@@ -27,7 +27,7 @@ const hamburgerButtonColourClasses =
   'bg-white border-black dark:bg-gray-800 dark:border-gray-600 focus:outline-none focus:ring-0 focus:!border-black dark:focus:!border-white hover:!border-black dark:hover:!border-white active:!border-black dark:active:!border-white';
 const tooltipColourClasses = 'text-white bg-gray-800 dark:text-black dark:bg-gray-200';
 const homeButtonColourClasses =
-  'text-black bg-neutral border-black hover:text-green-600 dark:text-gray-900 dark:bg-gray-200 dark:border-gray-700 dark:hover:text-green-500';
+  'text-black border-black hover:text-green-600 dark:text-white dark:border-gray-300 dark:hover:text-green-400';
 
 // Layout and structure
 const iconColourClasses = baseTextColourClasses;
@@ -50,8 +50,7 @@ const formFieldColourClasses =
 const formContainerColourClasses = baseBackgroundColourClasses;
 const successMessageColourClasses = primaryGreenColourClasses;
 const errorMessageClasses = 'text-red-500 dark:text-red-400 text-sm';
-const submitButtonColourClasses =
-  '!border !border-black !dark:border-white !hover:border-green-600 !dark:hover:border-green-500';
+const submitButtonColourClasses = 'bg-transparent border';
 const submitButtonHoverColourClasses = 'text-green-500 dark:text-green-400';
 const submitButtonErrorColourClasses = 'text-gray-800 dark:text-gray-300';
 const formErrorColourClasses = 'text-red-500 dark:text-red-400';

@@ -7,7 +7,7 @@ function Footer() {
   const currentYear = new Date().getFullYear() ?? 2025;
 
   return (
-    <footer className={`${footerColourClasses} py-4 mt-1`}>
+    <footer className={`${footerColourClasses} py-4 pt-3`}>
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4">
         <p className="text-sm whitespace-nowrap p-2">Made with ♥ using React and TypeScript</p>
 

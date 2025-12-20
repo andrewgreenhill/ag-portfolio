@@ -85,7 +85,7 @@ function NavBar() {
         <div className="md:hidden ml-auto">
           <button
             onClick={toggleMenu}
-            className={`border ${hamburgerButtonColourClasses}`}
+            className={`hamburger-button border ${hamburgerButtonColourClasses}`}
             style={{ borderWidth: '1px' }}
           >
             {/* Hamburger icon */}

@@ -6,11 +6,38 @@ import { homeButtonColourClasses, bodyTextColourClasses } from '../assets/consta
 
 const baseURL = import.meta.env.BASE_URL || '';
 
+// Hook to detect dark mode preference
+function useDarkMode() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check initial preference
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDark(mediaQuery.matches);
+
+    // Listen for changes
+    const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
+    mediaQuery.addEventListener('change', handler);
+
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
+  return isDark;
+}
+
+// Function to get the appropriate background image based on dark mode
+function getBackgroundImage(isDark: boolean) {
+  return isDark
+    ? `${baseURL}images/Backdrop/Perth_CBD_from_KingsPark(simulated).png`
+    : `${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`;
+}
+
 function MainScreenHeadingsAndButtons() {
+  const isDark = useDarkMode();
   return (
     <div
       className="p-8 rounded-lg shadow-lg max-w-4xl w-full text-center mt-16 sm:mt-1 md:mt-16"
-      style={{ backgroundColor: 'rgba(255, 255, 255, 0.75)' }} // Translucent white
+      style={{ backgroundColor: `rgba(255, 255, 255, ${isDark ? '0.25' : '0.75'})` }} // Translucent white
     >
       <h1 className="!text-2xl sm:!text-3xl md:!text-4xl font-bold">
         I'm a Frontend Developer specialising in React and TypeScript
@@ -40,11 +67,14 @@ function MainScreenHeadingsAndButtons() {
 }
 
 function HomeScreenWide() {
+  const isDark = useDarkMode();
+  const backgroundImage = getBackgroundImage(isDark);
+
   return (
     <PageTransition>
       <div className="relative px-8 pb-4 md:pt-8 sm:pt-2">
         <img
-          src={`${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`}
+          src={backgroundImage}
           alt="Perth CBD skyline from State War Memorial Lookout"
           className="w-full h-auto"
         />
@@ -60,12 +90,15 @@ function HomeScreenWide() {
 }
 
 function HomeScreenTall() {
+  const isDark = useDarkMode();
+  const backgroundImage = getBackgroundImage(isDark);
+
   return (
     <PageTransition>
       <div className="relative px-8 pb-4 md:pt-8 sm:pt-2">
         <div className="absolute inset-0">
           <img
-            src={`${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`}
+            src={backgroundImage}
             alt="Perth CBD skyline from State War Memorial Lookout"
             className="w-full h-full object-cover"
           />

@@ -13,10 +13,6 @@ import {
   helpTextColourClasses,
   bodyTextColourClasses,
   submitButtonColourClasses,
-  submitButtonHoverColourValue,
-  submitButtonErrorColourValue,
-  submitButtonHoverColourValueDark,
-  submitButtonErrorColourValueDark,
   formErrorColourClasses,
 } from '../assets/constants';
 
@@ -159,19 +155,6 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
 
   const fieldClasses = `w-full p-2 ${formFieldColourClasses} border rounded`;
 
-  // Functions to get the colour for light or dark mode
-  const getHoverColor = () => {
-    const isDarkMode =
-      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return isDarkMode ? submitButtonHoverColourValueDark : submitButtonHoverColourValue;
-  };
-
-  const getErrorColor = () => {
-    const isDarkMode =
-      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return isDarkMode ? submitButtonErrorColourValueDark : submitButtonErrorColourValue;
-  };
-
   return (
     <div className={`max-w-lg mx-auto p-6 ${formContainerColourClasses} shadow-lg rounded-lg`}>
       {titleMessage && <h2 className="text-2xl font-bold">{titleMessage}</h2>}
@@ -288,16 +271,10 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
 
         {/* Send Button */}
         <motion.button
-          whileHover={{
-            scale: haveSendDetails ? 1.05 : 1,
-            color:
-              errors.name || errors.email || errors.message || !captchaValue || status === 'error'
-                ? '#333333'
-                : '#22c55e',
-          }}
+          whileHover={{ scale: haveSendDetails ? 1.05 : 1 }}
           whileTap={{ scale: haveSendDetails ? 0.95 : 1 }}
           type="submit"
-          className={`w-full ${bodyTextColourClasses} py-2 rounded ${submitButtonColourClasses} transition`}
+          className={`contact-send-button w-full ${bodyTextColourClasses} py-2 rounded ${submitButtonColourClasses} transition`}
         >
           {isSubmitting ? 'Sending...' : 'SEND'}
         </motion.button>
