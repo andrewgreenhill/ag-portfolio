@@ -28,7 +28,7 @@ function useDarkMode() {
 // Function to get the appropriate background image based on dark mode
 function getBackgroundImage(isDark: boolean) {
   return isDark
-    ? `${baseURL}images/Backdrop/Perth_CBD_from_KingsPark(simulated).png`
+    ? `${baseURL}images/Backdrop/Perth_CBD_from_KingsPark(simulated).jpg`
     : `${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`;
 }
 
