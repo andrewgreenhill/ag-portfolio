@@ -17,7 +17,7 @@ function Skills() {
 
   return (
     <PageTransition>
-      <div className="max-w-4xl mx-auto px-8 pb-4 md:pt-8 sm:pt-2">
+      <div className="max-w-4xl md:max-w-6xl lg:max-w-7xl mx-auto px-8 pb-4 md:pt-8 sm:pt-2">
         <h1 className={'text-3xl font-bold text-center mb-6 md:mb-8'}>Skills</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -29,8 +29,9 @@ function Skills() {
                 'JavaScript',
                 'TypeScript',
                 'React.js and related technologies like React Query, React Hook Form and Redux',
+                'Next.js',
                 'HTML',
-                'CSS',
+                'CSS, SASS/SCSS',
               ].map((skill) => (
                 <li key={skill} className="hanging-indent">
                   {skill}

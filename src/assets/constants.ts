@@ -24,7 +24,8 @@ const dropdownColourClasses =
 // const buttonColourClasses = 'bg-white border-black dark:bg-gray-800 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white hover:border-black dark:hover:border-white';
 const buttonColourClasses = 'bg-white dark:bg-gray-800';
 const hamburgerButtonColourClasses = 'focus:outline-none focus:ring-0';
-const tooltipColourClasses = 'text-white bg-gray-800 dark:text-black dark:bg-gray-200';
+// Tooltips: force consistently high contrast (black on light background) on all devices
+const tooltipColourClasses = 'text-black bg-gray-100 dark:text-black dark:bg-gray-200';
 const homeButtonColourClasses =
   'text-black hover:text-green-600 dark:text-white dark:hover:text-green-400';
 
