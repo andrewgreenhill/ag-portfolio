@@ -33,15 +33,24 @@ function App() {
       : 'text-gray-900 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200';
 
   const handleScroll = useCallback(() => {
+    const currentY = window.scrollY;
+
+    // Always show navbar when very close to the top
+    if (currentY <= 20) {
+      setIsNavBarFixed(true);
+      setLastScrollY(currentY);
+      return;
+    }
+
     if (
-      (isNavBarFixed && window.scrollY < lastScrollY + 2) ||
-      (!isNavBarFixed && window.scrollY < lastScrollY - 6)
+      (isNavBarFixed && currentY < lastScrollY + 2) ||
+      (!isNavBarFixed && currentY < lastScrollY - 6)
     ) {
       setIsNavBarFixed(true);
     } else {
       setIsNavBarFixed(false);
     }
-    setLastScrollY(window.scrollY);
+    setLastScrollY(currentY);
   }, [lastScrollY, isNavBarFixed]);
 
   useEffect(() => {
@@ -55,7 +64,11 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <EagerLoadProjectData />
       <div className="flex flex-col min-h-screen">
-        <div className={`${isNavBarFixed ? 'fixed' : 'relative'} top-0 left-0 right-0 z-50`}>
+        <div
+          className={`fixed top-0 left-0 right-0 z-50 transform transition-transform duration-200 ${
+            isNavBarFixed ? 'translate-y-0' : '-translate-y-full'
+          }`}
+        >
           <NavBar />
           {isNavBarFixed && (
             // Thin grey line to separate navbar from content, only visible when the navbar is fixed
