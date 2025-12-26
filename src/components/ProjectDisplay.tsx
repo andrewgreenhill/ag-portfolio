@@ -144,8 +144,7 @@ function Images({ images }: { images: string[] }) {
           >
             <img
               src={selectedImage}
-              alt="Selected"
-              style={{ width: '80%', border: '1px solid black', borderRadius: '10px' }}
+              style={{ width: '80%', border: '1px solid #555', borderRadius: '10px' }}
             />
           </div>
         )}

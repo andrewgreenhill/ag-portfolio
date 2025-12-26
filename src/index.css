@@ -140,15 +140,14 @@ button:focus-visible {
 }
 
 .project-screenshot {
-  border: 1px solid #444 !important;
-  /* border: none !important; */
+  border: 1px solid #999 !important; /* light border for dark mode */
   padding: 0px !important;
   width: 100%;
   border-radius: 0.5rem !important; /* Adjust the border-radius value to round the edges */
 }
 
 [data-theme='light'] .project-screenshot {
-  border: 1px solid #d1d5db !important; /* gray-300 for light mode */
+  border: 1px solid #555 !important; /* darker border for light mode */
 }
 .close-button {
   font-weight: bold;
