@@ -292,12 +292,13 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
               !captchaValue ||
               status === 'error' ||
               !mandatoryFieldsCompleted
-                ? '#333333'
+                ? '#777777'
                 : '#22c55e',
           }}
           whileTap={{ scale: haveSendDetails ? 0.95 : 1 }}
           type="submit"
           className={`contact-send-button w-full ${bodyTextColourClasses} py-2 rounded ${submitButtonColourClasses} transition`}
+          style={{ color: isDark ? '#ffffff' : '#000000' }}
         >
           {isSubmitting ? 'Sending...' : 'SEND'}
         </motion.button>
