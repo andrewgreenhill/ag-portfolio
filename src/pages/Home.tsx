@@ -2,14 +2,30 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { scrollToTop } from '../assets/utils';
+import { homeButtonColourClasses, bodyTextColourClasses } from '../assets/constants';
+import { useTheme } from '../theme/ThemeContext';
 
 const baseURL = import.meta.env.BASE_URL || '';
 
+// Hook to detect dark mode using global theme state
+function useDarkMode() {
+  const { theme } = useTheme();
+  return theme === 'dark';
+}
+
+// Function to get the appropriate background image based on dark mode
+function getBackgroundImage(isDark: boolean) {
+  return isDark
+    ? `${baseURL}images/Backdrop/Perth_CBD_from_KingsPark(simulated).jpg`
+    : `${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`;
+}
+
 function MainScreenHeadingsAndButtons() {
+  const isDark = useDarkMode();
   return (
     <div
       className="p-8 rounded-lg shadow-lg max-w-4xl w-full text-center mt-16 sm:mt-1 md:mt-16"
-      style={{ backgroundColor: 'rgba(255, 255, 255, 0.75)' }} // Translucent white
+      style={{ backgroundColor: `rgba(255, 255, 255, ${isDark ? '0.25' : '0.75'})` }} // Translucent white
     >
       <h1 className="!text-2xl sm:!text-3xl md:!text-4xl font-bold">
         I'm a Frontend Developer specialising in React and TypeScript
@@ -19,16 +35,18 @@ function MainScreenHeadingsAndButtons() {
         I build modern, responsive, user-friendly web applications.
       </h2>
       <div className="mt-8 flex justify-center space-x-4">
+        {/** Button border colour tracks theme: black in light mode, gray-300 in dark mode */}
+        {/** `homeButtonColourClasses` handles text + hover colours for each theme. */}
         <Link
           to="/projects"
-          className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black font-bold m-2 px-4 py-2 rounded-lg text-black hover:text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
+          className={`${homeButtonColourClasses} home-hero-button text-lg sm:text-xl md:text-2xl border ${{ true: 'border-black', false: 'border-gray-300' }[(!isDark).toString() as 'true' | 'false']} font-bold m-2 px-4 py-2 rounded-lg hover:scale-105 transform transition duration-200 ease-in-out`}
           onClick={scrollToTop}
         >
           View my work
         </Link>
         <Link
           to="/about"
-          className="bg-neutral text-lg sm:text-xl md:text-2xl border border-black font-bold m-2 px-4 py-2 rounded-lg text-black hover:text-green-600 hover:scale-105 transform transition duration-200 ease-in-out"
+          className={`${homeButtonColourClasses} home-hero-button text-lg sm:text-xl md:text-2xl border ${{ true: 'border-black', false: 'border-gray-300' }[(!isDark).toString() as 'true' | 'false']} font-bold m-2 px-4 py-2 rounded-lg hover:scale-105 transform transition duration-200 ease-in-out`}
           onClick={scrollToTop}
         >
           More about me
@@ -39,11 +57,14 @@ function MainScreenHeadingsAndButtons() {
 }
 
 function HomeScreenWide() {
+  const isDark = useDarkMode();
+  const backgroundImage = getBackgroundImage(isDark);
+
   return (
     <PageTransition>
       <div className="relative px-8 pb-4 md:pt-8 sm:pt-2">
         <img
-          src={`${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`}
+          src={backgroundImage}
           alt="Perth CBD skyline from State War Memorial Lookout"
           className="w-full h-auto"
         />
@@ -51,7 +72,7 @@ function HomeScreenWide() {
           <MainScreenHeadingsAndButtons />
         </div>
       </div>
-      <p className="text-center text-sm text-black hidden lg:block">
+      <p className={`text-center text-sm ${bodyTextColourClasses} hidden lg:block`}>
         I'm located in Perth, Western Australia.
       </p>
     </PageTransition>
@@ -59,12 +80,15 @@ function HomeScreenWide() {
 }
 
 function HomeScreenTall() {
+  const isDark = useDarkMode();
+  const backgroundImage = getBackgroundImage(isDark);
+
   return (
     <PageTransition>
       <div className="relative px-8 pb-4 md:pt-8 sm:pt-2">
         <div className="absolute inset-0">
           <img
-            src={`${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`}
+            src={backgroundImage}
             alt="Perth CBD skyline from State War Memorial Lookout"
             className="w-full h-full object-cover"
           />
@@ -73,7 +97,9 @@ function HomeScreenTall() {
           <MainScreenHeadingsAndButtons />
         </div>
       </div>
-      <p className="text-center text-sm text-black">I'm located in Perth, Western Australia.</p>
+      <p className={`text-center text-sm ${bodyTextColourClasses}`}>
+        I'm located in Perth, Western Australia.
+      </p>
     </PageTransition>
   );
 }

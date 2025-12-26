@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
+import {
+  cardColourClasses,
+  linkActiveColourClasses,
+  linkHoverColourClasses,
+} from '../assets/constants';
 
 /**
  * The Skills page displays a list of my skills in frontend, other, tools, and soft skills.
@@ -8,7 +13,7 @@ import PageTransition from '../components/PageTransition';
 function Skills() {
   const skillsH2Classes = 'text-2xl font-bold mb-4 text-left';
   const skillsULClasses = 'list-disc list-inside text-left space-y-2';
-  const cardClassNames = 'bg-white shadow rounded-lg p-6';
+  const cardClassNames = `${cardColourClasses} shadow rounded-lg p-6`;
 
   return (
     <PageTransition>
@@ -84,10 +89,11 @@ function Skills() {
             </ul>
           </div>
         </div>
+
         <div className="relative lg:hidden xl:hidden 2xl:hidden">
           <Link
             to="#"
-            className="absolute bottom-0 right-4 text-green-600 hover:underline"
+            className={`absolute bottom-0 right-4 ${linkActiveColourClasses} ${linkHoverColourClasses} hover:underline`}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             Back to top ⇧

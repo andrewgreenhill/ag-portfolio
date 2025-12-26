@@ -5,7 +5,17 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { IContactFormData } from '../types';
 import './ContactForm.css';
 import { emailAddressPattern, messageSummary, sanitizeInput } from '../assets/utils';
-import { errorMessageClasses } from '../assets/constants';
+import {
+  errorMessageClasses,
+  formFieldColourClasses,
+  formContainerColourClasses,
+  successMessageColourClasses,
+  helpTextColourClasses,
+  bodyTextColourClasses,
+  submitButtonColourClasses,
+  formErrorColourClasses,
+} from '../assets/constants';
+import { useTheme } from '../theme/ThemeContext';
 
 type ContactFormProps = {
   titleMessage?: string;
@@ -19,6 +29,9 @@ type ContactFormProps = {
  * @returns {JSX.Element} The rendered contact form component
  */
 function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   const {
     register,
     handleSubmit,
@@ -27,6 +40,7 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
     setValue,
     setError,
     clearErrors,
+    watch,
   } = useForm<IContactFormData>();
 
   const SEND_EMAIL_ENDPOINT = import.meta.env.VITE_SEND_EMAIL_ENDPOINT || '';
@@ -144,19 +158,24 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
     }
   }
 
-  const fieldClasses = 'w-full p-2 bg-white border rounded';
+  const fieldClasses = `w-full p-2 ${formFieldColourClasses} border ${
+    isDark ? 'border-gray-600' : 'border-black'
+  } rounded`;
+
+  const [watchedName, watchedEmail, watchedMessage] = watch(['name', 'email', 'message']);
+
+  const mandatoryFieldsCompleted =
+    !!watchedName?.trim() && !!watchedEmail?.trim() && !!watchedMessage?.trim();
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
-      {/* <div className="max-w-lg mx-auto p-6 bg-gray-200 border-2 border-gray-500 shadow-lg rounded-lg"> */}
-      {/* <h1 className="text-3xl font-bold mb-4 text-center">Contact Me</h1> */}
+    <div className={`max-w-lg mx-auto p-6 ${formContainerColourClasses} shadow-lg rounded-lg`}>
       {titleMessage && <h2 className="text-2xl font-bold">{titleMessage}</h2>}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Name */}
         <div>
           {!haveSendDetails && (
             <>
-              <p className="text-red-500">
+              <p className={formErrorColourClasses}>
                 This form cannot be used currently. Please try again later or use LinkedIn to
                 contact me.
               </p>
@@ -258,7 +277,7 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
         )}
 
         {/* Privacy Note */}
-        <p className="text-xs text-gray-500">
+        <p className={`text-xs ${helpTextColourClasses}`}>
           I respect your privacy, and will not share your details.
         </p>
 
@@ -267,22 +286,28 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
           whileHover={{
             scale: haveSendDetails ? 1.05 : 1,
             color:
-              errors.name || errors.email || errors.message || !captchaValue || status === 'error'
-                ? '#333333'
+              errors.name ||
+              errors.email ||
+              errors.message ||
+              !captchaValue ||
+              status === 'error' ||
+              !mandatoryFieldsCompleted
+                ? '#777777'
                 : '#22c55e',
           }}
           whileTap={{ scale: haveSendDetails ? 0.95 : 1 }}
           type="submit"
-          className="w-full text-black dark:text-white py-2 rounded !border !border-black !dark:border-white !hover:border-green-600 transition"
+          className={`contact-send-button w-full ${bodyTextColourClasses} py-2 rounded ${submitButtonColourClasses} transition`}
+          style={{ color: isDark ? '#ffffff' : '#000000' }}
         >
           {isSubmitting ? 'Sending...' : 'SEND'}
         </motion.button>
 
         {status === 'success' && isSubmitted && (
-          <p className="text-green-600 text-center mb-4">Message sent!</p>
+          <p className={`${successMessageColourClasses} text-center mb-4`}>Message sent!</p>
         )}
         {status === 'error' && (
-          <p className="text-red-500 text-center mb-4">
+          <p className={`${errorMessageClasses} text-center mb-4`}>
             Something went wrong when attempting to send.
             {requestError === 'NetworkError when attempting to fetch resource.' ||
             requestError === 'Failed to fetch'

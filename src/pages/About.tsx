@@ -1,6 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import PageTransition from '../components/PageTransition';
-import { hyperlinkClasses } from '../assets/constants';
+import {
+  hyperlinkClasses,
+  cardColourClasses,
+  aboutSectionColourClasses,
+  headingColourClasses,
+  tooltipColourClasses,
+  linkActiveColourClasses,
+  linkHoverColourClasses,
+} from '../assets/constants';
 
 /**
  * @returns The About page
@@ -42,11 +50,11 @@ function About() {
     }
   }, [showLanguages]);
 
-  const aboutSectionClasses = 'text-lg text-gray-700 leading-relaxed';
+  const aboutSectionClasses = `text-lg ${aboutSectionColourClasses} leading-relaxed`;
 
   return (
     <PageTransition>
-      <div className="m-2 p-8 pb-4 bg-white rounded-lg text-left md:text-justify">
+      <div className={`m-2 p-8 pb-4 ${cardColourClasses} rounded-lg text-left md:text-justify`}>
         <h1 className="text-3xl font-bold mb-6 text-center">About me</h1>
 
         <section className="space-y-4">
@@ -76,7 +84,7 @@ function About() {
         </section>
 
         <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-bold text-gray-800 text-center">Background</h2>
+          <h2 className={`text-2xl font-bold ${headingColourClasses} text-center`}>Background</h2>
           <p className={aboutSectionClasses}>
             I began programming while at school, teaching myself. I started with Basic, then when I
             wanted more capabilities, I taught myself machine code. I started creating my own
@@ -104,7 +112,7 @@ function About() {
               {showLanguages && (
                 <span
                   ref={popupRef}
-                  className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2 bg-gray-800 text-white text-left text-sm rounded-lg shadow-lg"
+                  className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-48 p-2 ${tooltipColourClasses} text-left text-sm rounded-lg shadow-lg`}
                 >
                   TypeScript, JavaScript, HTML, Python, Ruby, C#, C, VBA, GML, Prolog, Basic,
                   Pascal, and Z80 machine language.
@@ -124,7 +132,7 @@ function About() {
         </section>
 
         <section className="mt-8 space-y-4">
-          <h2 className="text-2xl font-bold text-gray-800 text-center">Colour theme</h2>
+          <h2 className={`text-2xl font-bold ${headingColourClasses} text-center`}>Colour theme</h2>
           <p className={aboutSectionClasses}>
             The colour theme for my logo and this web site was inspired by{' '}
             <a
@@ -151,7 +159,7 @@ function About() {
         <div className="text-right mt-8">
           <a
             href="#"
-            className={hyperlinkClasses}
+            className={`${linkActiveColourClasses} ${linkHoverColourClasses} hover:underline`}
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });

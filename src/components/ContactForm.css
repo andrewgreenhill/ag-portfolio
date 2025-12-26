@@ -13,16 +13,16 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
   position: relative;
   background-color: #fff;
   padding: 20px;
-  border: 5px solid #4CAF50;
+  border: 5px solid #4caf50;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 80%;
   max-width: 500px;
   text-align: center;
@@ -34,7 +34,7 @@ body {
   top: 10px;
   right: 10px;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: none;
   width: 30px;
   height: 30px;
@@ -50,7 +50,7 @@ body {
 
 .close:hover,
 .close:focus {
-  background-color: #388E3C;
+  background-color: #388e3c;
 }
 
 .animation {
@@ -66,11 +66,30 @@ body {
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes confetti {
-  from { transform: translateY(-50px); }
-  to { transform: translateY(0); }
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* reCAPTCHA styling */
+
+[data-theme='light'] .recaptcha-container iframe {
+  border: 1px solid #000000; /* black border around widget in light mode */
+  border-radius: 0.25rem;
+}
+
+[data-theme='dark'] .recaptcha-container iframe {
+  filter: invert(1) hue-rotate(180deg) !important;
 }

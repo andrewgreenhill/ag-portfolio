@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -7,7 +7,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #FFF;
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,6 +22,13 @@
 }
 .content a:hover {
   color: #535bf2;
+}
+
+[data-theme='dark'] .content a {
+  color: #818cf8; /* indigo-400 for dark mode */
+}
+[data-theme='dark'] .content a:hover {
+  color: #a5b4fc; /* indigo-300 for dark mode hover */
 }
 
 body {
@@ -63,24 +70,68 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  .content a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+[data-theme='light'] {
+  color: #213547;
+  background-color: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  button {
-    background-color: #ffffff; /* Set button background to white in dark mode */
-    color: #000; /* Set button text color to dark in dark mode */
-  }
+[data-theme='light'] .content a:hover {
+  color: #747bff;
+}
+
+[data-theme='light'] button {
+  background-color: #f9f9f9;
+}
+
+[data-theme='dark'] button {
+  background-color: #ffffff; /* Set button background to white in dark mode */
+  color: #000; /* Set button text color to dark in dark mode */
+}
+
+.contact-send-button {
+  border-width: 1px;
+  border-color: #000000; /* black border in light mode */
+  color: #000000; /* black text in light mode */
+  background-color: transparent;
+}
+
+[data-theme='light'] .contact-send-button {
+  background-color: transparent; /* override global light button background */
+}
+
+.contact-send-button:hover {
+  border-color: #000000; /* keep black border on hover in light mode */
+  color: #000000; /* keep black text on hover in light mode */
+}
+
+[data-theme='dark'] .contact-send-button {
+  color: #ffffff; /* white text in dark mode */
+  border-color: var(--color-gray-600); /* gray-600 border in dark mode */
+  border-width: 1px; /* match text field border thickness */
+  background-color: transparent; /* override global white background */
+}
+
+[data-theme='dark'] .contact-send-button:hover {
+  color: #ffffff; /* keep white text on hover in dark mode */
+  border-color: var(--color-gray-600); /* keep gray-600 border on hover in dark mode */
+}
+
+.hamburger-button {
+  background-color: #f9f9f9; /* light gray in light mode */
+  border: 1px solid transparent; /* border appears only on hover */
+}
+
+[data-theme='dark'] .hamburger-button {
+  background-color: #0c0c0c; /* between #060606 and #111827 for softer contrast */
+  border-color: transparent;
+}
+
+.hamburger-button:hover {
+  border-color: #000000; /* show dark border on hover in light mode */
+}
+
+[data-theme='dark'] .hamburger-button:hover {
+  border-color: #ffffff; /* show light border on hover in dark mode */
 }
 
 .hanging-indent {
@@ -88,16 +139,15 @@ button:focus-visible {
   padding-left: 1.2rem;
 }
 
-.bg-green-tw500 {
-  background-color: #22c55e; /* Tailwind's text-green-500 colour */
-}
-
 .project-screenshot {
-  border: 1px solid #444 !important;
-  /* border: none !important; */
+  border: 1px solid #999 !important; /* light border for dark mode */
   padding: 0px !important;
   width: 100%;
   border-radius: 0.5rem !important; /* Adjust the border-radius value to round the edges */
+}
+
+[data-theme='light'] .project-screenshot {
+  border: 1px solid #555 !important; /* darker border for light mode */
 }
 .close-button {
   font-weight: bold;
@@ -119,11 +169,164 @@ button:focus-visible {
   cursor: pointer;
   transition: background-color 0.3s; */
 }
+
+[data-theme='light'] .close-button {
+  border: 1px solid #374151; /* gray-700 for light mode */
+}
 .close-button:hover,
 .close-button:focus {
   color: green;
 }
 
+[data-theme='dark'] .close-button:hover,
+[data-theme='dark'] .close-button:focus {
+  color: #34d399; /* green-400 for better contrast in dark mode */
+}
+
 .dropdown-menu {
   z-index: 1000; /* Adjust the value as needed */
+}
+
+/* Home hero buttons: force green hover text in each theme */
+
+.home-hero-button:hover {
+  color: #16a34a !important; /* Tailwind green-600 for light theme */
+}
+
+[data-theme='dark'] .home-hero-button:hover {
+  color: #16a34a !important; /* Tailwind green-600 for dark theme, too */
+}
+
+/* Dark theme overrides for Tailwind `dark:` utilities so they follow
+   the app's theme (data-theme="dark") instead of the browser setting. */
+
+[data-theme='dark'] .dark\:text-white {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .dark\:text-gray-100 {
+  color: #f3f4f6;
+}
+
+[data-theme='dark'] .dark\:text-gray-200 {
+  color: #e5e7eb;
+}
+
+[data-theme='dark'] .dark\:text-gray-300 {
+  color: #d1d5db;
+}
+
+[data-theme='dark'] .dark\:text-gray-400 {
+  color: #9ca3af;
+}
+
+[data-theme='dark'] .dark\:text-green-400 {
+  color: #4ade80;
+}
+
+[data-theme='dark'] .dark\:text-red-400 {
+  color: #f87171;
+}
+
+[data-theme='dark'] .dark\:bg-gray-800 {
+  background-color: #1f2937;
+}
+
+[data-theme='dark'] .dark\:bg-gray-900 {
+  background-color: #111827;
+}
+
+[data-theme='dark'] .dark\:bg-gray-200 {
+  background-color: #e5e7eb;
+}
+
+[data-theme='dark'] .dark\:border-gray-600 {
+  border-color: #4b5563;
+}
+
+[data-theme='dark'] .dark\:border-gray-300 {
+  border-color: #d1d5db;
+}
+
+[data-theme='dark'] .dark\:hover\:text-green-300:hover {
+  color: #86efac;
+}
+
+[data-theme='dark'] .dark\:from-gray-800,
+[data-theme='dark'] .dark\:via-gray-700,
+[data-theme='dark'] .dark\:to-gray-800 {
+  /* Fallback: apply a dark background when gradient utilities are used */
+  background-color: #111827;
+}
+
+/* Light theme overrides so that when the browser is in dark mode
+   but the app theme is light, `dark:` utilities do NOT take effect. */
+
+[data-theme='light'] .dark\:text-white {
+  /* Mirrors Tailwind `text-black` */
+  color: #000000;
+}
+
+[data-theme='light'] .dark\:text-gray-100 {
+  /* Use a typical light text color (gray-900) */
+  color: #111827;
+}
+
+[data-theme='light'] .dark\:text-gray-200 {
+  color: #1f2937;
+}
+
+[data-theme='light'] .dark\:text-gray-300 {
+  /* For aboutSectionColourClasses revert to gray-700 */
+  color: #374151;
+}
+
+[data-theme='light'] .dark\:text-gray-400 {
+  /* For help/muted text revert to gray-500/600 */
+  color: #6b7280;
+}
+
+[data-theme='light'] .dark\:text-green-400 {
+  /* Mirrors Tailwind `text-green-600` */
+  color: #16a34a;
+}
+
+[data-theme='light'] .dark\:text-red-400 {
+  /* Mirrors Tailwind `text-red-500` */
+  color: #ef4444;
+}
+
+[data-theme='light'] .dark\:bg-gray-800 {
+  /* Mirrors Tailwind `bg-white` used in base backgrounds */
+  background-color: #ffffff;
+}
+
+[data-theme='light'] .dark\:bg-gray-900 {
+  /* Mirrors Tailwind `bg-white` used in nav/footer */
+  background-color: #ffffff;
+}
+
+[data-theme='light'] .dark\:bg-gray-200 {
+  /* For tooltip background revert to gray-800 */
+  background-color: #1f2937;
+}
+
+[data-theme='light'] .dark\:border-gray-600 {
+  /* Mirrors Tailwind `border-gray-300` */
+  border-color: #d1d5db;
+}
+
+[data-theme='light'] .dark\:border-gray-300 {
+  /* Mirrors Tailwind `border-gray-300` (no-op but cancels dark) */
+  border-color: #d1d5db;
+}
+
+[data-theme='light'] .dark\:hover\:text-green-300:hover {
+  /* Mirrors Tailwind `hover:text-green-500` */
+  color: #16a34a; /* tailwind green-600 */
+}
+
+[data-theme='light'] .dark\:text-black {
+  /* For tooltip in light theme keep white text */
+  color: #ffffff;
 }

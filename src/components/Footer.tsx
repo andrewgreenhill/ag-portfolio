@@ -1,12 +1,13 @@
 import { FaLinkedin, FaGithub, FaMicrosoft, FaFreeCodeCamp, FaStackOverflow } from 'react-icons/fa';
 import { FaBluesky } from 'react-icons/fa6';
+import { footerColourClasses, socialIconColourClasses } from '../assets/constants';
 
 function Footer() {
-  const socialIconClasses = 'w-6 h-6 hover:text-green-500';
+  const socialIconClasses = `w-6 h-6 ${socialIconColourClasses}`;
   const currentYear = new Date().getFullYear() ?? 2025;
 
   return (
-    <footer className="bg-white text-black py-4 mt-1">
+    <footer className={`${footerColourClasses} py-4 pt-3`}>
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4">
         <p className="text-sm whitespace-nowrap p-2">Made with ♥ using React and TypeScript</p>
 
