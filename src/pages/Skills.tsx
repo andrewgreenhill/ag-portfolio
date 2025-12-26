@@ -13,7 +13,7 @@ import {
 function Skills() {
   const skillsH2Classes = 'text-2xl font-bold mb-4 text-left';
   const skillsULClasses = 'list-disc list-inside text-left space-y-2';
-  const cardClassNames = `${cardColourClasses} shadow rounded-lg p-6`;
+  const cardClassNames = `${cardColourClasses} shadow rounded-lg p-7 md:p-9 lg:p-11`;
 
   return (
     <PageTransition>

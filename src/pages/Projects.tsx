@@ -120,7 +120,7 @@ function ProjectsContent(): JSX.Element {
         {projectGroupsToDisplay.map((groupCode) => (
           <div
             key={groupCode}
-            className={`${cardColourClasses} shadow-md rounded-lg p-4 pt-10 transform transition duration-200 ease-in-out`}
+            className={`${cardColourClasses} shadow-md rounded-lg px-6 md:px-8 lg:px-10 py-8 md:py-10 lg:py-16 transform transition duration-200 ease-in-out`}
           >
             <h2 className="text-2xl font-bold">{groupsInfo[groupCode].name}</h2>
             <p className="justify-center">{groupsInfo[groupCode].description}</p>
@@ -128,7 +128,7 @@ function ProjectsContent(): JSX.Element {
             <Link
               className={`inline-block ${buttonColourClasses} border ${
                 isDark ? 'border-gray-300' : 'border-black'
-              } font-bold m-4 py-2 px-4 rounded ${linkHoverColourClasses} hover:scale-105 transform transition duration-200 ease-in-out`}
+              } font-bold m-4 mb-0 py-2 px-4 rounded ${linkHoverColourClasses} hover:scale-105 transform transition duration-200 ease-in-out`}
               to={`/projects/${groupsInfo[groupCode].link}`}
               onClick={scrollToTop}
             >

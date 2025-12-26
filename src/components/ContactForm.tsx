@@ -168,7 +168,9 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
     !!watchedName?.trim() && !!watchedEmail?.trim() && !!watchedMessage?.trim();
 
   return (
-    <div className={`max-w-lg mx-auto p-6 ${formContainerColourClasses} shadow-lg rounded-lg`}>
+    <div
+      className={`max-w-lg md:max-w-2xl mx-auto px-6 md:px-8 lg:px-10 py-6 md:py-7 lg:py-8 ${formContainerColourClasses} shadow-lg rounded-lg`}
+    >
       {titleMessage && <h2 className="text-2xl font-bold">{titleMessage}</h2>}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Name */}
@@ -198,7 +200,7 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
 
         {/* Email */}
         <div>
-          <label className="block font-medium">Email*</label>
+          <label className="block font-medium mt-2 md:mt-6">Email*</label>
           <input
             type="email"
             className={fieldClasses}
@@ -220,7 +222,7 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
 
         {/* Phone */}
         <div>
-          <label className="block font-medium">Phone</label>
+          <label className="block font-medium mt-2 md:mt-6">Phone</label>
           <input
             type="text"
             className={fieldClasses}
@@ -231,13 +233,13 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
 
         {/* Phone (home), honeypot field */}
         <div className="hidden">
-          <label className="block font-medium">Phone (home)</label>
+          <label className="block font-medium mt-2 md:mt-6">Phone (home)</label>
           <input type="text" className={fieldClasses} {...register('homeFaux')} />
         </div>
 
         {/* Website */}
         <div>
-          <label className="block font-medium">Website</label>
+          <label className="block font-medium mt-2 md:mt-6">Website</label>
           <input
             type="text"
             className={fieldClasses}
@@ -248,7 +250,7 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
 
         {/* Message */}
         <div>
-          <label className="block font-medium">Message*</label>
+          <label className="block font-medium mt-2 md:mt-6">Message*</label>
           <textarea
             rows={8}
             className={fieldClasses}
@@ -265,7 +267,7 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
         </div>
 
         {haveSendDetails && (
-          <div className="recaptcha-container">
+          <div className="recaptcha-container pt-2 md:pt-4 pb-1 md:pb-2">
             <ReCAPTCHA
               sitekey={RECAPTCHA_SITE_KEY}
               onChange={(value: string | null) => setCaptchaValue(value)}
@@ -275,11 +277,6 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
             )}
           </div>
         )}
-
-        {/* Privacy Note */}
-        <p className={`text-xs ${helpTextColourClasses}`}>
-          I respect your privacy, and will not share your details.
-        </p>
 
         {/* Send Button */}
         <motion.button
@@ -297,11 +294,16 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
           }}
           whileTap={{ scale: haveSendDetails ? 0.95 : 1 }}
           type="submit"
-          className={`contact-send-button w-full ${bodyTextColourClasses} py-2 rounded ${submitButtonColourClasses} transition`}
+          className={`contact-send-button inline-block px-6 ${bodyTextColourClasses} py-2 rounded ${submitButtonColourClasses} transition`}
           style={{ color: isDark ? '#ffffff' : '#000000' }}
         >
           {isSubmitting ? 'Sending...' : 'SEND'}
         </motion.button>
+
+        {/* Privacy Note */}
+        <p className={`text-xs mt-1 md:mt-2 ${helpTextColourClasses}`}>
+          I respect your privacy, and will not share your details.
+        </p>
 
         {status === 'success' && isSubmitted && (
           <p className={`${successMessageColourClasses} text-center mb-4`}>Message sent!</p>

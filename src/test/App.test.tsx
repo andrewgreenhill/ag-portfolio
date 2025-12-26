@@ -3,15 +3,18 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { HashRouter, MemoryRouter } from 'react-router-dom';
 import App from '../App';
+import { ThemeProvider } from '../theme/ThemeContext';
 
 describe('Basic UI Tests', () => {
   // Check that the home page has an H1 containing "Frontend Developer"
   it('should display an H1 tag containing "Frontend Developer" on the home page', () => {
     render(
       // Simulate visiting home page
-      <HashRouter>
-        <App />
-      </HashRouter>
+      <ThemeProvider>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </ThemeProvider>
     );
 
     const heading = screen.getByRole('heading', { level: 1 });
@@ -23,9 +26,11 @@ describe('Basic UI Tests', () => {
   it('should display an H1 tag containing "Contact me" on the contact page', () => {
     render(
       // Simulate visiting /contact
-      <MemoryRouter initialEntries={['/contact']}>
-        <App />
-      </MemoryRouter>
+      <ThemeProvider>
+        <MemoryRouter initialEntries={['/contact']}>
+          <App />
+        </MemoryRouter>
+      </ThemeProvider>
     );
 
     const heading = screen.getByRole('heading', { level: 1 });

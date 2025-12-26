@@ -14,6 +14,7 @@ dist
 dist-ssr
 *.local
 .~lock*
+.vite
 
 # Ignore env files
 .env.local

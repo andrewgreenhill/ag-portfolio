@@ -54,7 +54,9 @@ function About() {
 
   return (
     <PageTransition>
-      <div className={`m-2 p-8 pb-4 ${cardColourClasses} rounded-lg text-left md:text-justify`}>
+      <div
+        className={`m-2 px-8 md:px-12 lg:px-16 py-8 md:py-10 lg:py-12 pb-4 ${cardColourClasses} rounded-lg text-left md:text-justify`}
+      >
         <h1 className="text-3xl font-bold mb-6 text-center">About me</h1>
 
         <section className="space-y-4">
