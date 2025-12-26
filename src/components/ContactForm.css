@@ -83,9 +83,13 @@ body {
   }
 }
 
-/* reCAPTCHA dark mode styling */
-@media (prefers-color-scheme: dark) {
-  .recaptcha-container iframe {
-    filter: invert(1) hue-rotate(180deg) !important;
-  }
+/* reCAPTCHA styling */
+
+[data-theme='light'] .recaptcha-container iframe {
+  border: 1px solid #000000; /* black border around widget in light mode */
+  border-radius: 0.25rem;
+}
+
+[data-theme='dark'] .recaptcha-container iframe {
+  filter: invert(1) hue-rotate(180deg) !important;
 }

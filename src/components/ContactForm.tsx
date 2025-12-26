@@ -15,6 +15,7 @@ import {
   submitButtonColourClasses,
   formErrorColourClasses,
 } from '../assets/constants';
+import { useTheme } from '../theme/ThemeContext';
 
 type ContactFormProps = {
   titleMessage?: string;
@@ -28,6 +29,9 @@ type ContactFormProps = {
  * @returns {JSX.Element} The rendered contact form component
  */
 function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   const {
     register,
     handleSubmit,
@@ -153,7 +157,9 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
     }
   }
 
-  const fieldClasses = `w-full p-2 ${formFieldColourClasses} border rounded`;
+  const fieldClasses = `w-full p-2 ${formFieldColourClasses} border ${
+    isDark ? 'border-gray-600' : 'border-black'
+  } rounded`;
 
   return (
     <div className={`max-w-lg mx-auto p-6 ${formContainerColourClasses} shadow-lg rounded-lg`}>

@@ -3,26 +3,14 @@ import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { scrollToTop } from '../assets/utils';
 import { homeButtonColourClasses, bodyTextColourClasses } from '../assets/constants';
+import { useTheme } from '../theme/ThemeContext';
 
 const baseURL = import.meta.env.BASE_URL || '';
 
-// Hook to detect dark mode preference
+// Hook to detect dark mode using global theme state
 function useDarkMode() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // Check initial preference
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDark(mediaQuery.matches);
-
-    // Listen for changes
-    const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
-    mediaQuery.addEventListener('change', handler);
-
-    return () => mediaQuery.removeEventListener('change', handler);
-  }, []);
-
-  return isDark;
+  const { theme } = useTheme();
+  return theme === 'dark';
 }
 
 // Function to get the appropriate background image based on dark mode
@@ -47,16 +35,18 @@ function MainScreenHeadingsAndButtons() {
         I build modern, responsive, user-friendly web applications.
       </h2>
       <div className="mt-8 flex justify-center space-x-4">
+        {/** Button border colour tracks theme: black in light mode, gray-300 in dark mode */}
+        {/** `homeButtonColourClasses` handles text + hover colours for each theme. */}
         <Link
           to="/projects"
-          className={`${homeButtonColourClasses} text-lg sm:text-xl md:text-2xl border font-bold m-2 px-4 py-2 rounded-lg hover:scale-105 transform transition duration-200 ease-in-out`}
+          className={`${homeButtonColourClasses} home-hero-button text-lg sm:text-xl md:text-2xl border ${{ true: 'border-black', false: 'border-gray-300' }[(!isDark).toString() as 'true' | 'false']} font-bold m-2 px-4 py-2 rounded-lg hover:scale-105 transform transition duration-200 ease-in-out`}
           onClick={scrollToTop}
         >
           View my work
         </Link>
         <Link
           to="/about"
-          className={`${homeButtonColourClasses} text-lg sm:text-xl md:text-2xl border font-bold m-2 px-4 py-2 rounded-lg hover:scale-105 transform transition duration-200 ease-in-out`}
+          className={`${homeButtonColourClasses} home-hero-button text-lg sm:text-xl md:text-2xl border ${{ true: 'border-black', false: 'border-gray-300' }[(!isDark).toString() as 'true' | 'false']} font-bold m-2 px-4 py-2 rounded-lg hover:scale-105 transform transition duration-200 ease-in-out`}
           onClick={scrollToTop}
         >
           More about me

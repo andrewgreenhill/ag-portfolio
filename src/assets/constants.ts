@@ -22,12 +22,11 @@ const linkHoverColourClasses = hoverGreenColourClasses;
 const dropdownColourClasses =
   'text-black bg-white border-gray-300 dark:text-white dark:bg-gray-800 dark:border-gray-600';
 // const buttonColourClasses = 'bg-white border-black dark:bg-gray-800 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white hover:border-black dark:hover:border-white';
-const buttonColourClasses = 'bg-white border-black dark:bg-gray-800 dark:border-gray-600';
-const hamburgerButtonColourClasses =
-  'bg-white border-black dark:bg-gray-800 dark:border-gray-600 focus:outline-none focus:ring-0 focus:!border-black dark:focus:!border-white hover:!border-black dark:hover:!border-white active:!border-black dark:active:!border-white';
+const buttonColourClasses = 'bg-white dark:bg-gray-800';
+const hamburgerButtonColourClasses = 'focus:outline-none focus:ring-0';
 const tooltipColourClasses = 'text-white bg-gray-800 dark:text-black dark:bg-gray-200';
 const homeButtonColourClasses =
-  'text-black border-black hover:text-green-600 dark:text-white dark:border-gray-300 dark:hover:text-green-400';
+  'text-black hover:text-green-600 dark:text-white dark:hover:text-green-400';
 
 // Layout and structure
 const iconColourClasses = baseTextColourClasses;
@@ -45,8 +44,7 @@ const helpTextColourClasses = 'text-gray-500 dark:text-gray-400';
 const mutedTextColourClasses = 'text-gray-600 dark:text-gray-400';
 
 // Forms and messages
-const formFieldColourClasses =
-  'text-black bg-white border-black dark:text-white dark:bg-gray-800 dark:border-gray-600';
+const formFieldColourClasses = 'text-black bg-white dark:text-white dark:bg-gray-800';
 const formContainerColourClasses = baseBackgroundColourClasses;
 const successMessageColourClasses = primaryGreenColourClasses;
 const errorMessageClasses = 'text-red-500 dark:text-red-400 text-sm';

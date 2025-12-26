@@ -8,15 +8,12 @@ import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import './App.css';
-import {
-  transitionDuration,
-  REACT_QUERY_STALE_TIME,
-  mainBackgroundColourClasses,
-} from './assets/constants';
+import { transitionDuration, REACT_QUERY_STALE_TIME } from './assets/constants';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { EagerLoadProjectData } from './components/EagerLoadProjectData';
+import { useTheme } from './theme/ThemeContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,6 +25,12 @@ function App() {
   const location = useLocation(); // Get current route
   const [isNavBarFixed, setIsNavBarFixed] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { theme } = useTheme();
+
+  const mainBackgroundClasses =
+    theme === 'dark'
+      ? 'text-gray-100 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800'
+      : 'text-gray-900 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200';
 
   const handleScroll = useCallback(() => {
     if (
@@ -56,10 +59,10 @@ function App() {
           <NavBar />
           {isNavBarFixed && (
             // Thin grey line to separate navbar from content, only visible when the navbar is fixed
-            <div className={`h-2 ${mainBackgroundColourClasses}`}></div>
+            <div className={`h-2 ${mainBackgroundClasses}`}></div>
           )}
         </div>
-        <div className={`flex-grow min-h min-w-screen ${mainBackgroundColourClasses} pt-16`}>
+        <div className={`flex-grow min-h min-w-screen ${mainBackgroundClasses} pt-16`}>
           <div className="container mx-auto p-8 pb-4">
             <AnimatePresence mode="wait">
               <motion.div

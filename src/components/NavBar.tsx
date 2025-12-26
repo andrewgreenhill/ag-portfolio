@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { scrollToTop } from '../assets/utils';
+import { useTheme } from '../theme/ThemeContext';
 import {
   navBarColourClasses,
   linkActiveColourClasses,
@@ -14,6 +15,7 @@ import {
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -81,12 +83,19 @@ function NavBar() {
           <NavLink to="/contact" className={linkClasses} onClick={scrollToTop}>
             Contact
           </NavLink>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="ml-4 px-1 border rounded text-sm leading-tight h-6 flex items-center"
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          </button>
         </div>
         <div className="md:hidden ml-auto">
           <button
             onClick={toggleMenu}
-            className={`hamburger-button border ${hamburgerButtonColourClasses}`}
-            style={{ borderWidth: '1px' }}
+            className={`hamburger-button ${hamburgerButtonColourClasses}`}
           >
             {/* Hamburger icon */}
             <svg
@@ -162,6 +171,17 @@ function NavBar() {
           >
             Contact
           </NavLink>
+          <button
+            type="button"
+            onClick={() => {
+              toggleTheme();
+              toggleMenu();
+            }}
+            className="mt-2 w-full text-left block"
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          </button>
         </div>
       )}
     </nav>

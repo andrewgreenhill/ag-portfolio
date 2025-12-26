@@ -18,6 +18,7 @@ import {
   cardColourClasses,
   buttonColourClasses,
 } from '../assets/constants';
+import { useTheme } from '../theme/ThemeContext';
 
 /**
  * The Projects page displays a list of project groups, each with a description and a link to view the projects in that group.
@@ -33,6 +34,9 @@ function Projects(): JSX.Element {
 }
 
 function ProjectsContent(): JSX.Element {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   const { projectId } = useParams<{ projectId?: string }>();
 
   const {
@@ -122,7 +126,9 @@ function ProjectsContent(): JSX.Element {
             <p className="justify-center">{groupsInfo[groupCode].description}</p>
 
             <Link
-              className={`inline-block ${buttonColourClasses} border font-bold m-4 py-2 px-4 rounded ${linkHoverColourClasses} hover:scale-105 transform transition duration-200 ease-in-out`}
+              className={`inline-block ${buttonColourClasses} border ${
+                isDark ? 'border-gray-300' : 'border-black'
+              } font-bold m-4 py-2 px-4 rounded ${linkHoverColourClasses} hover:scale-105 transform transition duration-200 ease-in-out`}
               to={`/projects/${groupsInfo[groupCode].link}`}
               onClick={scrollToTop}
             >
