@@ -31,7 +31,10 @@ function ProjectsOfGroup({ projectsData, groupCode }: ProjectsOfGroupProps) {
         </div>
       ) : (
         projectsOfGroup.map((project) => (
-          <div key={project.id} className={`${cardColourClasses} shadow-md rounded-lg p-6`}>
+          <div
+            key={project.id}
+            className={`${cardColourClasses} shadow-md rounded-lg p-8 md:p-10 lg:p-12`}
+          >
             <DisplayProject projectData={project} />
           </div>
         ))
@@ -62,7 +65,7 @@ function ProjectName({ projectName }: { projectName: string }) {
 function MarkdownField({ label, markdownText }: { label: string; markdownText: string }) {
   if (!markdownText) return null;
   return (
-    <p className={`mt-2 ${bodyTextColourClasses} break-words`}>
+    <p className={`mt-4 ${bodyTextColourClasses} break-words`}>
       {label && <strong>{label}</strong>}
       <ReactMarkdownOpenInNewTab markdownText={markdownText} />
     </p>
@@ -89,7 +92,7 @@ function Images({ images }: { images: string[] }) {
   const baseURL = import.meta.env.BASE_URL || '';
 
   return (
-    <div className={`mt-2 ${mutedTextColourClasses}`}>
+    <div className={`mt-4 ${mutedTextColourClasses}`}>
       {images.map((image, index) => (
         <div key={index}>
           {/* // TODO: Restore use of this Modal after adding Image titles+Descriptions[+ Alt tags] to the data
