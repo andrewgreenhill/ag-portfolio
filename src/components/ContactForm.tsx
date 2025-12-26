@@ -40,6 +40,7 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
     setValue,
     setError,
     clearErrors,
+    watch,
   } = useForm<IContactFormData>();
 
   const SEND_EMAIL_ENDPOINT = import.meta.env.VITE_SEND_EMAIL_ENDPOINT || '';
@@ -161,6 +162,11 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
     isDark ? 'border-gray-600' : 'border-black'
   } rounded`;
 
+  const [watchedName, watchedEmail, watchedMessage] = watch(['name', 'email', 'message']);
+
+  const mandatoryFieldsCompleted =
+    !!watchedName?.trim() && !!watchedEmail?.trim() && !!watchedMessage?.trim();
+
   return (
     <div className={`max-w-lg mx-auto p-6 ${formContainerColourClasses} shadow-lg rounded-lg`}>
       {titleMessage && <h2 className="text-2xl font-bold">{titleMessage}</h2>}
@@ -277,7 +283,18 @@ function ContactForm({ titleMessage }: ContactFormProps): JSX.Element {
 
         {/* Send Button */}
         <motion.button
-          whileHover={{ scale: haveSendDetails ? 1.05 : 1 }}
+          whileHover={{
+            scale: haveSendDetails ? 1.05 : 1,
+            color:
+              errors.name ||
+              errors.email ||
+              errors.message ||
+              !captchaValue ||
+              status === 'error' ||
+              !mandatoryFieldsCompleted
+                ? '#333333'
+                : '#22c55e',
+          }}
           whileTap={{ scale: haveSendDetails ? 0.95 : 1 }}
           type="submit"
           className={`contact-send-button w-full ${bodyTextColourClasses} py-2 rounded ${submitButtonColourClasses} transition`}
