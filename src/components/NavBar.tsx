@@ -139,8 +139,12 @@ function NavBar() {
         </div>
         <div className="md:hidden ml-auto flex items-center space-x-2">
           <button
+            type="button"
             onClick={toggleMenu}
             className={`hamburger-button ${hamburgerButtonColourClasses}`}
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav-menu"
           >
             {/* Hamburger icon */}
             <svg
@@ -165,6 +169,7 @@ function NavBar() {
       {isMenuOpen && (
         <div
           ref={menuRef}
+          id="mobile-nav-menu"
           className={`dropdown-menu md:hidden ${dropdownColourClasses} p-2 absolute right-0 mt-2 w-35 border`}
         >
           <NavLink
