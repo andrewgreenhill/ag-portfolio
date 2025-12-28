@@ -1,8 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import Home from './pages/Home';
-import Projects from './pages/Projects';
 import About from './pages/About';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
@@ -20,6 +19,8 @@ const queryClient = new QueryClient({
     queries: { staleTime: REACT_QUERY_STALE_TIME },
   },
 });
+
+const Projects = lazy(() => import('./pages/Projects'));
 
 function App() {
   const location = useLocation(); // Get current route
@@ -85,15 +86,17 @@ function App() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: transitionDuration }}
               >
-                <Routes location={location} key={location.pathname}>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/projects/:projectId" element={<Projects />} />
-                  <Route path="/skills" element={<Skills />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+                <Suspense fallback={<div>Loading projects…</div>}>
+                  <Routes location={location} key={location.pathname}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/projects/:projectId" element={<Projects />} />
+                    <Route path="/skills" element={<Skills />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
               </motion.div>
             </AnimatePresence>
           </div>
