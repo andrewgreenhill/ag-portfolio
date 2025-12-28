@@ -12,26 +12,43 @@ function Footer() {
         <p className="text-sm whitespace-nowrap p-2">Made with ♥ using React and TypeScript</p>
 
         <div className="flex justify-center space-x-6 p-2">
-          <a href="https://www.linkedin.com/in/andrew-greenhill" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.linkedin.com/in/andrew-greenhill"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit Andrew Greenhill on LinkedIn"
+          >
             <FaLinkedin className={socialIconClasses} />
           </a>
-          <a href="https://github.com/andrewgreenhill" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/andrewgreenhill"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit Andrew Greenhill on GitHub"
+          >
             <FaGithub className={socialIconClasses} />
           </a>
           <a
             href="https://learn.microsoft.com/en-gb/users/andrewgreenhill"
             target="_blank"
             rel="noreferrer"
+            aria-label="View Andrew Greenhill's Microsoft Learn profile"
           >
             <FaMicrosoft className={socialIconClasses} />
           </a>
-          <a href="https://www.freecodecamp.org/andrewgreenhill" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.freecodecamp.org/andrewgreenhill"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit Andrew Greenhill on freeCodeCamp"
+          >
             <FaFreeCodeCamp className={socialIconClasses} />
           </a>
           <a
             href="https://stackoverflow.com/users/3532483/andrewgreenhill"
             target="_blank"
             rel="noreferrer"
+            aria-label="Visit Andrew Greenhill on Stack Overflow"
           >
             <FaStackOverflow className={socialIconClasses} />
           </a>
@@ -39,6 +56,7 @@ function Footer() {
             href="https://bsky.app/profile/andrew-greenhill.bsky.social"
             target="_blank"
             rel="noreferrer"
+            aria-label="Visit Andrew Greenhill on Bluesky"
           >
             <FaBluesky className={socialIconClasses} />
           </a>
