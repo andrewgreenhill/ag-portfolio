@@ -61,6 +61,16 @@ function App() {
     };
   }, [handleScroll]);
 
+  // Prefetch the Projects page code in the background so navigation to
+  // projects is faster but without affecting the initial JS bundle size
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      import('./pages/Projects');
+    }, 2000);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <EagerLoadProjectData />
