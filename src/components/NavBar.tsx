@@ -29,7 +29,7 @@ function ThemeToggleButton({ onClick, className = '', id }: ThemeToggleButtonPro
       className={`${className} theme-toggle`}
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
       aria-live="polite"
-      title="Toggles light & dark"
+      title="Switch light/dark mode"
       id={id}
     >
       <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
