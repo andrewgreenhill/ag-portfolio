@@ -98,7 +98,11 @@ function App() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: transitionDuration }}
                 >
-                  <Suspense fallback={<div>Loading projects…</div>}>
+                  <Suspense
+                    fallback={
+                      location.pathname === '/projects' ? <div>Loading projects…</div> : null
+                    }
+                  >
                     <Routes location={location} key={location.pathname}>
                       <Route path="/" element={<Home />} />
                       <Route path="/projects" element={<Projects />} />
