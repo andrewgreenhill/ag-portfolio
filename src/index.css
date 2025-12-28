@@ -1,3 +1,4 @@
+@import 'open-props/easings.min.css';
 @import 'tailwindcss';
 
 :root {
@@ -79,13 +80,32 @@ button:focus-visible {
   color: #747bff;
 }
 
-[data-theme='light'] button {
+/* [data-theme='light'] button {
   background-color: #f9f9f9;
-}
+} */
 
 [data-theme='dark'] button {
   background-color: #ffffff; /* Set button background to white in dark mode */
   color: #000; /* Set button text color to dark in dark mode */
+}
+
+.theme-toggle {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+
+[data-theme='dark'] .theme-toggle {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+}
+
+.theme-toggle:focus,
+.theme-toggle:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 .contact-send-button {
@@ -117,12 +137,12 @@ button:focus-visible {
 }
 
 .hamburger-button {
-  background-color: #f9f9f9; /* light gray in light mode */
+  background-color: transparent; /* transparent in light mode */
   border: 1px solid transparent; /* border appears only on hover */
 }
 
 [data-theme='dark'] .hamburger-button {
-  background-color: #0c0c0c; /* between #060606 and #111827 for softer contrast */
+  background-color: transparent; /* transparent in dark mode */
   border-color: transparent;
 }
 
@@ -329,4 +349,87 @@ button:focus-visible {
 [data-theme='light'] .dark\:text-black {
   /* For tooltip in light theme keep white text */
   color: #ffffff;
+}
+
+/* Sun / moon theme switch icon (from web.dev pattern) */
+
+[data-theme='dark'] .sun-and-moon {
+  --icon-fill: #ffffff;
+  --icon-fill-hover: #e5e7eb;
+}
+
+.sun-and-moon > :is(.moon, .sun, .sun-beams) {
+  transform-origin: center;
+}
+
+.sun-and-moon > :is(.moon, .sun) {
+  fill: var(--icon-fill, currentColor);
+}
+
+.theme-toggle:is(:hover, :focus-visible) > .sun-and-moon > :is(.moon, .sun) {
+  fill: var(--icon-fill-hover, currentColor);
+}
+
+.sun-and-moon > .sun-beams {
+  stroke: var(--icon-fill, currentColor);
+  stroke-width: 2px;
+}
+
+.theme-toggle:is(:hover, :focus-visible) .sun-and-moon > .sun-beams {
+  stroke: var(--icon-fill-hover, currentColor);
+}
+
+[data-theme='dark'] .sun-and-moon > .sun {
+  transform: scale(1.75);
+}
+
+[data-theme='dark'] .sun-and-moon > .sun-beams {
+  opacity: 0;
+}
+
+[data-theme='dark'] .sun-and-moon > .moon > circle {
+  transform: translateX(-7px);
+}
+
+@supports (cx: 1) {
+  [data-theme='dark'] .sun-and-moon > .moon > circle {
+    cx: 17;
+    transform: translateX(0);
+  }
+}
+
+.sun-and-moon > .sun {
+  transition: transform 0.5s var(--ease-elastic-3);
+}
+
+.sun-and-moon > .sun-beams {
+  transition:
+    transform 0.5s var(--ease-elastic-4),
+    opacity 0.5s var(--ease-3);
+}
+
+.sun-and-moon .moon > circle {
+  transition: transform 0.25s var(--ease-out-5);
+}
+
+@supports (cx: 1) {
+  .sun-and-moon .moon > circle {
+    transition: cx 0.25s var(--ease-out-5);
+  }
+}
+
+[data-theme='dark'] .sun-and-moon > .sun {
+  transition-timing-function: var(--ease-3);
+  transition-duration: 0.25s;
+  transform: scale(1.75);
+}
+
+[data-theme='dark'] .sun-and-moon > .sun-beams {
+  transition-duration: 0.15s;
+  transform: rotateZ(-25deg);
+}
+
+[data-theme='dark'] .sun-and-moon > .moon > circle {
+  transition-duration: 0.5s;
+  transition-delay: 0.25s;
 }
