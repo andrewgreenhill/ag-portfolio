@@ -86,7 +86,7 @@ function App() {
             <div className={`h-2 ${mainBackgroundClasses}`}></div>
           )}
         </div>
-        <div className={`flex-grow min-h min-w-screen ${mainBackgroundClasses} pt-16`}>
+        <main className={`flex-grow min-h min-w-screen ${mainBackgroundClasses} pt-16`}>
           <div className="container mx-auto p-8 pb-4">
             <AnimatePresence mode="wait">
               <motion.div
@@ -110,7 +110,7 @@ function App() {
               </motion.div>
             </AnimatePresence>
           </div>
-        </div>
+        </main>
         <Footer />
       </div>
     </QueryClientProvider>
