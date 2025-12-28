@@ -6,6 +6,8 @@ import { homeButtonColourClasses, bodyTextColourClasses } from '../assets/consta
 import { useTheme } from '../theme/ThemeContext';
 
 const baseURL = import.meta.env.BASE_URL || '';
+const lightImage = `${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`;
+const darkImage = `${baseURL}images/Backdrop/Perth_CBD_from_KingsPark(simulated).jpg`;
 
 // Hook to detect dark mode using global theme state
 function useDarkMode() {
@@ -13,12 +15,7 @@ function useDarkMode() {
   return theme === 'dark';
 }
 
-// Function to get the appropriate background image based on dark mode
-function getBackgroundImage(isDark: boolean) {
-  return isDark
-    ? `${baseURL}images/Backdrop/Perth_CBD_from_KingsPark(simulated).jpg`
-    : `${baseURL}images/Backdrop/Perth_CBD_skyline_from_State_War_Memorial_Lookout,_2023,_04_b.jpg`;
-}
+const getBackgroundImage = (isDark: boolean) => (isDark ? darkImage : lightImage);
 
 function MainScreenHeadingsAndButtons() {
   const isDark = useDarkMode();
@@ -108,6 +105,15 @@ function HomeScreenTall() {
  * To best respond to the user's screen size and aspect ratio,
  * this looks at those and then uses the best approach accordingly. */
 function Home() {
+  // Eagerly load both background images so that switching theme doesn't
+  // need to wait for an image fetch the first time the user toggles.
+  useEffect(() => {
+    [lightImage, darkImage].forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   const [isWideScreen, setIsWideScreen] = useState(false);
 
   const updateScreenState = () => {
