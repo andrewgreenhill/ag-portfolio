@@ -9,8 +9,7 @@ Contact form:
 
 Modify tsconfig.ts to configure using a source map
 
-Add: Light+Dark mode
-Theme[s]
+Add: Matrix digital rain effect [for dark mode]
 
 Code rev? + Refactor
 Refinements

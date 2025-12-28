@@ -1,7 +1,7 @@
 {
   "name": "ag-portfolio",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://andrewgreenhill.github.io/ag-portfolio",
   "type": "module",
   "scripts": {
