@@ -86,10 +86,10 @@ function NavBar() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="ml-4 px-1 border rounded text-sm leading-tight h-6 flex items-center"
-            aria-label="Toggle dark mode"
+            className="ml-4 theme-toggle"
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+            <span className="theme-toggle-thumb" aria-hidden="true" />
           </button>
         </div>
         <div className="md:hidden ml-auto">

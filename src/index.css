@@ -1,3 +1,4 @@
+@import 'open-props/easings.min.css';
 @import 'tailwindcss';
 
 :root {
@@ -257,6 +258,52 @@ button:focus-visible {
 [data-theme='dark'] .dark\:to-gray-800 {
   /* Fallback: apply a dark background when gradient utilities are used */
   background-color: #111827;
+}
+
+/* Theme toggle switch (desktop navbar) */
+
+.theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 3rem; /* 48px */
+  height: 1.5rem; /* 24px */
+  padding: 2px;
+  border-radius: 9999px;
+  border: 1px solid #4b5563; /* gray-600 */
+  background-color: #f9fafb; /* gray-50 */
+  transition:
+    background-color 180ms var(--ease-out-3, ease-out),
+    border-color 180ms var(--ease-out-3, ease-out),
+    box-shadow 180ms var(--ease-out-3, ease-out);
+}
+
+[data-theme='dark'] .theme-toggle {
+  background-color: #020617; /* slate-950 */
+  border-color: #9ca3af; /* gray-400 */
+}
+
+.theme-toggle-thumb {
+  width: 1.25rem; /* 20px */
+  height: 1.25rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.7);
+  transform: translateX(0);
+  transition:
+    transform 200ms var(--ease-out-3, ease-out),
+    background-color 180ms var(--ease-out-3, ease-out);
+}
+
+[data-theme='dark'] .theme-toggle-thumb {
+  transform: translateX(1.5rem);
+  background-color: #e5e7eb; /* gray-200 */
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #22c55e; /* green-500 */
+  outline-offset: 2px;
 }
 
 /* Light theme overrides so that when the browser is in dark mode
