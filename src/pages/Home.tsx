@@ -97,7 +97,7 @@ function HomeScreenTall() {
           <MainScreenHeadingsAndButtons />
         </div>
       </div>
-      <p className={`text-center text-sm ${bodyTextColourClasses}`}>
+      <p className={`text-center pt-2 text-sm ${bodyTextColourClasses}`}>
         I'm located in Perth, Western Australia.
       </p>
     </PageTransition>
