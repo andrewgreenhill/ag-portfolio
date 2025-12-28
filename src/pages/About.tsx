@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, lazy } from 'react';
 import PageTransition from '../components/PageTransition';
 import {
   hyperlinkClasses,
@@ -9,11 +9,16 @@ import {
   linkActiveColourClasses,
   linkHoverColourClasses,
 } from '../assets/constants';
+import { splitTextDefaultConfig } from '../utils/SplitTextConstants';
+import { useHeadingFlags } from '../theme/HeadingContext';
+
+const SplitText = lazy(() => import('../utils/SplitText'));
 
 /**
  * @returns The About page
  */
 function About() {
+  const { hasSeenAboutHeading, setHasSeenAboutHeading } = useHeadingFlags();
   const [showLanguages, setShowLanguages] = useState(false);
   const popupRef = useRef<HTMLSpanElement>(null);
 
@@ -52,13 +57,25 @@ function About() {
 
   const aboutSectionClasses = `text-lg ${aboutSectionColourClasses} leading-relaxed`;
 
+  const handleHeadingAnimationComplete = () => {
+    setHasSeenAboutHeading(true);
+  };
+
   return (
     <PageTransition>
       <div
         className={`m-2 px-8 md:px-12 lg:px-16 py-8 md:py-10 lg:py-12 pb-4 ${cardColourClasses} rounded-lg text-left md:text-justify`}
       >
-        <h1 className="text-3xl font-bold mb-6 text-center">About me</h1>
-
+        <div className="text-center">
+          <SplitText
+            {...splitTextDefaultConfig}
+            tag="h1"
+            text="About me"
+            className="text-3xl font-bold mb-6"
+            onLetterAnimationComplete={handleHeadingAnimationComplete}
+            disableAnimation={hasSeenAboutHeading}
+          />
+        </div>
         <section className="space-y-4">
           <p className={aboutSectionClasses}>
             I am a professional software engineer specializing in front-end development. My

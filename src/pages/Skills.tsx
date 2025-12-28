@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import {
@@ -5,21 +6,36 @@ import {
   linkActiveColourClasses,
   linkHoverColourClasses,
 } from '../assets/constants';
+import { splitTextDefaultConfig } from '../utils/SplitTextConstants';
+import { useHeadingFlags } from '../theme/HeadingContext';
+
+const SplitText = lazy(() => import('../utils/SplitText'));
 
 /**
  * The Skills page displays a list of my skills in frontend, other, tools, and soft skills.
  * @returns The Skills page
  */
 function Skills() {
+  const { hasSeenSkillsHeading, setHasSeenSkillsHeading } = useHeadingFlags();
   const skillsH2Classes = 'text-2xl font-bold mb-4 text-left';
   const skillsULClasses = 'list-disc list-inside text-left space-y-2';
   const cardClassNames = `${cardColourClasses} shadow rounded-lg p-7 md:p-9 lg:p-11`;
 
+  const handleHeadingAnimationComplete = () => {
+    setHasSeenSkillsHeading(true);
+  };
+
   return (
     <PageTransition>
       <div className="max-w-4xl md:max-w-6xl lg:max-w-7xl mx-auto px-8 pb-4 md:pt-8 sm:pt-2">
-        <h1 className={'text-3xl font-bold text-center mb-6 md:mb-8'}>Skills</h1>
-
+        <SplitText
+          {...splitTextDefaultConfig}
+          tag="h1"
+          text="Skills"
+          className="text-3xl font-bold text-center mb-6 md:mb-8"
+          onLetterAnimationComplete={handleHeadingAnimationComplete}
+          disableAnimation={hasSeenSkillsHeading}
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Front-end Skills Card */}
           <div className={cardClassNames}>

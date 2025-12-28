@@ -15,10 +15,12 @@
     "test:watch": "vitest --watch"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@tailwindcss/vite": "^4.0.0",
     "@tanstack/react-query": "^5.77.1",
     "esbuild": "^0.25.0",
     "framer-motion": "^12.0.6",
+    "gsap": "^3.14.2",
     "hash-router": "^0.4.0",
     "open-props": "^1.7.17",
     "prettier": "^3.4.2",

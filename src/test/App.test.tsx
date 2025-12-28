@@ -23,7 +23,7 @@ describe('Basic UI Tests', () => {
   });
 
   // Check that the Contact page has an H1 containing "Contact me"
-  it('should display an H1 tag containing "Contact me" on the contact page', () => {
+  it('should display an H1 tag containing "Contact me" on the contact page', async () => {
     render(
       // Simulate visiting /contact
       <ThemeProvider>
@@ -33,7 +33,8 @@ describe('Basic UI Tests', () => {
       </ThemeProvider>
     );
 
-    const heading = screen.getByRole('heading', { level: 1 });
+    // SplitText is lazy-loaded, so wait for the heading to appear
+    const heading = await screen.findByRole('heading', { level: 1 });
     expect(heading).toBeInTheDocument();
     expect(heading).toHaveTextContent(/Contact me/i);
   });

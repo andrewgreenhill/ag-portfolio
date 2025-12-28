@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { TProjectGroupKey } from '../types';
@@ -19,6 +20,10 @@ import {
   buttonColourClasses,
 } from '../assets/constants';
 import { useTheme } from '../theme/ThemeContext';
+import { splitTextDefaultConfig } from '../utils/SplitTextConstants';
+import { useHeadingFlags } from '../theme/HeadingContext';
+
+const SplitText = lazy(() => import('../utils/SplitText'));
 
 /**
  * The Projects page displays a list of project groups, each with a description and a link to view the projects in that group.
@@ -34,6 +39,7 @@ function Projects(): JSX.Element {
 }
 
 function ProjectsContent(): JSX.Element {
+  const { hasSeenProjectsHeading, setHasSeenProjectsHeading } = useHeadingFlags();
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
@@ -112,9 +118,20 @@ function ProjectsContent(): JSX.Element {
     'EarlyWork',
   ];
 
+  const handleHeadingAnimationComplete = () => {
+    setHasSeenProjectsHeading(true);
+  };
+
   return (
     <div className="text-center px-8 pb-4 md:pt-8 sm:pt-2">
-      <h1 className="text-3xl font-bold">Projects</h1>
+      <SplitText
+        {...splitTextDefaultConfig}
+        tag="h1"
+        text="Projects"
+        className="text-3xl font-bold"
+        onLetterAnimationComplete={handleHeadingAnimationComplete}
+        disableAnimation={hasSeenProjectsHeading}
+      />
       <h2 className="mt-2 text-2xl mb-6 md:mb-8">Check out my work below</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
         {projectGroupsToDisplay.map((groupCode) => (

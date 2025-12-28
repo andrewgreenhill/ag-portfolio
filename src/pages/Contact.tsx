@@ -1,15 +1,32 @@
+import { lazy } from 'react';
 import PageTransition from '../components/PageTransition';
 import ContactForm from '../components/ContactForm';
 import { hyperlinkClasses } from '../assets/constants';
+import { splitTextDefaultConfig } from '../utils/SplitTextConstants';
+import { useHeadingFlags } from '../theme/HeadingContext';
+
+const SplitText = lazy(() => import('../utils/SplitText'));
 
 /**
  * @returns The Contact page
  */
 function Contact() {
+  const { hasSeenContactHeading, setHasSeenContactHeading } = useHeadingFlags();
+  const handleHeadingAnimationComplete = () => {
+    setHasSeenContactHeading(true);
+  };
+
   return (
     <PageTransition>
       <div className="text-center px-8 pb-4 md:pt-8 sm:pt-2">
-        <h1 className="text-3xl font-bold">Contact me</h1>
+        <SplitText
+          {...splitTextDefaultConfig}
+          tag="h1"
+          text="Contact me"
+          className="text-3xl font-bold mb-6 text-center"
+          onLetterAnimationComplete={handleHeadingAnimationComplete}
+          disableAnimation={hasSeenContactHeading}
+        />
         <h2 className="text-2xl font-bold pt-3">Let's connect!</h2>
         <br />
 

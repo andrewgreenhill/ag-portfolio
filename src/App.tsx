@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { EagerLoadProjectData } from './components/EagerLoadProjectData';
 import { useTheme } from './theme/ThemeContext';
+import { HeadingFlagsProvider } from './theme/HeadingContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -73,46 +74,48 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <EagerLoadProjectData />
-      <div className="flex flex-col min-h-screen">
-        <div
-          className={`fixed top-0 left-0 right-0 z-50 transform transition-transform duration-200 ${
-            isNavBarFixed ? 'translate-y-0' : '-translate-y-full'
-          }`}
-        >
-          <NavBar />
-          {isNavBarFixed && (
-            // Thin grey line to separate navbar from content, only visible when the navbar is fixed
-            <div className={`h-2 ${mainBackgroundClasses}`}></div>
-          )}
-        </div>
-        <main className={`flex-grow min-h min-w-screen ${mainBackgroundClasses} pt-16`}>
-          <div className="container mx-auto p-8 pb-4">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={location.pathname} // Ensure animation resets per page
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: transitionDuration }}
-              >
-                <Suspense fallback={<div>Loading projects…</div>}>
-                  <Routes location={location} key={location.pathname}>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/projects" element={<Projects />} />
-                    <Route path="/projects/:projectId" element={<Projects />} />
-                    <Route path="/skills" element={<Skills />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </Suspense>
-              </motion.div>
-            </AnimatePresence>
+      <HeadingFlagsProvider>
+        <EagerLoadProjectData />
+        <div className="flex flex-col min-h-screen">
+          <div
+            className={`fixed top-0 left-0 right-0 z-50 transform transition-transform duration-200 ${
+              isNavBarFixed ? 'translate-y-0' : '-translate-y-full'
+            }`}
+          >
+            <NavBar />
+            {isNavBarFixed && (
+              // Thin grey line to separate navbar from content, only visible when the navbar is fixed
+              <div className={`h-2 ${mainBackgroundClasses}`}></div>
+            )}
           </div>
-        </main>
-        <Footer />
-      </div>
+          <main className={`flex-grow min-h min-w-screen ${mainBackgroundClasses} pt-16`}>
+            <div className="container mx-auto p-8 pb-4">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={location.pathname} // Ensure animation resets per page
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: transitionDuration }}
+                >
+                  <Suspense fallback={<div>Loading projects…</div>}>
+                    <Routes location={location} key={location.pathname}>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/projects" element={<Projects />} />
+                      <Route path="/projects/:projectId" element={<Projects />} />
+                      <Route path="/skills" element={<Skills />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </Suspense>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </main>
+          <Footer />
+        </div>
+      </HeadingFlagsProvider>
     </QueryClientProvider>
   );
 }
