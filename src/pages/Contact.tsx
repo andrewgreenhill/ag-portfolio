@@ -23,7 +23,7 @@ function Contact() {
           {...splitTextDefaultConfig}
           tag="h1"
           text="Contact me"
-          className="text-3xl font-bold mb-6 text-center"
+          className="text-3xl font-bold mb-1 text-center"
           onLetterAnimationComplete={handleHeadingAnimationComplete}
           disableAnimation={hasSeenContactHeading}
         />
