@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow:
+Sitemap: https://andrewgreenhill.dev/sitemap.xml
