@@ -1,0 +1,16 @@
+{
+  "apiVersion": "1.0",
+  "provider": {
+    "name": "Andrew Greenhill Portfolio",
+    "url": "https://andrewgreenhill.dev"
+  },
+  "description": "Public machine-readable API catalog for agent discovery.",
+  "apis": [
+    {
+      "name": "Portfolio Contact Endpoint",
+      "description": "Handles contact form submissions for the portfolio site.",
+      "baseUrl": "https://andrewgreenhill.dev",
+      "documentation": "https://andrewgreenhill.dev/docs/api.md"
+    }
+  ]
+}
