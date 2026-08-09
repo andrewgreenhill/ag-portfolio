@@ -7,7 +7,7 @@ Source: https://isitagentready.com/andrewgreenhill.dev
 - [x] 1. robots.txt: Added root-level robots file and verified 200 text/plain.
 - [x] 2. sitemap.xml: Added root-level sitemap and linked it from robots.txt.
 - [x] 3. Link headers on homepage: Cloudflare response header rule added; check now passes.
-- [ ] 4. DNS for AI Discovery (DNS-AID): record publishing and DNSSEC verification pending.
+- [x] 4. DNS for AI Discovery (DNS-AID): HTTPS records and DNSSEC enabled; check now passes.
 - [ ] 5-14) Remaining recommendations pending implementation (to be added here in exact order from your report).
 
 ## Recommendation 3 Details
@@ -97,6 +97,12 @@ Source: https://isitagentready.com/andrewgreenhill.dev
   - `_index._agents.andrewgreenhill.dev` type `65` (HTTPS) should return at least one answer.
   - `_a2a._agents.andrewgreenhill.dev` type `65` should return an answer if configured.
   - `_mcp._agents.andrewgreenhill.dev` type `65` should return an answer if configured.
+
+### Completion Status
+
+- Added HTTPS DNS records for `_index._agents`, `_a2a._agents`, and `_mcp._agents` in Cloudflare.
+- Enabled DNSSEC and confirmed DS publication for `andrewgreenhill.dev`.
+- Re-scan outcome: DNS-AID check passed.
 
 ## Notes
 
