@@ -1,0 +1,29 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Andrew Greenhill Portfolio API",
+    "version": "1.0.0",
+    "description": "Public discovery description for portfolio-integrated API surfaces."
+  },
+  "servers": [
+    {
+      "url": "https://andrewgreenhill.dev"
+    }
+  ],
+  "paths": {
+    "/contact": {
+      "post": {
+        "summary": "Submit a contact message",
+        "description": "This operation is implemented by an external endpoint configured via environment variables.",
+        "responses": {
+          "200": {
+            "description": "Message accepted"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  }
+}
