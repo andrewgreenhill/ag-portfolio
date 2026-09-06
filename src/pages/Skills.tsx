@@ -42,8 +42,7 @@ function Skills() {
             <h2 className={skillsH2Classes}>Frontend</h2>
             <ul className={skillsULClasses}>
               {[
-                'JavaScript',
-                'TypeScript',
+                'TypeScript & JavaScript',
                 'React.js and related technologies like React Query, React Hook Form and Redux',
                 'Next.js',
                 'HTML',
@@ -58,9 +57,9 @@ function Skills() {
 
           {/* Other Skills Card */}
           <div className={cardClassNames}>
-            <h2 className={skillsH2Classes}>Other</h2>
+            <h2 className={skillsH2Classes}>Backend and Other</h2>
             <ul className={skillsULClasses}>
-              {['C# and .NET', 'APIs', 'Python', 'Microsoft PowerShell'].map((skill) => (
+              {['Supabase', 'AWS and Vercel', 'APIs', 'Python'].map((skill) => (
                 <li key={skill} className="hanging-indent">
                   {skill}
                 </li>
